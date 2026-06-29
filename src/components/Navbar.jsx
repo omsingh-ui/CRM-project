@@ -1,13 +1,19 @@
-export default function Navbar() {
-  return (
+import { Link } from "react-router-dom"
 
-<header
+export default function Navbar(){
+
+return(
+
+<nav
 className="
 sticky
 top-0
 z-50
-bg-white
-shadow-sm
+
+bg-white/80
+backdrop-blur-lg
+
+border-b
 "
 >
 
@@ -15,53 +21,93 @@ shadow-sm
 className="
 max-w-7xl
 mx-auto
+
 px-6
 py-5
+
 flex
 justify-between
 items-center
 "
 >
 
-<h1
+<Link
+to="/"
+
 className="
 text-3xl
-font-bold
+font-black
+
 text-blue-700
 "
 >
+
 Minivel
-</h1>
 
-<nav className="hidden md:flex gap-8">
+</Link>
 
-<a href="#">Home</a>
+<div
+className="
+flex
 
-<a href="#">Features</a>
+gap-6
 
-<a href="#">Pricing</a>
+items-center
 
-<a href="#">Contact</a>
+text-sm
+md:text-base
+"
+>
 
-</nav>
+<a href="#dashboard">
 
-<button
+Dashboard
+
+</a>
+
+<a href="#features">
+
+Features
+
+</a>
+
+<a href="#trusted">
+
+Trusted
+
+</a>
+
+<a href="#cta">
+
+Start
+
+</a>
+
+<Link
+to="/login"
+
 className="
 bg-blue-700
+
 text-white
-px-6
+
+px-5
 py-3
+
 rounded-xl
 "
 >
 
-Get Started
+Login
 
-</button>
+</Link>
 
 </div>
 
-</header>
+</div>
+
+</nav>
 
 )
+
 }

@@ -1,11 +1,18 @@
-export default function Hero() {
+import { Link } from "react-router-dom"
 
-return (
+export default function Hero(){
+
+return(
 
 <section
 className="
-bg-blue-700
+bg-gradient-to-br
+from-blue-700
+to-indigo-900
+
 text-white
+
+overflow-hidden
 "
 >
 
@@ -13,11 +20,16 @@ text-white
 className="
 max-w-7xl
 mx-auto
+
 px-6
-py-20
+py-28
+
 grid
+
 lg:grid-cols-2
-gap-12
+
+gap-16
+
 items-center
 "
 >
@@ -26,78 +38,108 @@ items-center
 
 <div
 className="
-bg-blue-500
 inline-block
-px-4
+
+bg-white/10
+
+px-5
 py-2
+
 rounded-full
-mb-6
+
+mb-8
 "
 >
 
-Smart CRM
+✨ CRM Platform
 
 </div>
 
 <h1
 className="
-text-6xl
-font-bold
+text-5xl
+md:text-7xl
+
+font-black
+
 leading-tight
 "
 >
 
-Grow Your Business
-With Minivel
+Grow Faster
+
+With
+
+Minivel
 
 </h1>
 
 <p
 className="
-mt-6
-text-xl
+mt-8
+
+text-lg
+
 text-blue-100
+
+max-w-[600px]
 "
 >
 
-Track leads, manage clients,
-automate follow-ups.
+Manage customers, leads,
+analytics and growth in one place.
 
 </p>
 
-<div className="flex gap-4 mt-10">
-
-<a
-href="/dashboard"
+<div
 className="
-inline-block
-bg-white
-text-blue-700
-px-8
-py-4
-rounded-xl
-font-semibold
-hover:scale-105
-transition
+flex
+
+flex-wrap
+
+gap-4
+
+mt-10
 "
 >
 
-Open Dashboard
+<Link
+to="/login"
 
-</a>
+className="
+bg-white
 
-<button
+text-blue-800
+
+px-8
+py-4
+
+rounded-2xl
+
+font-semibold
+"
+>
+
+Get Started
+
+</Link>
+
+<Link
+to="/dashboard"
+
 className="
 border
+
 px-8
 py-4
-rounded-xl
+
+rounded-2xl
 "
 >
 
-See Demo
+Live Demo
 
-</button>
+</Link>
 
 </div>
 
@@ -108,27 +150,64 @@ See Demo
 <div
 className="
 bg-white
-rounded-3xl
+
+rounded-[40px]
+
 p-8
+
 shadow-2xl
 "
 >
 
-<div className="space-y-4">
+<div
+className="
+grid
 
-<div className="h-6 bg-gray-200 rounded"/>
+grid-cols-2
 
-<div className="h-32 bg-blue-100 rounded"/>
+gap-5
+"
+>
 
-<div className="grid grid-cols-3 gap-4">
+<div
+className="
+bg-blue-100
 
-<div className="h-20 bg-gray-100 rounded"/>
+rounded-3xl
 
-<div className="h-20 bg-gray-100 rounded"/>
+h-[180px]
+"
+/>
 
-<div className="h-20 bg-gray-100 rounded"/>
+<div
+className="
+bg-indigo-100
 
-</div>
+rounded-3xl
+
+h-[180px]
+"
+/>
+
+<div
+className="
+bg-slate-100
+
+rounded-3xl
+
+h-[180px]
+"
+/>
+
+<div
+className="
+bg-blue-50
+
+rounded-3xl
+
+h-[180px]
+"
+/>
 
 </div>
 

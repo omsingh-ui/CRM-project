@@ -1,43 +1,49 @@
 import {
-FaWhatsapp,
-FaFileExport,
+FaChartLine,
+FaUsers,
+FaRocket,
 FaBolt,
-FaMapMarkerAlt,
-FaBell,
-FaCamera
+FaShieldAlt,
+FaDatabase
 }
 from "react-icons/fa"
 
-const features=[
+const items=[
 
 {
-title:"Scan Cards",
-icon:<FaCamera/>
+title:"Dashboard",
+icon:<FaChartLine/>,
+desc:"Track business performance."
 },
 
 {
-title:"WhatsApp",
-icon:<FaWhatsapp/>
+title:"Customers",
+icon:<FaUsers/>,
+desc:"Manage relationships."
 },
 
 {
-title:"Export PDF",
-icon:<FaFileExport/>
+title:"Growth",
+icon:<FaRocket/>,
+desc:"Scale faster."
 },
 
 {
 title:"Automation",
-icon:<FaBolt/>
+icon:<FaBolt/>,
+desc:"Reduce repetitive work."
 },
 
 {
-title:"GPS Tracking",
-icon:<FaMapMarkerAlt/>
+title:"Security",
+icon:<FaShieldAlt/>,
+desc:"Protect business data."
 },
 
 {
-title:"Reminders",
-icon:<FaBell/>
+title:"Reports",
+icon:<FaDatabase/>,
+desc:"Instant insights."
 }
 
 ]
@@ -46,63 +52,88 @@ export default function Features(){
 
 return(
 
-<section className="py-20">
+<section
 
-<div className="max-w-7xl mx-auto px-6">
+id="features"
 
-<h2
 className="
-text-center
-text-5xl
-font-bold
+py-24
 "
 >
 
-Everything In One Place
+<div
+className="
+max-w-7xl
+mx-auto
+px-6
+"
+>
+
+<h2
+className="
+text-5xl
+font-bold
+
+text-center
+"
+>
+
+Features
 
 </h2>
 
 <div
 className="
 grid
+
 md:grid-cols-2
+
 lg:grid-cols-3
+
 gap-8
-mt-16
+
+mt-14
 "
 >
 
 {
-features.map((f)=>(
+
+items.map(
+
+(item)=>(
 
 <div
-key={f.title}
+
+key={item.title}
+
 className="
 bg-white
+
 rounded-3xl
-shadow-lg
-p-10
+
+p-8
+
+shadow
+
 hover:-translate-y-2
+
+hover:shadow-2xl
+
 transition
 "
 >
 
 <div
 className="
-w-16
-h-16
-rounded-2xl
-bg-blue-100
 text-blue-700
-flex
-items-center
-justify-center
-text-2xl
+
+text-4xl
+
 mb-6
 "
 >
 
-{f.icon}
+{item.icon}
 
 </div>
 
@@ -113,19 +144,28 @@ font-bold
 "
 >
 
-{f.title}
+{item.title}
 
 </h3>
 
-<p className="mt-3 text-gray-500">
+<p
+className="
+mt-4
 
-Manage business faster.
+text-gray-500
+"
+>
+
+{item.desc}
 
 </p>
 
 </div>
 
-))
+)
+
+)
+
 }
 
 </div>

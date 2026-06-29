@@ -1,14 +1,16 @@
-import DashboardCard
-from
-"../components/DashboardCard"
+import DashboardHeader from "../components/DashboardHeader"
+import DashboardCard from "../components/DashboardCard"
+import AnalyticsChart from "../components/AnalyticsChart"
+import LeadTable from "../components/LeadTable"
 
-import DashboardHeader
-from
-"../components/DashboardHeader"
+import QuickActions from "../components/QuickActions"
+import ProgressCard from "../components/ProgressCard"
 
-import LeadTable
-from
-"../components/LeadTable"
+import {
+stats,
+leads
+}
+from "../data/dashboardData"
 
 export default function Dashboard(){
 
@@ -16,9 +18,8 @@ return(
 
 <div
 className="
-min-h-screen
-bg-slate-100
-p-10
+p-5
+md:p-10
 "
 >
 
@@ -27,35 +28,80 @@ p-10
 <div
 className="
 grid
-md:grid-cols-2
-lg:grid-cols-4
-gap-6
+
+grid-cols-1
+
+sm:grid-cols-2
+
+xl:grid-cols-4
+
+gap-5
 "
 >
 
-<DashboardCard
-title="Revenue"
-value="$48K"
-/>
+{
+
+stats.map(
+
+(item)=>(
 
 <DashboardCard
-title="Customers"
-value="824"
+
+key={item.title}
+
+title={item.title}
+
+value={item.value}
+
 />
 
-<DashboardCard
-title="Growth"
-value="+26%"
-/>
+)
 
-<DashboardCard
-title="Leads"
-value="340"
+)
+
+}
+
+</div>
+
+<div
+className="
+grid
+
+lg:grid-cols-3
+
+gap-6
+
+mt-10
+"
+>
+
+<div
+className="
+lg:col-span-2
+"
+>
+
+<AnalyticsChart/>
+
+<LeadTable
+data={leads}
 />
 
 </div>
 
-<LeadTable/>
+<div
+className="
+space-y-6
+"
+>
+
+<QuickActions/>
+
+<ProgressCard/>
+
+</div>
+
+</div>
 
 </div>
 

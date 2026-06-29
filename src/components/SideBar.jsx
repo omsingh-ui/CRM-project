@@ -1,87 +1,119 @@
 import {
-FaHome,
-FaChartBar,
-FaUsers,
-FaCog
+Link,
+useNavigate
 }
-from "react-icons/fa"
+from "react-router-dom"
 
-const items=[
-
-{
-title:"Overview",
-icon:<FaHome/>
-},
-
-{
-title:"Analytics",
-icon:<FaChartBar/>
-},
-
-{
-title:"Customers",
-icon:<FaUsers/>
-},
-
-{
-title:"Settings",
-icon:<FaCog/>
+import {
+logout
 }
-
-]
+from "../utils/auth"
 
 export default function Sidebar(){
+
+const navigate=
+useNavigate()
+
+function exit(){
+
+logout()
+
+navigate(
+"/login"
+)
+
+}
 
 return(
 
 <div
 className="
-w-[260px]
+w-full
+md:w-[260px]
+
 bg-slate-900
+
 text-white
-h-screen
-p-8
+
+p-6
+
+min-h-screen
 "
 >
 
-<h2
+<h1
 className="
 text-3xl
 font-bold
+
 mb-10
 "
 >
 
 Minivel
 
-</h2>
+</h1>
 
-<div className="space-y-4">
-
-{
-items.map((item)=>(
-
-<button
-key={item.title}
+<div
 className="
-w-full
-flex
-gap-4
-items-center
+space-y-3
+"
+>
+
+<Link
+to="/dashboard"
+className="
+block
+
 p-4
+
 rounded-xl
+
 hover:bg-slate-800
 "
 >
 
-{item.icon}
+Dashboard
 
-{item.title}
+</Link>
+
+<Link
+to="/settings"
+className="
+block
+
+p-4
+
+rounded-xl
+
+hover:bg-slate-800
+"
+>
+
+Settings
+
+</Link>
+
+<button
+
+onClick={
+exit
+}
+
+className="
+w-full
+
+bg-red-600
+
+p-4
+
+rounded-xl
+"
+>
+
+Logout
 
 </button>
-
-))
-}
 
 </div>
 

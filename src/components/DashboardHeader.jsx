@@ -1,4 +1,7 @@
-import { FaBell } from "react-icons/fa"
+import {
+Link
+}
+from "react-router-dom"
 
 export default function DashboardHeader(){
 
@@ -7,8 +10,14 @@ return(
 <div
 className="
 flex
+
+flex-col
+md:flex-row
+
 justify-between
-items-center
+
+gap-6
+
 mb-10
 "
 >
@@ -17,7 +26,9 @@ mb-10
 
 <h1
 className="
-text-5xl
+text-3xl
+md:text-5xl
+
 font-bold
 "
 >
@@ -26,9 +37,14 @@ Dashboard
 
 </h1>
 
-<p className="text-gray-500">
+<p
+className="
+text-gray-500
+mt-2
+"
+>
 
-Welcome back.
+Welcome Back
 
 </p>
 
@@ -37,38 +53,48 @@ Welcome back.
 <div
 className="
 flex
-gap-4
-items-center
+
+flex-wrap
+
+gap-3
 "
 >
 
-<input
-placeholder="Search"
+<Link
+to="/"
+
 className="
+bg-blue-700
+
+text-white
+
 px-5
 py-3
-rounded-xl
-border
-outline-none
-"
-/>
 
-<button
-className="
-w-12
-h-12
-rounded-full
-bg-white
-shadow
-flex
-items-center
-justify-center
+rounded-xl
 "
 >
 
-<FaBell/>
+Home
 
-</button>
+</Link>
+
+<input
+
+placeholder="Search"
+
+className="
+border
+
+px-5
+py-3
+
+rounded-xl
+
+w-full
+md:w-[240px]
+"
+/>
 
 </div>
 

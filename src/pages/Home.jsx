@@ -5,6 +5,7 @@ import Features from "../components/Features"
 import Trusted from "../components/Trusted"
 import CTA from "../components/CTA"
 import Footer from "../components/Footer"
+import Testimonials from "../components/Testimonials"
 
 export default function Home(){
 
@@ -27,6 +28,8 @@ to-white
 <Features/>
 
 <Trusted/>
+
+<Testimonials/>
 
 <CTA/>
 

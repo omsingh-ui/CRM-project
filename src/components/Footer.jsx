@@ -4,21 +4,31 @@ return(
 
 <footer
 className="
-bg-slate-900
-text-white
-py-12
+border-t
+
+mt-24
 "
 >
 
 <div
 className="
 max-w-7xl
+
 mx-auto
+
 px-6
-flex
-justify-between
-flex-wrap
-gap-8
+
+py-16
+"
+>
+
+<div
+className="
+grid
+
+md:grid-cols-3
+
+gap-10
 "
 >
 
@@ -27,7 +37,10 @@ gap-8
 <h2
 className="
 text-3xl
+
 font-bold
+
+text-blue-700
 "
 >
 
@@ -35,9 +48,15 @@ Minivel
 
 </h2>
 
-<p className="mt-4">
+<p
+className="
+mt-4
 
-Smart CRM Platform
+text-gray-500
+"
+>
+
+Modern CRM platform.
 
 </p>
 
@@ -45,15 +64,91 @@ Smart CRM Platform
 
 <div>
 
-<p>Features</p>
+<h3
+className="
+font-bold
+mb-5
+"
+>
 
-<p className="mt-2">
+Product
 
-Pricing
+</h3>
+
+<div className="space-y-3">
+
+<p>
+
+Dashboard
+
+</p>
+
+<p>
+
+Analytics
+
+</p>
+
+<p>
+
+Reports
 
 </p>
 
 </div>
+
+</div>
+
+<div>
+
+<h3
+className="
+font-bold
+mb-5
+"
+>
+
+Company
+
+</h3>
+
+<div className="space-y-3">
+
+<p>
+
+About
+
+</p>
+
+<p>
+
+Privacy
+
+</p>
+
+<p>
+
+Contact
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<p
+className="
+mt-12
+
+text-gray-400
+"
+>
+
+© Minivel
+
+</p>
 
 </div>
 

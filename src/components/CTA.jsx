@@ -1,54 +1,83 @@
+import { Link }
+from "react-router-dom"
+
 export default function CTA(){
 
 return(
 
 <section
+
+id="cta"
+
 className="
-bg-blue-700
-text-white
-py-20
+py-24
 "
 >
-
 <div
 className="
-text-center
-max-w-4xl
+max-w-5xl
+
 mx-auto
+
+bg-blue-700
+
+rounded-[40px]
+
+text-white
+
+p-12
+
+text-center
 "
 >
 
 <h2
 className="
 text-5xl
+
 font-bold
 "
 >
 
-Ready To Scale?
+Start Building Faster
 
 </h2>
 
-<p className="mt-5">
+<p
+className="
+mt-6
 
-Start using Minivel today.
+text-blue-100
+"
+>
+
+Grow your business with Minivel.
 
 </p>
 
-<button
+<Link
+
+to="/login"
+
 className="
-mt-8
+inline-block
+
+mt-10
+
 bg-white
+
 text-blue-700
+
 px-8
 py-4
+
 rounded-xl
 "
 >
 
 Get Started
 
-</button>
+</Link>
 
 </div>
 

@@ -1,27 +1,50 @@
-const rows=[
+import { useState } from "react"
 
-["Alex","Active"],
+export default function LeadTable({
 
-["Emma","Pending"],
+data=[]
 
-["Lucas","Closed"],
+}){
 
-["Olivia","Active"]
+const[
+search,
+setSearch
 
-]
+]=useState("")
 
-export default function LeadTable(){
+const filtered=
+data.filter(
+
+(item)=>
+
+item.name
+.toLowerCase()
+.includes(
+search.toLowerCase()
+)
+
+)
 
 return(
 
 <div
 className="
 bg-white
+dark:bg-slate-800
+
 rounded-3xl
-p-8
 shadow
+
 mt-10
-overflow-x-auto
+p-8
+"
+>
+
+<div
+className="
+flex
+justify-between
+mb-8
 "
 >
 
@@ -29,68 +52,97 @@ overflow-x-auto
 className="
 text-2xl
 font-bold
-mb-6
 "
 >
 
-Recent Leads
+Leads
 
 </h2>
 
+<input
+placeholder="Search Lead"
+
+value={search}
+
+onChange={(e)=>
+
+setSearch(
+e.target.value
+)
+
+}
+
+className="
+border
+rounded-xl
+px-4
+py-3
+text-black
+"
+/>
+
+</div>
+
+{
+
+filtered.length===0
+
+?
+
+<p>
+
+No results
+
+</p>
+
+:
+
 <table className="w-full">
-
-<thead>
-
-<tr>
-
-<th className="text-left">
-
-Name
-
-</th>
-
-<th className="text-left">
-
-Status
-
-</th>
-
-</tr>
-
-</thead>
 
 <tbody>
 
 {
-rows.map((r)=>(
+
+filtered.map(
+
+(item)=>(
 
 <tr
-key={r[0]}
+key={item.name}
 className="
-border-t
+border-b
 "
 >
 
-<td className="py-5">
+<td
+className="
+py-5
+"
+>
 
-{r[0]}
+{item.name}
 
 </td>
 
 <td>
 
-{r[1]}
+{item.status}
 
 </td>
 
 </tr>
 
-))
+)
+
+)
+
 }
 
 </tbody>
 
 </table>
+
+}
 
 </div>
 

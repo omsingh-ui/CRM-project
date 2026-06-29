@@ -5,20 +5,19 @@ Routes,
 Route
 
 }
-from
-"react-router-dom"
+from "react-router-dom"
 
-import Home
-from
-"./pages/Home"
+import Home from "./pages/Home"
 
-import Dashboard
-from
-"./pages/Dashboard"
+import Login from "./pages/Login"
 
-import DashboardLayout
-from
-"./layouts/DashboardLayout"
+import Dashboard from "./pages/Dashboard"
+
+import Settings from "./pages/Settings"
+
+import DashboardLayout from "./layouts/DashboardLayout"
+
+import ProtectedRoute from "./components/ProtectedRoute"
 
 export default function App(){
 
@@ -34,16 +33,32 @@ element={<Home/>}
 />
 
 <Route
+path="/login"
+element={<Login/>}
+/>
+
+<Route
+
 element={
+
+<ProtectedRoute>
+
 <DashboardLayout/>
+
+</ProtectedRoute>
+
 }
+
 >
 
 <Route
 path="/dashboard"
-element={
-<Dashboard/>
-}
+element={<Dashboard/>}
+/>
+
+<Route
+path="/settings"
+element={<Settings/>}
 />
 
 </Route>

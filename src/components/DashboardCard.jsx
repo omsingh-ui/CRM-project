@@ -1,3 +1,23 @@
+import {
+FaDollarSign,
+FaUsers,
+FaArrowUp,
+FaChartLine
+}
+from "react-icons/fa"
+
+const icons={
+
+Revenue:<FaDollarSign/>,
+
+Customers:<FaUsers/>,
+
+Growth:<FaArrowUp/>,
+
+Leads:<FaChartLine/>
+
+}
+
 export default function DashboardCard({
 
 title,
@@ -10,13 +30,33 @@ return(
 <div
 className="
 bg-white
+
 rounded-3xl
-p-8
-shadow
+
+p-6
+
+shadow-lg
+
+hover:shadow-2xl
+
+transition
+
+flex
+
+justify-between
+
+items-start
 "
 >
 
-<p className="text-gray-500">
+<div>
+
+<p
+className="
+text-gray-500
+text-sm
+"
+>
 
 {title}
 
@@ -24,8 +64,11 @@ shadow
 
 <h2
 className="
-text-4xl
+text-3xl
+md:text-5xl
+
 font-bold
+
 mt-4
 "
 >
@@ -33,6 +76,28 @@ mt-4
 {value}
 
 </h2>
+
+</div>
+
+<div
+className="
+text-2xl
+
+bg-blue-100
+
+text-blue-700
+
+p-4
+
+rounded-2xl
+"
+>
+
+{
+icons[title]
+}
+
+</div>
 
 </div>
 
