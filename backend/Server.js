@@ -1,12 +1,14 @@
 import dotenv from "dotenv";
+
+// Load environment variables FIRST
+dotenv.config();
+
 import app from "./config/app.js";
 import connectDB from "./config/db.js";
 
-dotenv.config();
-
 const PORT = process.env.PORT || 5000;
 
-// Connect Database First
+// Connect Database
 await connectDB();
 
 // Start Server

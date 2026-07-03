@@ -1,29 +1,38 @@
 import { loginUser, registerUser } from "../services/authService.js";
 import { successResponse, errorResponse } from "../utils/apiResponse.js";
+import { generateToken } from "../utils/jwt.js";
 
 // ==============================
 // Login Controller
 // ==============================
 
 export const login = async (req, res) => {
-  const { email, password } = req.body;
+  try {
+    const { email, password } = req.body;
 
-  // Validation
-  if (!email || !password) {
-    return errorResponse(res, "Email and password are required.", 400);
+    if (!email || !password) {
+      return errorResponse(res, "Email and password are required.", 400);
+    }
+
+    const user = await loginUser(email, password);
+
+    if (!user) {
+      return errorResponse(res, "Invalid email or password.", 401);
+    }
+
+    const token = generateToken(user);
+
+    const userObject = user.toObject();
+
+    const { password: _, ...safeUser } = userObject;
+
+    return successResponse(res, "Login successful.", {
+      token,
+      user: safeUser,
+    });
+  } catch (error) {
+    return errorResponse(res, error.message, 500);
   }
-
-  // Authenticate User
-  const user = await loginUser(email, password);
-
-  if (!user) {
-    return errorResponse(res, "Invalid email or password.", 401);
-  }
-
-  // Remove password before sending response
-  const { password: _, ...safeUser } = user;
-
-  return successResponse(res, "Login successful.", safeUser);
 };
 
 // ==============================
@@ -31,32 +40,35 @@ export const login = async (req, res) => {
 // ==============================
 
 export const register = async (req, res) => {
-  const { name, email, password } = req.body;
+  try {
+    const { name, email, password } = req.body;
 
-  // Validation
-  if (!name || !email || !password) {
-    return errorResponse(res, "All fields are required.", 400);
+    if (!name || !email || !password) {
+      return errorResponse(res, "All fields are required.", 400);
+    }
+
+    if (password.length < 6) {
+      return errorResponse(
+        res,
+        "Password must be at least 6 characters long.",
+        400
+      );
+    }
+
+    const user = await registerUser(name, email, password);
+
+    if (!user) {
+      return errorResponse(res, "User already exists.", 409);
+    }
+
+    const userObject = user.toObject();
+
+    const { password: _, ...safeUser } = userObject;
+
+    return successResponse(res, "Registration successful.", safeUser, 201);
+  } catch (error) {
+    return errorResponse(res, error.message, 500);
   }
-
-  if (password.length < 6) {
-    return errorResponse(
-      res,
-      "Password must be at least 6 characters long.",
-      400
-    );
-  }
-
-  // Register User
-  const user = await registerUser(name, email, password);
-
-  if (!user) {
-    return errorResponse(res, "User already exists.", 409);
-  }
-
-  // Remove password before sending response
-  const { password: _, ...safeUser } = user;
-
-  return successResponse(res, "Registration successful.", safeUser, 201);
 };
 
 // ==============================
@@ -64,10 +76,5 @@ export const register = async (req, res) => {
 // ==============================
 
 export const profile = (req, res) => {
-  return successResponse(res, "Profile fetched successfully.", {
-    id: 1,
-    name: "Admin",
-    email: "admin@crm.com",
-    role: "admin",
-  });
+  return successResponse(res, "Profile fetched successfully.", req.user);
 };

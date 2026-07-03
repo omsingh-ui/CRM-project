@@ -1,22 +1,20 @@
 import bcrypt from "bcrypt";
-import users from "../data/users.js";
+import User from "../models/User.js";
 
 // ==============================
 // Login User
 // ==============================
 
 export const loginUser = async (email, password) => {
-  // Find user by email
-  const user = users.find((user) => user.email === email);
+  const user = await User.findOne({ email });
 
   if (!user) {
     return null;
   }
 
-  // Compare entered password with hashed password
-  const isPasswordCorrect = await bcrypt.compare(password, user.password);
+  const isMatch = await bcrypt.compare(password, user.password);
 
-  if (!isPasswordCorrect) {
+  if (!isMatch) {
     return null;
   }
 
@@ -28,26 +26,20 @@ export const loginUser = async (email, password) => {
 // ==============================
 
 export const registerUser = async (name, email, password) => {
-  // Check if email already exists
-  const existingUser = users.find((user) => user.email === email);
+  const existingUser = await User.findOne({ email });
 
   if (existingUser) {
     return null;
   }
 
-  // Hash password
   const hashedPassword = await bcrypt.hash(password, 10);
 
-  // Create user
-  const newUser = {
-    id: users.length + 1,
+  const newUser = await User.create({
     name,
     email,
     password: hashedPassword,
     role: "user",
-  };
-
-  users.push(newUser);
+  });
 
   return newUser;
 };

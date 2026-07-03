@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 
 import authRoutes from "../routes/authRoutes.js";
+import customerRoutes from "../routes/customerRoutes.js";
 import errorMiddleware from "../middleware/errorMiddleware.js";
 
 const app = express();
@@ -41,6 +42,7 @@ app.get("/api/test", (req, res) => {
 // ============================
 
 app.use("/api/auth", authRoutes);
+app.use("/api/customers", customerRoutes);
 
 // ============================
 // Error Middleware
