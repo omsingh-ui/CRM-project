@@ -16,7 +16,13 @@ import {
 // ==============================
 
 export const create = async (req, res) => {
-  const { name, email, phone, company, status } = req.body;
+  const {
+    name,
+    email,
+    phone,
+    company,
+    status,
+  } = req.body;
 
   // Validation
   if (!name || !email || !phone) {
@@ -46,15 +52,19 @@ export const create = async (req, res) => {
 
 // ==============================
 // Get All Customers
+// Search + Pagination + Sorting
 // ==============================
 
 export const getAll = async (req, res) => {
-  const customers = await getCustomers(req.user._id);
+  const result = await getCustomers(
+    req.user._id,
+    req.query
+  );
 
   return successResponse(
     res,
     "Customers fetched successfully.",
-    customers
+    result
   );
 };
 
@@ -69,7 +79,11 @@ export const getOne = async (req, res) => {
   );
 
   if (!customer) {
-    return errorResponse(res, "Customer not found.", 404);
+    return errorResponse(
+      res,
+      "Customer not found.",
+      404
+    );
   }
 
   return successResponse(
@@ -91,7 +105,11 @@ export const update = async (req, res) => {
   );
 
   if (!customer) {
-    return errorResponse(res, "Customer not found.", 404);
+    return errorResponse(
+      res,
+      "Customer not found.",
+      404
+    );
   }
 
   return successResponse(
@@ -112,7 +130,11 @@ export const remove = async (req, res) => {
   );
 
   if (!customer) {
-    return errorResponse(res, "Customer not found.", 404);
+    return errorResponse(
+      res,
+      "Customer not found.",
+      404
+    );
   }
 
   return successResponse(

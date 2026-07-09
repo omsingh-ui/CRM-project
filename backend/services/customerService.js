@@ -1,38 +1,57 @@
 import Customer from "../models/Customer.js";
+import { buildQuery } from "../utils/apiFeatures.js";
 
 // ==============================
 // Create Customer
 // ==============================
 
 export const createCustomer = async (customerData) => {
-  const customer = await Customer.create(customerData);
-
-  return customer;
+  return await Customer.create(customerData);
 };
 
 // ==============================
 // Get All Customers
+// Search + Filter + Sort + Pagination
 // ==============================
 
-export const getCustomers = async (ownerId) => {
-  const customers = await Customer.find({
-    owner: ownerId,
-  }).sort({ createdAt: -1 });
+export const getCustomers = async (
+  ownerId,
+  queryParams
+) => {
+  const { query, filter, page, limit } = buildQuery(
+    Customer,
+    ownerId,
+    queryParams,
+    ["name", "email", "company"]
+  );
 
-  return customers;
+  const customers = await query;
+
+  const total = await Customer.countDocuments(filter);
+
+  return {
+    customers,
+    pagination: {
+      total,
+      page,
+      limit,
+      totalPages: Math.ceil(total / limit),
+    },
+  };
 };
 
 // ==============================
 // Get Single Customer
 // ==============================
 
-export const getCustomerById = async (customerId, ownerId) => {
-  const customer = await Customer.findOne({
+export const getCustomerById = async (
+  customerId,
+  ownerId
+) => {
+  return await Customer.findOne({
     _id: customerId,
     owner: ownerId,
   });
-
-  return customer;
 };
 
 // ==============================
@@ -44,7 +63,7 @@ export const updateCustomer = async (
   ownerId,
   updateData
 ) => {
-  const customer = await Customer.findOneAndUpdate(
+  return await Customer.findOneAndUpdate(
     {
       _id: customerId,
       owner: ownerId,
@@ -55,8 +74,6 @@ export const updateCustomer = async (
       runValidators: true,
     }
   );
-
-  return customer;
 };
 
 // ==============================
@@ -67,10 +84,8 @@ export const deleteCustomer = async (
   customerId,
   ownerId
 ) => {
-  const customer = await Customer.findOneAndDelete({
+  return await Customer.findOneAndDelete({
     _id: customerId,
     owner: ownerId,
   });
-
-  return customer;
 };

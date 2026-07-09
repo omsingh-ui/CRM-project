@@ -1,40 +1,59 @@
 import Lead from "../models/Lead.js";
+import { buildQuery } from "../utils/apiFeatures.js";
 
 // ==============================
 // Create Lead
 // ==============================
 
 export const createLead = async (leadData) => {
-  const lead = await Lead.create(leadData);
-
-  return lead;
+  return await Lead.create(leadData);
 };
 
 // ==============================
 // Get All Leads
+// Search + Filter + Sort + Pagination
 // ==============================
 
-export const getLeads = async (ownerId) => {
-  const leads = await Lead.find({
-    owner: ownerId,
-  })
-    .populate("customer")
-    .sort({ createdAt: -1 });
+export const getLeads = async (
+  ownerId,
+  queryParams
+) => {
+  const { query, filter, page, limit } = buildQuery(
+    Lead,
+    ownerId,
+    queryParams,
+    ["source", "status"]
+  );
 
-  return leads;
+  query.populate("customer");
+
+  const leads = await query;
+
+  const total = await Lead.countDocuments(filter);
+
+  return {
+    leads,
+    pagination: {
+      total,
+      page,
+      limit,
+      totalPages: Math.ceil(total / limit),
+    },
+  };
 };
 
 // ==============================
 // Get Single Lead
 // ==============================
 
-export const getLeadById = async (leadId, ownerId) => {
-  const lead = await Lead.findOne({
+export const getLeadById = async (
+  leadId,
+  ownerId
+) => {
+  return await Lead.findOne({
     _id: leadId,
     owner: ownerId,
   }).populate("customer");
-
-  return lead;
 };
 
 // ==============================
@@ -46,7 +65,7 @@ export const updateLead = async (
   ownerId,
   updateData
 ) => {
-  const lead = await Lead.findOneAndUpdate(
+  return await Lead.findOneAndUpdate(
     {
       _id: leadId,
       owner: ownerId,
@@ -57,8 +76,6 @@ export const updateLead = async (
       runValidators: true,
     }
   ).populate("customer");
-
-  return lead;
 };
 
 // ==============================
@@ -69,10 +86,8 @@ export const deleteLead = async (
   leadId,
   ownerId
 ) => {
-  const lead = await Lead.findOneAndDelete({
+  return await Lead.findOneAndDelete({
     _id: leadId,
     owner: ownerId,
   });
-
-  return lead;
 };

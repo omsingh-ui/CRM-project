@@ -48,12 +48,15 @@ export const create = async (req, res) => {
 // ==============================
 
 export const getAll = async (req, res) => {
-  const leads = await getLeads(req.user._id);
+  const result = await getLeads(
+    req.user._id,
+    req.query
+  );
 
   return successResponse(
     res,
     "Leads fetched successfully.",
-    leads
+    result
   );
 };
 

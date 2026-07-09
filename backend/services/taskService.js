@@ -1,43 +1,63 @@
 import Task from "../models/Task.js";
+import { buildQuery } from "../utils/apiFeatures.js";
 
 // ==============================
 // Create Task
 // ==============================
 
 export const createTask = async (taskData) => {
-  const task = await Task.create(taskData);
-
-  return task;
+  return await Task.create(taskData);
 };
 
 // ==============================
 // Get All Tasks
+// Search + Filter + Sort + Pagination
 // ==============================
 
-export const getTasks = async (ownerId) => {
-  const tasks = await Task.find({
-    owner: ownerId,
-  })
-    .populate("customer")
-    .populate("lead")
-    .sort({ dueDate: 1 });
+export const getTasks = async (
+  ownerId,
+  queryParams
+) => {
+  const { query, filter, page, limit } = buildQuery(
+    Task,
+    ownerId,
+    queryParams,
+    ["title", "status", "priority"]
+  );
 
-  return tasks;
+  query
+    .populate("customer")
+    .populate("lead");
+
+  const tasks = await query;
+
+  const total = await Task.countDocuments(filter);
+
+  return {
+    tasks,
+    pagination: {
+      total,
+      page,
+      limit,
+      totalPages: Math.ceil(total / limit),
+    },
+  };
 };
 
 // ==============================
 // Get Single Task
 // ==============================
 
-export const getTaskById = async (taskId, ownerId) => {
-  const task = await Task.findOne({
+export const getTaskById = async (
+  taskId,
+  ownerId
+) => {
+  return await Task.findOne({
     _id: taskId,
     owner: ownerId,
   })
     .populate("customer")
     .populate("lead");
-
-  return task;
 };
 
 // ==============================
@@ -49,7 +69,7 @@ export const updateTask = async (
   ownerId,
   updateData
 ) => {
-  const task = await Task.findOneAndUpdate(
+  return await Task.findOneAndUpdate(
     {
       _id: taskId,
       owner: ownerId,
@@ -62,8 +82,6 @@ export const updateTask = async (
   )
     .populate("customer")
     .populate("lead");
-
-  return task;
 };
 
 // ==============================
@@ -74,10 +92,8 @@ export const deleteTask = async (
   taskId,
   ownerId
 ) => {
-  const task = await Task.findOneAndDelete({
+  return await Task.findOneAndDelete({
     _id: taskId,
     owner: ownerId,
   });
-
-  return task;
 };
