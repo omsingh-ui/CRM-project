@@ -10,6 +10,7 @@ import customerRoutes from "../routes/customerRoutes.js";
 import leadRoutes from "../routes/leadRoutes.js";
 import taskRoutes from "../routes/taskRoutes.js";
 import dashboardRoutes from "../routes/dashboardRoutes.js";
+import adminRoutes from "../routes/adminRoutes.js";
 
 // ============================
 // Middleware Imports
@@ -18,6 +19,8 @@ import dashboardRoutes from "../routes/dashboardRoutes.js";
 import errorMiddleware from "../middleware/errorMiddleware.js";
 
 const app = express();
+
+console.log("🔥 config/app.js loaded");
 
 // ============================
 // Global Middleware
@@ -30,14 +33,14 @@ app.use(cors());
 app.use(express.json());
 
 // ============================
-// Health Check
+// Health Check Route
 // ============================
 
 app.get("/", (req, res) => {
-  res.status(200).json({
+  return res.status(200).json({
     success: true,
     message: "CRM Backend is running successfully 🚀",
-    version: "1.4.0",
+    version: "1.5.0",
   });
 });
 
@@ -46,9 +49,9 @@ app.get("/", (req, res) => {
 // ============================
 
 app.get("/api/test", (req, res) => {
-  res.status(200).json({
+  return res.status(200).json({
     success: true,
-    message: "API is working!",
+    message: "API is working successfully ✅",
   });
 });
 
@@ -71,14 +74,17 @@ app.use("/api/tasks", taskRoutes);
 // Dashboard
 app.use("/api/dashboard", dashboardRoutes);
 
+// Admin
+app.use("/api/admin", adminRoutes);
+
 // ============================
-// 404 Route Handler
+// 404 Route
 // ============================
 
 app.use((req, res) => {
-  res.status(404).json({
+  return res.status(404).json({
     success: false,
-    message: "Route not found.",
+    message: `Route '${req.originalUrl}' not found.`,
   });
 });
 
