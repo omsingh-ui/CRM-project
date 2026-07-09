@@ -2,6 +2,10 @@ import mongoose from "mongoose";
 
 const taskSchema = new mongoose.Schema(
   {
+    // ==============================
+    // Task Information
+    // ==============================
+
     title: {
       type: String,
       required: true,
@@ -18,17 +22,33 @@ const taskSchema = new mongoose.Schema(
       required: true,
     },
 
+    // ==============================
+    // Priority
+    // ==============================
+
     priority: {
       type: String,
       enum: ["Low", "Medium", "High"],
       default: "Medium",
     },
 
+    // ==============================
+    // Status
+    // ==============================
+
     status: {
       type: String,
-      enum: ["Pending", "In Progress", "Completed"],
+      enum: [
+        "Pending",
+        "In Progress",
+        "Completed",
+      ],
       default: "Pending",
     },
+
+    // ==============================
+    // Customer Relation
+    // ==============================
 
     customer: {
       type: mongoose.Schema.Types.ObjectId,
@@ -36,11 +56,29 @@ const taskSchema = new mongoose.Schema(
       default: null,
     },
 
+    // ==============================
+    // Lead Relation
+    // ==============================
+
     lead: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Lead",
       default: null,
     },
+
+    // ==============================
+    // Attachments
+    // ==============================
+
+    attachments: [
+      {
+        type: String,
+      },
+    ],
+
+    // ==============================
+    // Owner
+    // ==============================
 
     owner: {
       type: mongoose.Schema.Types.ObjectId,
@@ -53,6 +91,9 @@ const taskSchema = new mongoose.Schema(
   }
 );
 
-const Task = mongoose.model("Task", taskSchema);
+const Task = mongoose.model(
+  "Task",
+  taskSchema
+);
 
 export default Task;

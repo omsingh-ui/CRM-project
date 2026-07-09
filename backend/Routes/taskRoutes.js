@@ -10,6 +10,7 @@ import {
 
 import { protect } from "../middleware/auth.js";
 import { validateTask } from "../validation/taskValidation.js";
+import { uploadTaskAttachments } from "../middleware/upload.js";
 
 const router = express.Router();
 
@@ -24,7 +25,12 @@ router.use(protect);
 // ==============================
 
 // Create Task
-router.post("/", validateTask, create);
+router.post(
+  "/",
+  uploadTaskAttachments.array("attachments", 10),
+  validateTask,
+  create
+);
 
 // Get All Tasks
 router.get("/", getAll);
@@ -33,7 +39,11 @@ router.get("/", getAll);
 router.get("/:id", getOne);
 
 // Update Task
-router.put("/:id", update);
+router.put(
+  "/:id",
+  uploadTaskAttachments.array("attachments", 10),
+  update
+);
 
 // Delete Task
 router.delete("/:id", remove);

@@ -1,4 +1,5 @@
 import express from "express";
+
 import {
   create,
   getAll,
@@ -6,18 +7,43 @@ import {
   update,
   remove,
 } from "../controllers/customerController.js";
+
 import { protect } from "../middleware/auth.js";
+import { uploadCustomerImage } from "../middleware/upload.js";
 
 const router = express.Router();
 
-// Protect all customer routes
+// ===================================
+// Protect All Routes
+// ===================================
+
 router.use(protect);
 
+// ===================================
 // Customer Routes
-router.post("/", create);
+// ===================================
+
+// Create Customer with Profile Image
+router.post(
+  "/",
+  uploadCustomerImage.single("profileImage"),
+  create
+);
+
+// Get All Customers
 router.get("/", getAll);
+
+// Get Single Customer
 router.get("/:id", getOne);
-router.put("/:id", update);
+
+// Update Customer + Change Profile Image
+router.put(
+  "/:id",
+  uploadCustomerImage.single("profileImage"),
+  update
+);
+
+// Delete Customer
 router.delete("/:id", remove);
 
 export default router;

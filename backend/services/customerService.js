@@ -1,5 +1,4 @@
 import Customer from "../models/Customer.js";
-import { buildQuery } from "../utils/apiFeatures.js";
 
 // ==============================
 // Create Customer
@@ -10,32 +9,64 @@ export const createCustomer = async (customerData) => {
 };
 
 // ==============================
-// Get All Customers
-// Search + Filter + Sort + Pagination
+// Get Customers
+// Search + Filter + Pagination + Sorting
 // ==============================
 
 export const getCustomers = async (
   ownerId,
-  queryParams
+  {
+    search = "",
+    status,
+    page = 1,
+    limit = 10,
+    sort = "newest",
+  }
 ) => {
-  const { query, filter, page, limit } = buildQuery(
-    Customer,
-    ownerId,
-    queryParams,
-    ["name", "email", "company"]
-  );
+  // Base query
+  const query = {
+    owner: ownerId,
+  };
 
-  const customers = await query;
+  // Search
+  if (search) {
+    query.$or = [
+      { name: { $regex: search, $options: "i" } },
+      { email: { $regex: search, $options: "i" } },
+      { company: { $regex: search, $options: "i" } },
+    ];
+  }
 
-  const total = await Customer.countDocuments(filter);
+  // Status Filter
+  if (status) {
+    query.status = status;
+  }
+
+  // Sorting
+  const sortOption =
+    sort === "oldest"
+      ? { createdAt: 1 }
+      : { createdAt: -1 };
+
+  // Pagination
+  const skip = (page - 1) * limit;
+
+  // Fetch data
+  const customers = await Customer.find(query)
+    .sort(sortOption)
+    .skip(skip)
+    .limit(Number(limit));
+
+  // Total count
+  const totalCustomers = await Customer.countDocuments(query);
 
   return {
     customers,
     pagination: {
-      total,
-      page,
-      limit,
-      totalPages: Math.ceil(total / limit),
+      currentPage: Number(page),
+      totalPages: Math.ceil(totalCustomers / limit),
+      totalCustomers,
+      limit: Number(limit),
     },
   };
 };

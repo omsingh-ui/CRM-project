@@ -1,37 +1,65 @@
-import { loginUser, registerUser } from "../services/authService.js";
-import { successResponse, errorResponse } from "../utils/apiResponse.js";
+import {
+  loginUser,
+  registerUser,
+} from "../services/authService.js";
+
+import {
+  successResponse,
+  errorResponse,
+} from "../utils/apiResponse.js";
+
 import { generateToken } from "../utils/jwt.js";
+import { createActivity } from "../services/activityService.js";
 
 // ==============================
 // Login Controller
 // ==============================
 
-export const login = async (req, res) => {
+export const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return errorResponse(res, "Email and password are required.", 400);
+      return errorResponse(
+        res,
+        "Email and password are required.",
+        400
+      );
     }
 
     const user = await loginUser(email, password);
 
     if (!user) {
-      return errorResponse(res, "Invalid email or password.", 401);
+      return errorResponse(
+        res,
+        "Invalid email or password.",
+        401
+      );
     }
 
     const token = generateToken(user);
 
-    const userObject = user.toObject();
+    // Activity Log
+    await createActivity({
+      action: "Login",
+      module: "Auth",
+      description: `${user.name} logged in`,
+      user: user._id,
+    });
 
+    const userObject = user.toObject();
     const { password: _, ...safeUser } = userObject;
 
-    return successResponse(res, "Login successful.", {
-      token,
-      user: safeUser,
-    });
+    return successResponse(
+      res,
+      "Login successful.",
+      {
+        token,
+        user: safeUser,
+      }
+    );
   } catch (error) {
-    return errorResponse(res, error.message, 500);
+    next(error);
   }
 };
 
@@ -39,12 +67,16 @@ export const login = async (req, res) => {
 // Register Controller
 // ==============================
 
-export const register = async (req, res) => {
+export const register = async (req, res, next) => {
   try {
     const { name, email, password } = req.body;
 
     if (!name || !email || !password) {
-      return errorResponse(res, "All fields are required.", 400);
+      return errorResponse(
+        res,
+        "All fields are required.",
+        400
+      );
     }
 
     if (password.length < 6) {
@@ -55,19 +87,39 @@ export const register = async (req, res) => {
       );
     }
 
-    const user = await registerUser(name, email, password);
+    const user = await registerUser(
+      name,
+      email,
+      password
+    );
 
     if (!user) {
-      return errorResponse(res, "User already exists.", 409);
+      return errorResponse(
+        res,
+        "User already exists.",
+        409
+      );
     }
 
-    const userObject = user.toObject();
+    // Activity Log
+    await createActivity({
+      action: "Register",
+      module: "Auth",
+      description: `${user.name} registered`,
+      user: user._id,
+    });
 
+    const userObject = user.toObject();
     const { password: _, ...safeUser } = userObject;
 
-    return successResponse(res, "Registration successful.", safeUser, 201);
+    return successResponse(
+      res,
+      "Registration successful.",
+      safeUser,
+      201
+    );
   } catch (error) {
-    return errorResponse(res, error.message, 500);
+    next(error);
   }
 };
 
@@ -75,6 +127,18 @@ export const register = async (req, res) => {
 // Profile Controller
 // ==============================
 
-export const profile = (req, res) => {
-  return successResponse(res, "Profile fetched successfully.", req.user);
+export const profile = async (
+  req,
+  res,
+  next
+) => {
+  try {
+    return successResponse(
+      res,
+      "Profile fetched successfully.",
+      req.user
+    );
+  } catch (error) {
+    next(error);
+  }
 };

@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import path from "path";
 
 // ============================
 // Route Imports
@@ -11,6 +12,7 @@ import leadRoutes from "../routes/leadRoutes.js";
 import taskRoutes from "../routes/taskRoutes.js";
 import dashboardRoutes from "../routes/dashboardRoutes.js";
 import adminRoutes from "../routes/adminRoutes.js";
+import activityRoutes from "../routes/activityRoutes.js";
 
 // ============================
 // Middleware Imports
@@ -20,27 +22,34 @@ import errorMiddleware from "../middleware/errorMiddleware.js";
 
 const app = express();
 
-console.log("🔥 config/app.js loaded");
-
 // ============================
 // Global Middleware
 // ============================
 
-// Enable CORS
 app.use(cors());
 
-// Parse JSON request body
 app.use(express.json());
 
+app.use(express.urlencoded({ extended: true }));
+
 // ============================
-// Health Check Route
+// Static Upload Folder
+// ============================
+
+app.use(
+  "/uploads",
+  express.static(path.resolve("uploads"))
+);
+
+// ============================
+// Health Route
 // ============================
 
 app.get("/", (req, res) => {
-  return res.status(200).json({
+  res.status(200).json({
     success: true,
     message: "CRM Backend is running successfully 🚀",
-    version: "1.5.0",
+    version: "2.0.0",
   });
 });
 
@@ -49,9 +58,9 @@ app.get("/", (req, res) => {
 // ============================
 
 app.get("/api/test", (req, res) => {
-  return res.status(200).json({
+  res.status(200).json({
     success: true,
-    message: "API is working successfully ✅",
+    message: "API is working!",
   });
 });
 
@@ -59,32 +68,28 @@ app.get("/api/test", (req, res) => {
 // API Routes
 // ============================
 
-// Authentication
 app.use("/api/auth", authRoutes);
 
-// Customers
 app.use("/api/customers", customerRoutes);
 
-// Leads
 app.use("/api/leads", leadRoutes);
 
-// Tasks
 app.use("/api/tasks", taskRoutes);
 
-// Dashboard
 app.use("/api/dashboard", dashboardRoutes);
 
-// Admin
 app.use("/api/admin", adminRoutes);
 
+app.use("/api/activity", activityRoutes);
+
 // ============================
-// 404 Route
+// 404 Handler
 // ============================
 
 app.use((req, res) => {
-  return res.status(404).json({
+  res.status(404).json({
     success: false,
-    message: `Route '${req.originalUrl}' not found.`,
+    message: "Route not found.",
   });
 });
 

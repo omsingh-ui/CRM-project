@@ -2,6 +2,10 @@ import mongoose from "mongoose";
 
 const customerSchema = new mongoose.Schema(
   {
+    // ==============================
+    // Basic Information
+    // ==============================
+
     name: {
       type: String,
       required: true,
@@ -26,11 +30,28 @@ const customerSchema = new mongoose.Schema(
       trim: true,
     },
 
+    // ==============================
+    // Customer Status
+    // ==============================
+
     status: {
       type: String,
       enum: ["Lead", "Active", "Inactive"],
       default: "Lead",
     },
+
+    // ==============================
+    // Profile Image
+    // ==============================
+
+    profileImage: {
+      type: String,
+      default: null,
+    },
+
+    // ==============================
+    // Owner
+    // ==============================
 
     owner: {
       type: mongoose.Schema.Types.ObjectId,
@@ -43,6 +64,9 @@ const customerSchema = new mongoose.Schema(
   }
 );
 
-const Customer = mongoose.model("Customer", customerSchema);
+const Customer = mongoose.model(
+  "Customer",
+  customerSchema
+);
 
 export default Customer;

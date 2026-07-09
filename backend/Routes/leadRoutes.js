@@ -10,21 +10,27 @@ import {
 
 import { protect } from "../middleware/auth.js";
 import { validateLead } from "../validation/leadValidation.js";
+import { uploadLeadAttachments } from "../middleware/upload.js";
 
 const router = express.Router();
 
-// ==============================
-// Protect All Lead Routes
-// ==============================
+// ===================================
+// Protect All Routes
+// ===================================
 
 router.use(protect);
 
-// ==============================
+// ===================================
 // Lead Routes
-// ==============================
+// ===================================
 
 // Create Lead
-router.post("/", validateLead, create);
+router.post(
+  "/",
+  uploadLeadAttachments.array("attachments", 10),
+  validateLead,
+  create
+);
 
 // Get All Leads
 router.get("/", getAll);
@@ -33,7 +39,11 @@ router.get("/", getAll);
 router.get("/:id", getOne);
 
 // Update Lead
-router.put("/:id", update);
+router.put(
+  "/:id",
+  uploadLeadAttachments.array("attachments", 10),
+  update
+);
 
 // Delete Lead
 router.delete("/:id", remove);
