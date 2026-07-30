@@ -25,35 +25,6 @@ navigate(
 }
 
 return(
-
-<div
-className="
-w-full
-md:w-[260px]
-
-bg-slate-900
-
-text-white
-
-p-6
-
-min-h-screen
-"
->
-
-<h1
-className="
-text-3xl
-font-bold
-
-mb-10
-"
->
-
-Minivel
-
-</h1>
-
 <div
 className="
 space-y-3
@@ -64,60 +35,85 @@ space-y-3
 to="/dashboard"
 className="
 block
-
 p-4
-
 rounded-xl
-
 hover:bg-slate-800
+transition
 "
 >
+📊 Dashboard
+</Link>
 
-Dashboard
+<Link
+to="/customers"
+className="
+block
+p-4
+rounded-xl
+hover:bg-slate-800
+transition
+"
+>
+👥 Customers
+</Link>
 
+<Link
+to="/leads"
+className="
+block
+p-4
+rounded-xl
+hover:bg-slate-800
+transition
+"
+>
+🎯 Leads
+</Link>
+
+<Link
+to="/tasks"
+className="
+block
+p-4
+rounded-xl
+hover:bg-slate-800
+transition
+"
+>
+📋 Tasks
 </Link>
 
 <Link
 to="/settings"
 className="
 block
-
 p-4
-
 rounded-xl
-
 hover:bg-slate-800
+transition
 "
 >
-
-Settings
-
+⚙️ Settings
 </Link>
 
 <button
-
-onClick={
-exit
-}
-
+onClick={exit}
 className="
 w-full
-
 bg-red-600
-
+hover:bg-red-700
+transition
 p-4
-
 rounded-xl
+mt-6
 "
 >
-
 Logout
-
 </button>
 
 </div>
 
-</div>
+
 
 )
 

@@ -1,49 +1,78 @@
 import {
-BrowserRouter,
-Routes,
-Route
-} from "react-router-dom"
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 
-import Home from "./pages/Home"
-import Login from "./pages/Login"
-import Dashboard from "./pages/Dashboard"
-import Settings from "./pages/Settings"
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import Settings from "./pages/Settings";
 
-import DashboardLayout from "./layouts/DashboardLayout"
-import ProtectedRoute from "./components/ProtectedRoute"
+// New Pages
+import Customers from "./pages/Customers";
+import Leads from "./pages/Leads";
+import Tasks from "./pages/Tasks";
 
-export default function App(){
+import DashboardLayout from "./layouts/DashboardLayout";
+import ProtectedRoute from "./components/ProtectedRoute";
 
-return(
+export default function App() {
+  return (
+    <BrowserRouter>
+      <div className="min-h-screen bg-slate-50 dark:bg-zinc-950 transition">
+        <Routes>
+          {/* ==========================
+              PUBLIC ROUTES
+          ========================== */}
 
-<BrowserRouter>
+          <Route path="/" element={<Home />} />
 
-<div className="min-h-screen bg-slate-50 dark:bg-zinc-950 transition">
+          <Route path="/login" element={<Login />} />
 
-<Routes>
+          {/* ==========================
+              PROTECTED ROUTES
+          ========================== */}
 
-{/* PUBLIC ROUTES */}
-<Route path="/" element={<Home />} />
-<Route path="/login" element={<Login />} />
+          <Route
+            element={
+              <ProtectedRoute>
+                <DashboardLayout />
+              </ProtectedRoute>
+            }
+          >
+            {/* Dashboard */}
+            <Route
+              path="/dashboard"
+              element={<Dashboard />}
+            />
 
-{/* PROTECTED ROUTES */}
-<Route element={
-<ProtectedRoute>
-<DashboardLayout />
-</ProtectedRoute>
-}>
+            {/* Customers */}
+            <Route
+              path="/customers"
+              element={<Customers />}
+            />
 
-<Route path="/dashboard" element={<Dashboard />} />
-<Route path="/settings" element={<Settings />} />
+            {/* Leads */}
+            <Route
+              path="/leads"
+              element={<Leads />}
+            />
 
-</Route>
+            {/* Tasks */}
+            <Route
+              path="/tasks"
+              element={<Tasks />}
+            />
 
-</Routes>
-
-</div>
-
-</BrowserRouter>
-
-)
-
+            {/* Settings */}
+            <Route
+              path="/settings"
+              element={<Settings />}
+            />
+          </Route>
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
 }
