@@ -1,28 +1,38 @@
-export function login(){
-
-localStorage.setItem(
-"auth",
-"true"
-)
-
+/**
+ * Save authentication data
+ */
+export function saveAuth(token, user) {
+  localStorage.setItem("token", token);
+  localStorage.setItem("user", JSON.stringify(user));
 }
 
-export function logout(){
-
-localStorage.removeItem(
-"auth"
-)
-
+/**
+ * Get JWT Token
+ */
+export function getToken() {
+  return localStorage.getItem("token");
 }
 
-export function isLoggedIn(){
+/**
+ * Get Logged-in User
+ */
+export function getUser() {
+  const user = localStorage.getItem("user");
 
-return(
+  return user ? JSON.parse(user) : null;
+}
 
-localStorage.getItem(
-"auth"
-)==="true"
+/**
+ * Check Authentication
+ */
+export function isLoggedIn() {
+  return !!getToken();
+}
 
-)
-
+/**
+ * Logout User
+ */
+export function logout() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
 }

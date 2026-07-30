@@ -1,76 +1,79 @@
 import {
-ResponsiveContainer,
-LineChart,
-Line,
-XAxis,
-YAxis,
-Tooltip
-}
-from "recharts"
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+} from "recharts";
 
-const data=[
+export default function AnalyticsChart({
+  leadStatus = {},
+}) {
+  const data = [
+    {
+      status: "New",
+      count: leadStatus.New || 0,
+    },
+    {
+      status: "Contacted",
+      count: leadStatus.Contacted || 0,
+    },
+    {
+      status: "Qualified",
+      count: leadStatus.Qualified || 0,
+    },
+    {
+      status: "Won",
+      count: leadStatus.Won || 0,
+    },
+    {
+      status: "Lost",
+      count: leadStatus.Lost || 0,
+    },
+  ];
 
-{month:"Jan",sales:12},
+  return (
+    <div
+      className="
+      bg-white
+      dark:bg-zinc-900
+      rounded-3xl
+      shadow
+      p-8
+      h-[400px]
+    "
+    >
+      <h2
+        className="
+        text-2xl
+        font-bold
+        mb-8
+        text-slate-900
+        dark:text-white
+      "
+      >
+        Lead Analytics
+      </h2>
 
-{month:"Feb",sales:20},
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart data={data}>
+          <CartesianGrid strokeDasharray="3 3" />
 
-{month:"Mar",sales:18},
+          <XAxis dataKey="status" />
 
-{month:"Apr",sales:34},
+          <YAxis />
 
-{month:"May",sales:42}
+          <Tooltip />
 
-]
-
-export default function AnalyticsChart(){
-
-return(
-
-<div
-className="
-bg-white
-rounded-3xl
-shadow
-p-8
-mt-10
-h-[400px]
-"
->
-
-<h2
-className="
-text-2xl
-font-bold
-mb-8
-"
->
-
-Sales Analytics
-
-</h2>
-
-<ResponsiveContainer>
-
-<LineChart data={data}>
-
-<XAxis dataKey="month"/>
-
-<YAxis/>
-
-<Tooltip/>
-
-<Line
-dataKey="sales"
-stroke="#2563eb"
-strokeWidth={4}
-/>
-
-</LineChart>
-
-</ResponsiveContainer>
-
-</div>
-
-)
-
+          <Bar
+            dataKey="count"
+            fill="#2563eb"
+            radius={[8, 8, 0, 0]}
+          />
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
+  );
 }

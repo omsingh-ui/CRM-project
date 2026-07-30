@@ -1,7 +1,3 @@
-// ==============================
-// API Features Utility
-// Search + Filter + Sort + Pagination
-// ==============================
 
 export const buildQuery = (
   Model,

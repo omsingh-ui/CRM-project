@@ -1,104 +1,131 @@
-const activity=[
+export default function RecentActivity({
 
-"New file uploaded",
+  activities = []
 
-"Scanner opened",
+}) {
 
-"Dashboard updated",
+  return (
 
-"Lead created"
+    <div
+      className="
+      bg-white
+      dark:bg-zinc-900
+      rounded-3xl
+      shadow
+      p-8
+    "
+    >
 
-]
+      <h2
+        className="
+        text-2xl
+        font-bold
+        mb-6
+        text-slate-900
+        dark:text-white
+      "
+      >
+        Recent Activity
+      </h2>
 
-export default function RecentActivity(){
+      {
+        activities.length === 0 ? (
 
-return(
+          <div
+            className="
+            text-center
+            text-slate-500
+            py-8
+          "
+          >
+            No recent activity found.
+          </div>
 
-<div
-className="
-bg-white
+        ) : (
 
-rounded-3xl
+          <div
+            className="
+            space-y-4
+          "
+          >
 
-shadow
+            {
 
-p-8
-"
->
+              activities.map((activity) => (
 
-<h2
-className="
-text-2xl
-font-bold
+                <div
 
-mb-6
-"
->
+                  key={activity._id}
 
-Recent Activity
+                  className="
+                  flex
+                  gap-4
+                  items-start
+                  bg-slate-50
+                  dark:bg-zinc-800
+                  rounded-xl
+                  p-4
+                "
+                >
 
-</h2>
+                  <div
+                    className="
+                    w-3
+                    h-3
+                    rounded-full
+                    bg-blue-700
+                    mt-2
+                  "
+                  />
 
-<div
-className="
-space-y-4
-"
->
+                  <div>
 
-{
+                    <p
+                      className="
+                      font-semibold
+                      text-slate-900
+                      dark:text-white
+                    "
+                    >
+                      {activity.action}
+                    </p>
 
-activity.map(
+                    <p
+                      className="
+                      text-sm
+                      text-slate-500
+                      dark:text-slate-400
+                    "
+                    >
+                      {activity.description}
+                    </p>
 
-(item,index)=>(
+                    <p
+                      className="
+                      text-xs
+                      text-slate-400
+                      mt-1
+                    "
+                    >
+                      {activity.module}
+                    </p>
 
-<div
+                  </div>
 
-key={index}
+                </div>
 
-className="
-flex
+              ))
 
-gap-4
+            }
 
-items-center
+          </div>
 
-bg-slate-50
+        )
 
-rounded-xl
+      }
 
-p-4
-"
->
+    </div>
 
-<div
-className="
-w-3
-h-3
-
-rounded-full
-
-bg-blue-700
-"
-/>
-
-<p>
-
-{item}
-
-</p>
-
-</div>
-
-)
-
-)
-
-}
-
-</div>
-
-</div>
-
-)
+  );
 
 }
