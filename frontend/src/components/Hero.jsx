@@ -1,225 +1,316 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import HeroPreview from "./HeroPreview";
 
-export default function Hero(){
+export default function Hero() {
+  return (
+    <section
+      className="
+      relative
+      bg-gradient-to-br
+      from-blue-700
+      via-indigo-800
+      to-purple-900
+      text-white
+      overflow-hidden
+      "
+    >
 
-return(
+      {/* Background Glow Effects */}
 
-<section
-className="
-bg-gradient-to-br
-from-blue-700
-to-indigo-900
+      <div
+        className="
+        absolute
+        top-20
+        left-10
+        w-72
+        h-72
+        bg-blue-400/30
+        rounded-full
+        blur-3xl
+        "
+      />
 
-text-white
+      <div
+        className="
+        absolute
+        bottom-10
+        right-20
+        w-96
+        h-96
+        bg-purple-400/20
+        rounded-full
+        blur-3xl
+        "
+      />
 
-overflow-hidden
-"
+
+     <div
+  className="
+  relative
+  max-w-7xl
+  mx-auto
+  px-6
+  min-h-[calc(100vh-80px)]
+  grid
+  lg:grid-cols-2
+  gap-10
+  items-center
+  "
 >
 
-<div
-className="
-max-w-7xl
-mx-auto
 
-px-6
-py-28
+        {/* Left Content */}
 
-grid
 
-lg:grid-cols-2
+        <motion.div
+          initial={{
+            opacity: 0,
+            x: -50,
+          }}
+          animate={{
+            opacity: 1,
+            x: 0,
+          }}
+          transition={{
+            duration: 0.8,
+          }}
+        >
 
-gap-16
 
-items-center
-"
+          <div
+            className="
+            inline-flex
+            items-center
+            gap-2
+            bg-white/10
+            backdrop-blur-md
+            px-5
+            py-2
+            rounded-full
+            mb-6
+            text-sm
+            "
+          >
+            🚀 Modern CRM Platform
+          </div>
+
+
+
+          <h1
+            className="
+            text-4xl
+            md:text-5xl
+            font-black
+            leading-[1.1]
+            "
+          >
+
+            Manage Customers
+
+            <br />
+
+            Leads & Documents
+
+            <br />
+
+            From One Smart CRM
+
+          </h1>
+
+
+
+          <p
+  className="
+  mt-4
+  text-lg
+  md:text-xl
+  leading-relaxed
+  font-medium
+  text-blue-100
+  max-w-xl
+  tracking-wide
+  "
 >
-
-<div>
-
-<div
-className="
-inline-block
-
-bg-white/10
-
-px-5
-py-2
-
-rounded-full
-
-mb-8
-"
->
-
-🚀 Modern CRM Platform
-
-</div>
-
-<h1
-className="
-text-5xl
-md:text-7xl
-
-font-black
-
-leading-tight
-"
->
-
-Manage Customers
-
-Leads & Documents
-
-From One Smart CRM
-
-</h1>
-
-<p
-className="
-mt-8
-
-text-md
-
-text-blue-100
-
-max-w-[600px]
-"
->
-
-Track customers, manage leads,
-assign tasks and organize
-your business from one dashboard.
-
+  Streamline your customer relationships,
+  manage leads effortlessly, and organize
+  your entire business workflow from one
+  powerful CRM dashboard.
 </p>
 
+
+
+          {/* Buttons */}
+
+
+          {/* CTA Button */}
+
 <div
+  className="
+  mt-8
+  "
+>
+
+  <Link
+    to="/login"
+    className="
+    inline-flex
+    items-center
+    justify-center
+    bg-white
+    text-blue-800
+    px-8
+    py-4
+    rounded-2xl
+    font-bold
+    shadow-xl
+    hover:scale-105
+    hover:shadow-2xl
+    transition
+    duration-300
+    "
+  >
+    Get Started
+  </Link>
+
+</div>
+
+
+          {/* Trust Indicators */}
+
+
+          
+ <div
 className="
 flex
-
 flex-wrap
-
-gap-4
-
-mt-10
+gap-3
+mt-8
 "
 >
 
-<Link
-to="/login"
-
+<span
 className="
-bg-white
-
-text-blue-800
-
-px-8
-py-4
-
-rounded-2xl
-
-font-semibold
-"
->
-
-Get Started
-
-</Link>
-
-<Link
-to="/dashboard"
-
-className="
+px-4
+py-2
+rounded-full
+bg-white/10
+backdrop-blur-md
 border
-
-px-8
-py-4
-
-rounded-2xl
+border-white/20
+text-sm
+text-blue-100
+font-medium
 "
 >
+✓ Secure Platform
+</span>
 
-Live Demo
 
-</Link>
-
-</div>
-
-</div>
-
-<div>
-
-<div
+<span
 className="
-bg-white
-
-rounded-[40px]
-
-p-8
-
-shadow-2xl
+px-4
+py-2
+rounded-full
+bg-white/10
+backdrop-blur-md
+border
+border-white/20
+text-sm
+text-blue-100
+font-medium
 "
 >
+✓ Easy Setup
+</span>
 
-<div
+
+<span
 className="
-grid
-
-grid-cols-2
-
-gap-5
+px-4
+py-2
+rounded-full
+bg-white/10
+backdrop-blur-md
+border
+border-white/20
+text-sm
+text-blue-100
+font-medium
 "
 >
+✓ Real-time Updates
+</span>
 
-<div
-className="
-bg-blue-100
-
-rounded-3xl
-
-h-[180px]
-"
-/>
-
-<div
-className="
-bg-indigo-100
-
-rounded-3xl
-
-h-[180px]
-"
-/>
-
-<div
-className="
-bg-slate-100
-
-rounded-3xl
-
-h-[180px]
-"
-/>
-
-<div
-className="
-bg-blue-50
-
-rounded-3xl
-
-h-[180px]
-"
-/>
 
 </div>
+        </motion.div>
 
-</div>
 
-</div>
 
-</div>
 
-</section>
 
-)
+        {/* Right Preview */}
 
+
+
+        <motion.div
+
+          initial={{
+            opacity: 0,
+            scale: 0.9,
+          }}
+
+          animate={{
+            opacity: 1,
+            scale: 1,
+          }}
+
+          transition={{
+            duration: 0.9,
+            delay: 0.2,
+          }}
+
+         className="
+flex
+justify-center
+lg:justify-end
+relative
+lg:pl-6
+"
+        >
+
+
+          <motion.div
+
+            animate={{
+              y: [0, -10, 0],
+            }}
+
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+
+            className="
+            w-full
+            max-w-[520px]
+            "
+          >
+
+            <HeroPreview />
+
+          </motion.div>
+
+
+        </motion.div>
+
+
+
+      </div>
+
+
+    </section>
+  );
 }
