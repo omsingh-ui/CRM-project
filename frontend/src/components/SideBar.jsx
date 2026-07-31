@@ -1,120 +1,171 @@
 import {
-Link,
-useNavigate
-}
-from "react-router-dom"
+  NavLink,
+  useNavigate,
+} from "react-router-dom";
 
 import {
-logout
-}
-from "../utils/auth"
+  MdDashboard,
+  MdPeople,
+  MdTrackChanges,
+  MdTask,
+  MdSettings,
+  MdLogout,
+} from "react-icons/md";
 
-export default function Sidebar(){
+import { logout } from "../utils/auth";
 
-const navigate=
-useNavigate()
+export default function Sidebar() {
+  const navigate = useNavigate();
 
-function exit(){
+  const menuItems = [
+    {
+      name: "Dashboard",
+      path: "/dashboard",
+      icon: MdDashboard,
+    },
+    {
+      name: "Customers",
+      path: "/customers",
+      icon: MdPeople,
+    },
+    {
+      name: "Leads",
+      path: "/leads",
+      icon: MdTrackChanges,
+    },
+    {
+      name: "Tasks",
+      path: "/tasks",
+      icon: MdTask,
+    },
+    {
+      name: "Settings",
+      path: "/settings",
+      icon: MdSettings,
+    },
+  ];
 
-logout()
+  function handleLogout() {
+    logout();
+    navigate("/login");
+  }
 
-navigate(
-"/login"
-)
+  return (
+    <aside
+      className="
+      flex
+      flex-col
+      justify-between
+      w-full
+      md:w-72
+      min-h-screen
+      bg-slate-900
+      text-white
+      border-r
+      border-slate-800
+      "
+    >
+      {/* Logo */}
+      <div>
+        <div className="px-8 py-8 border-b border-slate-800">
+          <h1 className="text-3xl font-bold tracking-wide">
+            Minivel
+          </h1>
 
-}
+          <p className="text-sm text-slate-400 mt-1">
+            Smart CRM
+          </p>
+        </div>
 
-return(
-<div
-className="
-space-y-3
-"
->
+        {/* Navigation */}
+        <nav className="px-4 py-6 space-y-2">
+          {menuItems.map((item) => {
+            const Icon = item.icon;
 
-<Link
-to="/dashboard"
-className="
-block
-p-4
-rounded-xl
-hover:bg-slate-800
-transition
-"
->
-📊 Dashboard
-</Link>
+            return (
+              <NavLink
+                key={item.name}
+                to={item.path}
+                className={({ isActive }) =>
+                  `
+                  flex
+                  items-center
+                  gap-4
+                  px-5
+                  py-3.5
+                  rounded-xl
+                  transition-all
+                  duration-200
+                  ${
+                    isActive
+                      ? "bg-blue-600 text-white shadow-md"
+                      : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                  }
+                  `
+                }
+              >
+                <Icon size={22} />
 
-<Link
-to="/customers"
-className="
-block
-p-4
-rounded-xl
-hover:bg-slate-800
-transition
-"
->
-👥 Customers
-</Link>
+                <span className="font-medium">
+                  {item.name}
+                </span>
+              </NavLink>
+            );
+          })}
+        </nav>
+      </div>
 
-<Link
-to="/leads"
-className="
-block
-p-4
-rounded-xl
-hover:bg-slate-800
-transition
-"
->
-🎯 Leads
-</Link>
+      {/* Footer */}
+      <div className="border-t border-slate-800 p-5">
+        <div className="flex items-center gap-4 mb-5">
+          <div
+            className="
+            w-12
+            h-12
+            rounded-full
+            bg-blue-600
+            flex
+            items-center
+            justify-center
+            text-lg
+            font-bold
+            "
+          >
+            O
+          </div>
 
-<Link
-to="/tasks"
-className="
-block
-p-4
-rounded-xl
-hover:bg-slate-800
-transition
-"
->
-📋 Tasks
-</Link>
+          <div>
+            <p className="font-semibold">
+              Om Singh
+            </p>
 
-<Link
-to="/settings"
-className="
-block
-p-4
-rounded-xl
-hover:bg-slate-800
-transition
-"
->
-⚙️ Settings
-</Link>
+            <p className="text-sm text-slate-400">
+              Administrator
+            </p>
+          </div>
+        </div>
 
-<button
-onClick={exit}
-className="
-w-full
-bg-red-600
-hover:bg-red-700
-transition
-p-4
-rounded-xl
-mt-6
-"
->
-Logout
-</button>
+        <button
+          onClick={handleLogout}
+          className="
+          flex
+          items-center
+          justify-center
+          gap-2
+          w-full
+          rounded-xl
+          bg-red-600
+          py-3
+          font-medium
+          transition
+          hover:bg-red-700
+          "
+        >
+          <MdLogout size={20} />
 
-</div>
-
-
-
-)
-
+          Logout
+        </button>
+      </div>
+    </aside>
+  );
 }

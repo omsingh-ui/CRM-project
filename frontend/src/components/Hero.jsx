@@ -51,7 +51,7 @@ mb-8
 "
 >
 
-✨ CRM Platform
+🚀 Modern CRM Platform
 
 </div>
 
@@ -66,11 +66,11 @@ leading-tight
 "
 >
 
-Grow Faster
+Manage Customers
 
-With
+Leads & Documents
 
-Minivel
+From One Smart CRM
 
 </h1>
 
@@ -78,7 +78,7 @@ Minivel
 className="
 mt-8
 
-text-lg
+text-md
 
 text-blue-100
 
@@ -86,8 +86,9 @@ max-w-[600px]
 "
 >
 
-Manage customers, leads,
-analytics and growth in one place.
+Track customers, manage leads,
+assign tasks and organize
+your business from one dashboard.
 
 </p>
 
