@@ -1,24 +1,29 @@
-const testimonials=[
+const testimonials = [
+  {
+    name: "Alex Morgan",
+    role: "Founder, Nova Labs",
+    text: "Minivel helped us organize leads faster and improve our customer workflow.",
+    rating: "★★★★★",
+    avatar: "AM",
+  },
 
-{
-name:"Alex",
-role:"Founder",
-text:"Minivel helped us organize our leads faster."
-},
+  {
+    name: "Emma Wilson",
+    role: "Marketing Manager",
+    text: "The clean dashboard and simple workflow made managing our team effortless.",
+    rating: "★★★★★",
+    avatar: "EW",
+  },
 
-{
-name:"Emma",
-role:"Marketing",
-text:"Clean dashboard and simple workflow."
-},
+  {
+    name: "Lucas Smith",
+    role: "Startup Owner",
+    text: "The analytics insights helped us make smarter business decisions.",
+    rating: "★★★★★",
+    avatar: "LS",
+  },
+];
 
-{
-name:"Lucas",
-role:"Startup Owner",
-text:"The analytics improved our decisions."
-}
-
-]
 
 export default function Testimonials(){
 
@@ -27,6 +32,8 @@ return(
 <section
 className="
 py-24
+bg-slate-50
+dark:bg-zinc-950
 "
 >
 
@@ -38,73 +45,118 @@ px-6
 "
 >
 
-<h2
+
+{/* Header */}
+
+<div
 className="
-text-5xl
-font-bold
 text-center
+max-w-3xl
+mx-auto
 "
 >
 
-What Our Clients Say 
+<p
+className="
+text-blue-700
+font-semibold
+"
+>
+Testimonials
+</p>
+
+
+<h2
+className="
+mt-4
+text-4xl
+md:text-5xl
+font-black
+text-slate-900
+dark:text-white
+"
+>
+
+What Our Clients Say
 
 </h2>
+
+
+<p
+className="
+mt-6
+text-lg
+text-slate-600
+dark:text-slate-400
+"
+>
+
+Trusted by growing businesses that use Minivel
+to manage customers, leads, and workflows.
+
+</p>
+
+
+</div>
+
+
+
+{/* Cards */}
 
 <div
 className="
 grid
-
 md:grid-cols-2
-
 lg:grid-cols-3
-
 gap-8
-
-mt-14
+mt-16
 "
 >
 
 {
 
-testimonials.map(
-
-(item)=>(
+testimonials.map((item)=>(
 
 <div
-
 key={item.name}
-
 className="
 bg-white
-
+dark:bg-zinc-900
 rounded-3xl
-
 p-8
-
-shadow
-
+border
+border-slate-200
+dark:border-zinc-800
+shadow-sm
+transition-all
+duration-300
+hover:-translate-y-2
 hover:shadow-2xl
-
-transition
 "
 >
 
+
+{/* Rating */}
+
 <div
 className="
-w-14
-h-14
-
-rounded-full
-
-bg-blue-700
-
+text-yellow-500
+text-xl
 mb-6
 "
-/>
+>
+{item.rating}
+</div>
+
+
+
+{/* Quote */}
 
 <p
 className="
-text-gray-600
+text-slate-600
+dark:text-slate-400
+leading-relaxed
 "
 >
 
@@ -112,11 +164,45 @@ text-gray-600
 
 </p>
 
+
+
+{/* User */}
+
+<div
+className="
+flex
+items-center
+gap-4
+mt-8
+"
+>
+
+<div
+className="
+w-14
+h-14
+rounded-full
+bg-blue-700
+flex
+items-center
+justify-center
+text-white
+font-bold
+"
+>
+
+{item.avatar}
+
+</div>
+
+
+<div>
+
 <h3
 className="
 font-bold
-
-mt-6
+text-slate-900
+dark:text-white
 "
 >
 
@@ -124,9 +210,12 @@ mt-6
 
 </h3>
 
+
 <p
 className="
-text-gray-400
+text-sm
+text-slate-500
+dark:text-slate-400
 "
 >
 
@@ -134,15 +223,22 @@ text-gray-400
 
 </p>
 
+
 </div>
 
-)
 
-)
+</div>
+
+
+</div>
+
+))
 
 }
 
+
 </div>
+
 
 </div>
 
