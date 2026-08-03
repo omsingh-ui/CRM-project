@@ -1,20 +1,16 @@
-import Navbar from "../components/Navbar"
-import Hero from "../components/Hero"
-import DashboardPreview from "../components/DashboardPreview"
-import Features from "../components/Features"
-import Trusted from "../components/Trusted"
-import CTA from "../components/CTA"
-import Footer from "../components/Footer"
-import Testimonials from "../components/Testimonials"
-import Metrics from "../components/Metrics"
+import Hero from "../components/Hero";
+import DashboardPreview from "../components/DashboardPreview";
+import Features from "../components/Features";
+import Trusted from "../components/Trusted";
+import CTA from "../components/CTA";
+import Testimonials from "../components/Testimonials";
+import Metrics from "../components/Metrics";
 import ScrollReveal from "../components/ScrollReveal";
 
 
 export default function Home(){
 
 return (
-
-
 
 <div
 className="
@@ -29,65 +25,98 @@ overflow-x-hidden
 "
 >
 
-{/* NAV */}
-<Navbar />
 
 {/* HERO */}
+
 <section className="pt-10 md:pt-16">
-  <Hero />
+
+<Hero />
+
 </section>
 
+
+
 {/* METRICS */}
+
 <ScrollReveal>
-  <section className="mt-10 md:mt-16">
-    <Metrics />
-  </section>
+
+<section className="mt-10 md:mt-16">
+
+<Metrics />
+
+</section>
+
 </ScrollReveal>
+
+
 
 {/* DASHBOARD PREVIEW */}
+
 <ScrollReveal>
-  <section className="mt-16 md:mt-24">
-    <DashboardPreview />
-  </section>
+
+<section className="mt-16 md:mt-24">
+
+<DashboardPreview />
+
+</section>
+
 </ScrollReveal>
 
+
+
 {/* FEATURES */}
+
 <ScrollReveal>
-  <section className="mt-16 md:mt-24">
-    <Features />
-  </section>
+
+<section className="mt-16 md:mt-24">
+
+<Features />
+
+</section>
+
 </ScrollReveal>
+
+
 
 {/* TRUSTED */}
 
-  <section className="mt-12 md:mt-20">
-    <Trusted />
-  </section>
+<section className="mt-12 md:mt-20">
+
+<Trusted />
+
+</section>
+
 
 
 {/* TESTIMONIALS */}
+
 <ScrollReveal>
-  <section className="mt-16 md:mt-24">
-    <Testimonials />
-  </section>
+
+<section className="mt-16 md:mt-24">
+
+<Testimonials />
+
+</section>
+
 </ScrollReveal>
+
+
 
 {/* CTA */}
+
 <ScrollReveal>
-  <section className="mt-16 md:mt-24">
-    <CTA />
-  </section>
+
+<section className="mt-16 md:mt-24">
+
+<CTA />
+
+</section>
+
 </ScrollReveal>
 
-{/* FOOTER */}
-
-  <section className="mt-16">
-    <Footer />
-  </section>
 
 </div>
 
-
-
 );
+
 }
