@@ -39,7 +39,7 @@ font-bold
 "
 >
 
-Start Building Faster
+Ready to simplify your CRM?
 
 </h2>
 
@@ -51,13 +51,13 @@ text-blue-100
 "
 >
 
-Grow your business with Minivel.
+Manage customers, leads, and tasks from one powerful platform.
 
 </p>
 
 <Link
 
-to="/login"
+to="/register"
 
 className="
 inline-block
@@ -72,13 +72,19 @@ px-8
 py-4
 
 rounded-xl
+
+font-semibold
+
+hover:bg-blue-50
+
+transition
 "
+
 >
 
-Get Started
+Start Using Minivel
 
 </Link>
-
 </div>
 
 </section>

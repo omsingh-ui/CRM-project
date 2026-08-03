@@ -40,9 +40,13 @@ return (
 <div
 className="
 bg-white
+dark:bg-zinc-950
 rounded-[40px]
 shadow-2xl
 p-10
+border
+border-slate-100
+dark:border-zinc-800
 "
 >
 
@@ -51,12 +55,15 @@ className="
 text-4xl
 font-bold
 mb-10
+text-slate-900
+dark:text-white
 "
 >
 
 Dashboard
 
 </h2>
+
 
 <div
 className="
@@ -74,8 +81,15 @@ cards.map((card)=>(
 key={card.title}
 className="
 bg-blue-50
+dark:bg-zinc-900
 rounded-3xl
 p-8
+border
+border-blue-100
+dark:border-zinc-800
+hover:-translate-y-1
+transition
+duration-300
 "
 >
 
@@ -89,16 +103,27 @@ mb-6
 {card.icon}
 </div>
 
-<p className="text-gray-500">
+
+<p
+className="
+text-gray-500
+dark:text-gray-400
+font-medium
+"
+>
 
 {card.title}
 
 </p>
 
+
 <h3
 className="
 text-4xl
 font-bold
+mt-2
+text-slate-900
+dark:text-white
 "
 >
 
@@ -106,12 +131,15 @@ font-bold
 
 </h3>
 
+
 </div>
 
 ))
 }
 
 </div>
+
+
 
 <div
 className="
@@ -121,26 +149,45 @@ rounded-3xl
 bg-gradient-to-r
 from-blue-500
 to-indigo-600
+overflow-hidden
 "
 >
 
-<div className="p-10 text-white">
+<div
+className="
+p-10
+text-white
+"
+>
 
-<h3 className="text-3xl font-bold">
+<h3
+className="
+text-3xl
+font-bold
+"
+>
 
 Sales Analytics
 
 </h3>
 
-<p className="mt-4">
+
+<p
+className="
+mt-4
+text-blue-100
+"
+>
 
 Monthly performance overview
 
 </p>
 
+
 </div>
 
 </div>
+
 
 </div>
 

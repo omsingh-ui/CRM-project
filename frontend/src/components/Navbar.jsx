@@ -44,7 +44,6 @@ shadow-sm
 "
 >
 
-
 <div
 className="
 max-w-7xl
@@ -137,13 +136,11 @@ hover:text-blue-700
 ))
 }
 
-
 </div>
 
 
 
-
-{/* Buttons */}
+{/* Actions */}
 
 <div
 className="
@@ -215,7 +212,6 @@ Get Started
 
 
 </div>
-
 
 </nav>
 

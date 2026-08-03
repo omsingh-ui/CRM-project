@@ -92,7 +92,7 @@ export default function Hero() {
             text-sm
             "
           >
-            🚀 Modern CRM Platform
+            ✨ All-in-one CRM Solution
           </div>
 
 
@@ -110,11 +110,11 @@ export default function Hero() {
 
             <br />
 
-            Leads & Documents
+            Convert Leads
 
             <br />
 
-            From One Smart CRM
+            Grow Your Business
 
           </h1>
 
@@ -132,10 +132,9 @@ export default function Hero() {
   tracking-wide
   "
 >
-  Streamline your customer relationships,
-  manage leads effortlessly, and organize
-  your entire business workflow from one
-  powerful CRM dashboard.
+ Manage customers, track leads, and organize
+your team's workflow with a powerful CRM
+platform built for modern businesses.
 </p>
 
 
@@ -152,7 +151,7 @@ export default function Hero() {
 >
 
   <Link
-    to="/login"
+    to="/register"
     className="
     inline-flex
     items-center
@@ -170,7 +169,7 @@ export default function Hero() {
     duration-300
     "
   >
-    Get Started
+    Create Free Account
   </Link>
 
 </div>
