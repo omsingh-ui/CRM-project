@@ -15,6 +15,7 @@ const About = lazy(() => import("./pages/About"));
 const Features = lazy(() => import("./pages/Features"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const Contact = lazy(() => import("./pages/Contact"));
+const Privacy = lazy(() => import("./pages/Privacy"));
 
 
 
@@ -135,6 +136,8 @@ element={<Pricing />}
 path="/contact"
 element={<Contact />}
 />
+
+<Route path="/privacy" element={<Privacy />} />
 
 
 </Route>
