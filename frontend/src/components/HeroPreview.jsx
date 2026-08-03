@@ -5,6 +5,7 @@ import {
   FaChartLine,
   FaDollarSign,
   FaBell,
+  FaCog,
 } from "react-icons/fa";
 
 import { motion } from "framer-motion";
@@ -145,48 +146,70 @@ export default function HeroPreview() {
 
 
         <div
-          className="
-          flex
-          justify-between
-          items-center
-          px-6
-          py-4
-          bg-slate-100
-          "
-        >
+  className="
+  flex
+  justify-between
+  items-center
+  px-6
+  py-4
+  bg-slate-100
+  "
+>
 
-          <div className="flex gap-2">
+  {/* Browser Buttons */}
 
-            <span className="w-3 h-3 rounded-full bg-red-400"/>
-            <span className="w-3 h-3 rounded-full bg-yellow-400"/>
-            <span className="w-3 h-3 rounded-full bg-green-400"/>
+  <div className="flex gap-2">
 
-          </div>
+    <span className="w-3 h-3 rounded-full bg-red-400" />
+    <span className="w-3 h-3 rounded-full bg-yellow-400" />
+    <span className="w-3 h-3 rounded-full bg-green-400" />
 
+  </div>
 
-          <p className="font-semibold text-slate-700">
-            Minivel CRM
-          </p>
+  {/* Search Bar */}
 
+  <div
+    className="
+    hidden
+    md:flex
+    items-center
+    bg-white
+    border
+    border-slate-200
+    rounded-xl
+    px-4
+    py-2
+    w-52
+    "
+  >
 
-          <div
-            className="
-            w-8
-            h-8
-            rounded-full
-            bg-blue-600
-            text-white
-            flex
-            items-center
-            justify-center
-            text-xs
-            "
-          >
-            OM
-          </div>
+    <span className="text-slate-400 text-sm">
+      🔍 Search customers...
+    </span>
 
+  </div>
 
-        </div>
+  {/* Profile */}
+
+  <div
+    className="
+    w-9
+    h-9
+    rounded-full
+    bg-blue-600
+    text-white
+    flex
+    items-center
+    justify-center
+    text-sm
+    font-semibold
+    shadow-md
+    "
+  >
+    OM
+  </div>
+
+</div>
 
 
 
@@ -200,25 +223,112 @@ export default function HeroPreview() {
 
 
           <div
-            className="
-            hidden
-            md:block
-            w-40
-            bg-slate-900
-            text-white
-            p-5
-            space-y-5
-            text-sm
-            "
-          >
+  className="
+  hidden
+  md:flex
+  flex-col
+  w-44
+  bg-slate-900
+  text-white
+  p-5
+  "
+>
 
-            <p>📊 Dashboard</p>
-            <p>👥 Customers</p>
-            <p>🎯 Leads</p>
-            <p>📋 Tasks</p>
-            <p>⚙ Settings</p>
+  <h2
+    className="
+    text-xl
+    font-bold
+    text-blue-400
+    mb-8
+    "
+  >
+    Minivel
+  </h2>
 
-          </div>
+  <div className="space-y-2">
+
+    <div
+      className="
+      flex
+      items-center
+      gap-3
+      bg-blue-600
+      px-3
+      py-2
+      rounded-xl
+      "
+    >
+      <FaChartLine />
+      <span>Dashboard</span>
+    </div>
+
+    <div
+      className="
+      flex
+      items-center
+      gap-3
+      px-3
+      py-2
+      rounded-xl
+      hover:bg-slate-800
+      transition
+      "
+    >
+      <FaUsers />
+      <span>Customers</span>
+    </div>
+
+    <div
+      className="
+      flex
+      items-center
+      gap-3
+      px-3
+      py-2
+      rounded-xl
+      hover:bg-slate-800
+      transition
+      "
+    >
+      <FaBullseye />
+      <span>Leads</span>
+    </div>
+
+    <div
+      className="
+      flex
+      items-center
+      gap-3
+      px-3
+      py-2
+      rounded-xl
+      hover:bg-slate-800
+      transition
+      "
+    >
+      <FaTasks />
+      <span>Tasks</span>
+    </div>
+
+    <div
+      className="
+      flex
+      items-center
+      gap-3
+      px-3
+      py-2
+      rounded-xl
+      hover:bg-slate-800
+      transition
+      "
+    >
+      <FaCog />
+      <span>Settings</span>
+    </div>
+
+  </div>
+
+</div>
 
 
 
@@ -259,32 +369,42 @@ export default function HeroPreview() {
               "
             >
 
-              {stats.map((item,index)=>(
+              {stats.map((item, index) => (
 
-                <motion.div
+  <motion.div
 
-                  key={item.title}
+    key={item.title}
 
-                  initial={{
-                    opacity:0,
-                    y:20
-                  }}
+    initial={{
+      opacity: 0,
+      y: 20
+    }}
 
-                  animate={{
-                    opacity:1,
-                    y:0
-                  }}
+    animate={{
+      opacity: 1,
+      y: 0
+    }}
 
-                  transition={{
-                    delay:index*0.15
-                  }}
+    transition={{
+      delay: index * 0.15
+    }}
 
-                  className="
-                  bg-blue-50
-                  rounded-2xl
-                  p-4
-                  "
-                >
+    whileHover={{
+      y: -5,
+      scale: 1.03
+    }}
+
+    className="
+    bg-blue-50
+    rounded-2xl
+    p-4
+    shadow-sm
+    hover:shadow-lg
+    transition-all
+    duration-300
+    cursor-pointer
+    "
+  >
 
                   <div className="text-blue-600">
                     {item.icon}
@@ -316,29 +436,64 @@ export default function HeroPreview() {
             {/* Chart */}
 
 
-            <div
-              className="
-              mt-5
-              h-32
-              rounded-2xl
-              bg-gradient-to-r
-              from-blue-100
-              to-indigo-100
-              flex
-              items-center
-              justify-center
-              "
-            >
+           {/* Analytics */}
 
-              <FaChartLine
-                className="
-                text-5xl
-                text-blue-600
-                "
-              />
+<div
+  className="
+  mt-5
+  rounded-2xl
+  bg-gradient-to-r
+  from-blue-50
+  to-indigo-50
+  p-5
+  "
+>
 
+  <div className="flex justify-between items-center mb-4">
 
-            </div>
+    <div>
+
+      <h4 className="font-semibold text-slate-700">
+        Sales Analytics
+      </h4>
+
+      <p className="text-xs text-slate-500">
+        Last 6 Months
+      </p>
+
+    </div>
+
+    <span
+      className="
+      text-green-600
+      text-sm
+      font-semibold
+      "
+    >
+      +18%
+    </span>
+
+  </div>
+
+  <div
+    className="
+    flex
+    items-end
+    justify-between
+    h-24
+    "
+  >
+
+    <div className="w-4 h-10 bg-blue-300 rounded-full"></div>
+    <div className="w-4 h-16 bg-blue-400 rounded-full"></div>
+    <div className="w-4 h-12 bg-blue-500 rounded-full"></div>
+    <div className="w-4 h-20 bg-indigo-500 rounded-full"></div>
+    <div className="w-4 h-14 bg-blue-500 rounded-full"></div>
+    <div className="w-4 h-24 bg-indigo-600 rounded-full"></div>
+
+  </div>
+
+</div>
 
 
 
@@ -346,92 +501,121 @@ export default function HeroPreview() {
 
             {/* Activity */}
 
+{/* Recent Activity */}
 
-            <div className="mt-5">
+<div className="mt-5">
 
+  <div className="flex justify-between items-center mb-3">
 
-              <h4 className="font-bold mb-3">
-                Recent Activity
-              </h4>
+    <h4 className="font-bold text-slate-800">
+      Recent Activity
+    </h4>
 
+    <button className="text-xs text-blue-600 font-medium">
+      View All
+    </button>
 
-              <div className="space-y-2">
+  </div>
 
+  <div className="space-y-3">
 
-                {activities.map(item=>(
+    {activities.map((item, index) => (
 
-                  <div
-                    key={item}
-                    className="
-                    bg-slate-50
-                    rounded-xl
-                    p-3
-                    text-sm
-                    "
-                  >
-
-                    ✓ {item}
-
-                  </div>
-
-                ))}
-
-
-              </div>
-
-
-            </div>
-
-
-
-          </div>
-
-
-        </div>
-
-
-      </motion.div>
-
-
-      {/* Growth Badge */}
-
-
-      <motion.div
-
-        animate={{
-          y:[0,8,0]
-        }}
-
-        transition={{
-          duration:3,
-          repeat:Infinity
-        }}
-
+      <div
+        key={item}
         className="
-        absolute
-        -bottom-5
-        -left-5
-        bg-white
-        shadow-xl
-        rounded-2xl
-        px-5
+        flex
+        items-center
+        justify-between
+        bg-slate-50
+        rounded-xl
+        px-4
         py-3
+        hover:bg-slate-100
+        transition
         "
       >
 
-        <p className="text-xs text-slate-500">
-          Monthly Growth
-        </p>
+        <div className="flex items-center gap-3">
 
-        <p className="font-bold text-green-600">
-          +24%
-        </p>
+          <div
+            className={`
+              w-2.5
+              h-2.5
+              rounded-full
+              ${
+                index === 0
+                  ? "bg-green-500"
+                  : index === 1
+                  ? "bg-blue-500"
+                  : "bg-purple-500"
+              }
+            `}
+          />
 
+          <span className="text-sm text-slate-700">
+            {item}
+          </span>
 
-      </motion.div>
+        </div>
 
+        <span className="text-xs text-slate-400">
+          {index === 0
+            ? "2 min"
+            : index === 1
+            ? "10 min"
+            : "1 hr"}
+        </span>
 
-    </div>
+      </div>
 
-  );
+    ))}
+
+  </div>
+
+</div>
+
+{/* Close Content */}
+</div>
+
+{/* Close Main Layout */}
+</div>
+
+</motion.div>
+
+{/* Growth Badge */}
+
+<motion.div
+  animate={{
+    y: [0, 8, 0],
+  }}
+  transition={{
+    duration: 3,
+    repeat: Infinity,
+  }}
+  className="
+  absolute
+  -bottom-5
+  -left-5
+  bg-white
+  shadow-xl
+  rounded-2xl
+  px-5
+  py-3
+  "
+>
+
+  <p className="text-xs text-slate-500">
+    Monthly Growth
+  </p>
+
+  <p className="font-bold text-green-600">
+    +24%
+  </p>
+
+</motion.div>
+
+</div>
+
+);
 }

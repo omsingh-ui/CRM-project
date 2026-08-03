@@ -7,64 +7,87 @@ import CTA from "../components/CTA"
 import Footer from "../components/Footer"
 import Testimonials from "../components/Testimonials"
 import Metrics from "../components/Metrics"
+import ScrollReveal from "../components/ScrollReveal";
+
 
 export default function Home(){
 
-return(
+return (
 
-<div className="
-bg-gradient-to-b from-blue-50 to-white
-dark:from-zinc-950 dark:to-zinc-950
+
+
+<div
+className="
+bg-gradient-to-b
+from-blue-50
+to-white
+dark:from-zinc-950
+dark:to-zinc-950
 transition
 min-h-screen
 overflow-x-hidden
-">
+"
+>
 
 {/* NAV */}
 <Navbar />
 
 {/* HERO */}
 <section className="pt-10 md:pt-16">
-<Hero />
+  <Hero />
 </section>
 
 {/* METRICS */}
-<section className="mt-10 md:mt-16">
-<Metrics />
-</section>
+<ScrollReveal>
+  <section className="mt-10 md:mt-16">
+    <Metrics />
+  </section>
+</ScrollReveal>
 
 {/* DASHBOARD PREVIEW */}
-<section className="mt-16 md:mt-24">
-<DashboardPreview />
-</section>
+<ScrollReveal>
+  <section className="mt-16 md:mt-24">
+    <DashboardPreview />
+  </section>
+</ScrollReveal>
 
 {/* FEATURES */}
-<section className="mt-16 md:mt-24">
-<Features />
-</section>
+<ScrollReveal>
+  <section className="mt-16 md:mt-24">
+    <Features />
+  </section>
+</ScrollReveal>
 
 {/* TRUSTED */}
-<section className="mt-12 md:mt-20">
-<Trusted />
-</section>
+
+  <section className="mt-12 md:mt-20">
+    <Trusted />
+  </section>
+
 
 {/* TESTIMONIALS */}
-<section className="mt-16 md:mt-24">
-<Testimonials />
-</section>
+<ScrollReveal>
+  <section className="mt-16 md:mt-24">
+    <Testimonials />
+  </section>
+</ScrollReveal>
 
 {/* CTA */}
-<section className="mt-16 md:mt-24">
-<CTA />
-</section>
+<ScrollReveal>
+  <section className="mt-16 md:mt-24">
+    <CTA />
+  </section>
+</ScrollReveal>
 
 {/* FOOTER */}
-<section className="mt-16">
-<Footer />
-</section>
+
+  <section className="mt-16">
+    <Footer />
+  </section>
 
 </div>
 
-)
 
+
+);
 }

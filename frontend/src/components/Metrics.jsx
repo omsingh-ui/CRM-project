@@ -1,120 +1,238 @@
-const metrics=[
+import { motion } from "framer-motion";
 
-{
-value:"10K+",
-label:"Customers"
-},
+import {
+  FaUsers,
+  FaChartLine,
+  FaGlobe,
+  FaHeadset,
+} from "react-icons/fa";
 
-{
-value:"98%",
-label:"Retention"
-},
 
-{
-value:"120+",
-label:"Countries"
-},
+const metrics = [
+  {
+    value: "10K+",
+    label: "Customers",
+    description: "Businesses growing with Minivel",
+    icon: <FaUsers />,
+  },
+  {
+    value: "98%",
+    label: "Retention",
+    description: "Customer satisfaction rate",
+    icon: <FaChartLine />,
+  },
+  {
+    value: "120+",
+    label: "Countries",
+    description: "Global business presence",
+    icon: <FaGlobe />,
+  },
+  {
+    value: "24/7",
+    label: "Support",
+    description: "Always available assistance",
+    icon: <FaHeadset />,
+  },
+];
 
-{
-value:"24/7",
-label:"Support"
-}
 
-]
+export default function Metrics() {
 
-export default function Metrics(){
+  return (
 
-return(
+    <section
+      className="
+      py-16
+      "
+    >
 
-<section
-className="
-py-16
-"
->
+      <div
+        className="
+        max-w-7xl
+        mx-auto
+        px-6
+        "
+      >
 
-<div
-className="
-max-w-7xl
-mx-auto
-px-6
-"
->
 
-<div
-className="
-bg-white
+        <div
+          className="
+          relative
+          overflow-hidden
+          rounded-[40px]
+          bg-white/80
+          dark:bg-zinc-900/80
+          backdrop-blur-xl
+          border
+          border-slate-200
+          dark:border-zinc-800
+          shadow-xl
+          p-8
+          lg:p-12
+          "
+        >
 
-rounded-[40px]
 
-shadow
+          {/* Background Glow */}
 
-grid
+          <div
+            className="
+            absolute
+            -top-20
+            -right-20
+            w-64
+            h-64
+            bg-blue-500/20
+            rounded-full
+            blur-3xl
+            "
+          />
 
-grid-cols-2
 
-lg:grid-cols-4
+          <div
+            className="
+            relative
+            grid
+            grid-cols-1
+            sm:grid-cols-2
+            lg:grid-cols-4
+            gap-6
+            "
+          >
 
-gap-10
 
-p-10
-"
->
+            {metrics.map((item,index)=>(
 
-{
+              <motion.div
 
-metrics.map(
+                key={item.label}
 
-(item)=>(
+                initial={{
+                  opacity:0,
+                  y:30
+                }}
 
-<div
+                whileInView={{
+                  opacity:1,
+                  y:0
+                }}
 
-key={item.label}
+                viewport={{
+                  once:true
+                }}
 
-className="
-text-center
-"
->
+                transition={{
+                  duration:0.5,
+                  delay:index*0.15
+                }}
 
-<h2
-className="
-text-5xl
+                whileHover={{
+                  y:-8
+                }}
 
-font-black
+                className="
+                group
+                bg-white
+                dark:bg-zinc-950
+                rounded-3xl
+                p-6
+                border
+                border-slate-100
+                dark:border-zinc-800
+                hover:shadow-2xl
+                transition
+                "
+              >
 
-text-blue-700
-"
->
 
-{item.value}
+                <div
+                  className="
+                  w-14
+                  h-14
+                  rounded-2xl
+                  bg-gradient-to-br
+                  from-blue-600
+                  to-indigo-600
+                  text-white
+                  flex
+                  items-center
+                  justify-center
+                  text-xl
+                  shadow-lg
+                  group-hover:scale-110
+                  transition
+                  "
+                >
 
-</h2>
+                  {item.icon}
 
-<p
-className="
-mt-4
+                </div>
 
-text-gray-500
-"
->
 
-{item.label}
 
-</p>
+                <h2
+                  className="
+                  mt-6
+                  text-4xl
+                  font-black
+                  text-slate-900
+                  dark:text-white
+                  "
+                >
 
-</div>
+                  {item.value}
 
-)
+                </h2>
 
-)
 
-}
 
-</div>
+                <p
+                  className="
+                  mt-2
+                  text-lg
+                  font-semibold
+                  text-blue-700
+                  dark:text-blue-400
+                  "
+                >
 
-</div>
+                  {item.label}
 
-</section>
+                </p>
 
-)
+
+
+                <p
+                  className="
+                  mt-2
+                  text-sm
+                  text-slate-500
+                  dark:text-slate-400
+                  "
+                >
+
+                  {item.description}
+
+                </p>
+
+
+              </motion.div>
+
+
+            ))}
+
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+  );
 
 }

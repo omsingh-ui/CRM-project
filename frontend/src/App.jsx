@@ -1,27 +1,51 @@
+import { Suspense, lazy } from "react";
 import {
   BrowserRouter,
   Routes,
   Route,
 } from "react-router-dom";
 
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
-import Settings from "./pages/Settings";
+const Home = lazy(() => import("./pages/Home"));
+const Login = lazy(() => import("./pages/Login"));
+const Dashboard = lazy(() => import("./pages/Dashboard"));
+const Settings = lazy(() => import("./pages/Settings"));
 
-// New Pages
-import Customers from "./pages/Customers";
-import Leads from "./pages/Leads";
-import Tasks from "./pages/Tasks";
+const Customers = lazy(() => import("./pages/Customers"));
+const Leads = lazy(() => import("./pages/Leads"));
+const Tasks = lazy(() => import("./pages/Tasks"));
 
 import DashboardLayout from "./layouts/DashboardLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
+import ScrollToTop from "./components/ScrollToTop";
+
 
 export default function App() {
-  return (
-    <BrowserRouter>
-      <div className="min-h-screen bg-slate-50 dark:bg-zinc-950 transition">
+ return (
+  <BrowserRouter>
+    <ScrollToTop />
+
+    <div className="min-h-screen bg-slate-50 dark:bg-zinc-950 transition">
+
+      <Suspense
+        fallback={
+          <div className="min-h-screen flex items-center justify-center">
+            <div
+              className="
+              w-12
+              h-12
+              border-4
+              border-blue-600
+              border-t-transparent
+              rounded-full
+              animate-spin
+              "
+            />
+          </div>
+        }
+      >
+
         <Routes>
+
           {/* ==========================
               PUBLIC ROUTES
           ========================== */}
@@ -41,6 +65,7 @@ export default function App() {
               </ProtectedRoute>
             }
           >
+
             {/* Dashboard */}
             <Route
               path="/dashboard"
@@ -70,9 +95,15 @@ export default function App() {
               path="/settings"
               element={<Settings />}
             />
+
           </Route>
+
         </Routes>
-      </div>
-    </BrowserRouter>
-  );
+
+      </Suspense>
+
+    </div>
+
+  </BrowserRouter>
+);
 }
