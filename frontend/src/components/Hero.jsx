@@ -51,10 +51,10 @@ export default function Hero() {
   max-w-7xl
   mx-auto
   px-6
- min-h-[85vh]
+ min-h-[68vh]
   grid
   lg:grid-cols-2
-  gap-10
+  gap-6
   items-center
   "
 >
