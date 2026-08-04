@@ -6,7 +6,7 @@ import CTA from "../components/CTA";
 import Testimonials from "../components/Testimonials";
 import Metrics from "../components/Metrics";
 import ScrollReveal from "../components/ScrollReveal";
-
+import TechMarquee from "../components/TechMarquee";
 
 export default function Home(){
 
@@ -82,10 +82,23 @@ overflow-x-hidden
 
 <section className="mt-12 md:mt-20">
 
-<Trusted />
+  <Trusted />
 
 </section>
 
+
+
+{/* TECHNOLOGY MARQUEE */}
+
+<ScrollReveal>
+
+<section className="mt-12">
+
+  <TechMarquee />
+
+</section>
+
+</ScrollReveal>
 
 
 {/* TESTIMONIALS */}

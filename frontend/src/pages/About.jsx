@@ -264,17 +264,23 @@ export default function About() {
       {/* Right Side */}
 
       <div
-        className="
-        rounded-[32px]
-        bg-white
-        dark:bg-zinc-900
-        border
-        border-slate-200
-        dark:border-zinc-800
-        shadow-xl
-        p-10
-        "
-      >
+       
+  className="
+  rounded-3xl
+  bg-white
+  dark:bg-zinc-900
+  border
+  border-slate-200
+  dark:border-zinc-800
+  p-8
+  shadow-sm
+  transition-all
+  duration-300
+  hover:-translate-y-2
+  hover:shadow-2xl
+  "
+>
+      
 
         <div className="space-y-8">
 

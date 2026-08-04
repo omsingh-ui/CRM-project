@@ -118,21 +118,23 @@ mt-16
 testimonials.map((item)=>(
 
 <div
-key={item.name}
-className="
-bg-white
-dark:bg-zinc-900
-rounded-3xl
-p-8
-border
-border-slate-200
-dark:border-zinc-800
-shadow-sm
-transition-all
-duration-300
-hover:-translate-y-2
-hover:shadow-2xl
-"
+  key={item.name}
+  className="
+  group
+  bg-white
+  dark:bg-zinc-900
+  rounded-3xl
+  p-8
+  border
+  border-slate-200
+  dark:border-zinc-800
+  shadow-sm
+  transition-all
+  duration-300
+  hover:-translate-y-2
+  hover:shadow-2xl
+  hover:border-blue-300
+  "
 >
 
 
@@ -178,17 +180,26 @@ mt-8
 >
 
 <div
-className="
-w-14
-h-14
-rounded-full
-bg-blue-700
-flex
-items-center
-justify-center
-text-white
-font-bold
-"
+  className="
+  flex
+  h-14
+  w-14
+  items-center
+  justify-center
+  rounded-full
+  bg-gradient-to-br
+  from-blue-600
+  to-indigo-700
+  text-white
+  text-lg
+  font-bold
+  shadow-lg
+  ring-4
+  ring-blue-100
+  transition-all
+  duration-300
+  group-hover:scale-110
+  "
 >
 
 {item.avatar}
