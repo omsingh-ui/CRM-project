@@ -13,7 +13,8 @@ import {
   SiFramer,
 } from "react-icons/si";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 const technologies = [
   {
@@ -65,6 +66,7 @@ const technologies = [
 
 
 export default function TechMarquee() {
+const [selectedTech, setSelectedTech] = useState(null);
 
   return (
     <section
@@ -137,6 +139,7 @@ export default function TechMarquee() {
 
             <motion.div
               key={index}
+               onClick={() => setSelectedTech(tech)}
 
               whileHover={{
                 scale:1.08,
@@ -237,6 +240,132 @@ export default function TechMarquee() {
         </div>
 
       </div>
+
+      <AnimatePresence>
+
+{selectedTech && (
+
+<motion.div
+
+initial={{opacity:0}}
+animate={{opacity:1}}
+exit={{opacity:0}}
+
+onClick={() => setSelectedTech(null)}
+
+className="
+fixed
+inset-0
+z-50
+flex
+items-center
+justify-center
+bg-black/50
+px-6
+"
+
+>
+
+
+<motion.div
+
+initial={{
+scale:0.8,
+opacity:0
+}}
+
+animate={{
+scale:1,
+opacity:1
+}}
+
+exit={{
+scale:0.8,
+opacity:0
+}}
+
+onClick={(e)=>e.stopPropagation()}
+
+className="
+w-full
+max-w-md
+rounded-3xl
+bg-white
+dark:bg-zinc-900
+border
+border-slate-200
+dark:border-zinc-800
+p-8
+text-center
+shadow-2xl
+"
+
+>
+
+
+<div
+className="
+text-6xl
+text-blue-600
+mb-5
+"
+>
+{selectedTech.icon}
+</div>
+
+
+<h2
+className="
+text-3xl
+font-bold
+text-slate-900
+dark:text-white
+"
+>
+{selectedTech.name}
+</h2>
+
+
+<p
+className="
+mt-4
+text-slate-600
+dark:text-slate-400
+"
+>
+{selectedTech.description}
+</p>
+
+
+<button
+
+onClick={()=>setSelectedTech(null)}
+
+className="
+mt-6
+rounded-xl
+bg-blue-600
+px-6
+py-2
+text-white
+font-semibold
+hover:bg-blue-700
+transition
+"
+
+>
+Close
+</button>
+
+
+</motion.div>
+
+
+</motion.div>
+
+)}
+
+</AnimatePresence>
 
 
     </section>
