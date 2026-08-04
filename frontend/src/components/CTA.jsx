@@ -1,94 +1,171 @@
-import { Link }
-from "react-router-dom"
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
-export default function CTA(){
+export default function CTA() {
+  return (
+    <section id="cta" className="py-24">
 
-return(
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="max-w-6xl mx-auto px-6"
+      >
 
-<section
+        <div
+          className="
+          relative
+          overflow-hidden
+          rounded-[40px]
+          bg-gradient-to-r
+          from-blue-700
+          via-indigo-700
+          to-purple-800
+          px-10
+          py-16
+          text-center
+          text-white
+          shadow-2xl
+          "
+        >
 
-id="cta"
+          {/* Background Glow */}
 
-className="
-py-24
-"
->
-<div
-className="
-max-w-5xl
+          <div
+            className="
+            absolute
+            -top-16
+            -left-16
+            h-64
+            w-64
+            rounded-full
+            bg-white/10
+            blur-3xl
+            "
+          />
 
-mx-auto
+          <div
+            className="
+            absolute
+            -bottom-20
+            -right-20
+            h-72
+            w-72
+            rounded-full
+            bg-cyan-400/20
+            blur-3xl
+            "
+          />
 
-bg-blue-700
+          {/* Content */}
 
-rounded-[40px]
+          <div className="relative">
 
-text-white
+            <span
+              className="
+              inline-block
+              rounded-full
+              border
+              border-white/20
+              bg-white/10
+              px-5
+              py-2
+              text-sm
+              font-semibold
+              backdrop-blur
+              "
+            >
+              ✨ Start Growing Today
+            </span>
 
-p-12
+            <h2
+              className="
+              mt-8
+              text-4xl
+              md:text-6xl
+              font-black
+              leading-tight
+              "
+            >
+              Build Stronger
+              <br />
+              Customer Relationships
+            </h2>
 
-text-center
-"
->
+            <p
+              className="
+              mx-auto
+              mt-6
+              max-w-2xl
+              text-lg
+              text-blue-100
+              leading-8
+              "
+            >
+              Manage customers, track leads, organize tasks, and grow your
+              business from one modern CRM platform.
+            </p>
 
-<h2
-className="
-text-5xl
+            <div
+              className="
+              mt-10
+              flex
+              flex-col
+              sm:flex-row
+              justify-center
+              gap-4
+              "
+            >
 
-font-bold
-"
->
+              <Link
+                to="/register"
+                className="
+                rounded-xl
+                bg-white
+                px-8
+                py-4
+                font-semibold
+                text-blue-700
+                shadow-lg
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:bg-blue-50
+                "
+              >
+                Create Free Account
+              </Link>
 
-Ready to simplify your CRM?
+              <Link
+                to="/features"
+                className="
+                rounded-xl
+                border
+                border-white/30
+                bg-white/10
+                px-8
+                py-4
+                font-semibold
+                text-white
+                backdrop-blur
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:bg-white/20
+                "
+              >
+                Explore Features
+              </Link>
 
-</h2>
+            </div>
 
-<p
-className="
-mt-6
+          </div>
 
-text-blue-100
-"
->
+        </div>
 
-Manage customers, leads, and tasks from one powerful platform.
+      </motion.div>
 
-</p>
-
-<Link
-
-to="/register"
-
-className="
-inline-block
-
-mt-10
-
-bg-white
-
-text-blue-700
-
-px-8
-py-4
-
-rounded-xl
-
-font-semibold
-
-hover:bg-blue-50
-
-transition
-"
-
->
-
-Start Using Minivel
-
-</Link>
-</div>
-
-</section>
-
-)
-
+    </section>
+  );
 }
