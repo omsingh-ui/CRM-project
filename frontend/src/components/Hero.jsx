@@ -51,7 +51,7 @@ export default function Hero() {
   max-w-7xl
   mx-auto
   px-6
-  min-h-[calc(100vh-80px)]
+ min-h-[85vh]
   grid
   lg:grid-cols-2
   gap-10
@@ -270,12 +270,14 @@ font-medium
             delay: 0.2,
           }}
 
-         className="
+        className="
 flex
 justify-center
 lg:justify-end
+items-start
 relative
 lg:pl-6
+pt-8
 "
         >
 
@@ -292,10 +294,11 @@ lg:pl-6
               ease: "easeInOut",
             }}
 
-            className="
-            w-full
-            max-w-[520px]
-            "
+           className="
+w-full
+max-w-[600px]
+xl:max-w-[640px]
+"
           >
 
             <HeroPreview />

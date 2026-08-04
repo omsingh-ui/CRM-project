@@ -60,20 +60,24 @@ export default function HeroPreview() {
     repeat: Infinity,
     ease: "easeInOut",
   }}
-  className="
-  absolute
-  top-4
-  right-4
-  bg-white
-  text-slate-800
-  rounded-2xl
-  shadow-[0_15px_35px_rgba(0,0,0,0.15)]
-  px-4
-  py-3
-  z-20
-  border
-  border-slate-100
-  "
+ className="
+absolute
+top-3
+right-3
+z-20
+
+bg-white/95
+backdrop-blur-xl
+
+rounded-2xl
+border
+border-slate-200
+
+shadow-2xl
+
+px-3
+py-2.5
+"
 >
   <div className="flex items-center gap-3">
 
@@ -120,24 +124,24 @@ export default function HeroPreview() {
           scale:0.95
         }}
 
-        animate={{
-          opacity:1,
-          scale:1
-        }}
-
+       animate={{
+  opacity:1,
+  scale:0.94
+}}
         transition={{
           duration:0.8
         }}
 
-        className="
-        rounded-[32px]
-        bg-white/90
-        backdrop-blur-xl
-        border
-        border-white/40
-        shadow-2xl
-        overflow-hidden
-        "
+       className="
+w-full
+rounded-[32px]
+bg-white/90
+backdrop-blur-xl
+border
+border-white/40
+shadow-2xl
+overflow-hidden
+"
       >
 
 
@@ -179,7 +183,7 @@ export default function HeroPreview() {
     rounded-xl
     px-4
     py-2
-    w-52
+    w-36
     "
   >
 
@@ -223,16 +227,18 @@ export default function HeroPreview() {
 
 
           <div
+  
   className="
   hidden
   md:flex
   flex-col
-  w-44
+  w-36
   bg-slate-900
   text-white
-  p-5
+  p-4
   "
 >
+
 
   <h2
     className="
@@ -338,11 +344,11 @@ export default function HeroPreview() {
 
 
           <div
-            className="
-            flex-1
-            p-5
-            "
-          >
+  className="
+  flex-1
+  p-4
+  "
+>
 
 
             <h3
@@ -364,8 +370,8 @@ export default function HeroPreview() {
               className="
               grid
               grid-cols-3
-              gap-3
-              mt-4
+gap-2
+mt-3
               "
             >
 
@@ -393,7 +399,7 @@ export default function HeroPreview() {
   border
   border-slate-200
   bg-white
-  p-4
+  p-3
   shadow-sm
   transition-all
   duration-300
@@ -407,8 +413,8 @@ export default function HeroPreview() {
     <div
       className="
       flex
-      h-10
-      w-10
+      h-9
+      w-9
       items-center
       justify-center
       rounded-xl
@@ -437,7 +443,7 @@ export default function HeroPreview() {
 
   <p
     className="
-    mt-4
+    mt-3
     text-xs
     font-medium
     text-slate-500
@@ -449,7 +455,7 @@ export default function HeroPreview() {
   <h4
     className="
     mt-1
-    text-2xl
+    text-xl
     font-bold
     text-slate-900
     "
@@ -659,23 +665,24 @@ export default function HeroPreview() {
     duration: 3,
     repeat: Infinity,
   }}
-  className="
-  absolute
-  -bottom-5
-  -left-5
-  bg-white
-  shadow-xl
-  rounded-2xl
-  px-5
-  py-3
-  "
+ className="
+absolute
+bottom-3
+left-3
+bg-white
+shadow-xl
+rounded-2xl
+px-4
+py-2.5
+z-20
+"
 >
 
-  <p className="text-xs text-slate-500">
+  <p className="text-[10px] text-slate-500">
     Monthly Growth
   </p>
 
-  <p className="font-bold text-green-600">
+  <p className="text-sm font-bold text-green-600">
     +24%
   </p>
 
