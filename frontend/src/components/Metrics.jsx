@@ -14,24 +14,48 @@ const metrics = [
     label: "Customers",
     description: "Businesses growing with Minivel",
     icon: <FaUsers />,
+    theme:
+      "from-blue-500/20 to-blue-500/5",
+    iconStyle:
+      "from-blue-600 to-indigo-600",
+    badge:
+      "Trusted worldwide",
   },
   {
     value: "98%",
     label: "Retention",
     description: "Customer satisfaction rate",
     icon: <FaChartLine />,
+    theme:
+      "from-purple-500/20 to-purple-500/5",
+    iconStyle:
+      "from-purple-600 to-pink-600",
+    badge:
+      "High satisfaction",
   },
   {
     value: "120+",
     label: "Countries",
     description: "Global business presence",
     icon: <FaGlobe />,
+    theme:
+      "from-emerald-500/20 to-emerald-500/5",
+    iconStyle:
+      "from-emerald-500 to-teal-600",
+    badge:
+      "Global reach",
   },
   {
     value: "24/7",
     label: "Support",
     description: "Always available assistance",
     icon: <FaHeadset />,
+    theme:
+      "from-orange-500/20 to-orange-500/5",
+    iconStyle:
+      "from-orange-500 to-red-500",
+    badge:
+      "Always online",
   },
 ];
 
@@ -40,19 +64,9 @@ export default function Metrics() {
 
   return (
 
-    <section
-      className="
-      py-16
-      "
-    >
+    <section className="py-16">
 
-      <div
-        className="
-        max-w-7xl
-        mx-auto
-        px-6
-        "
-      >
+      <div className="max-w-7xl mx-auto px-6">
 
 
         <div
@@ -60,8 +74,8 @@ export default function Metrics() {
           relative
           overflow-hidden
           rounded-[40px]
-          bg-white/80
-          dark:bg-zinc-900/80
+          bg-white/70
+          dark:bg-zinc-900/70
           backdrop-blur-xl
           border
           border-slate-200
@@ -73,18 +87,18 @@ export default function Metrics() {
         >
 
 
-          {/* Background Glow */}
+          {/* Background glow */}
 
           <div
             className="
             absolute
-            -top-20
+            -top-32
             -right-20
-            w-64
-            h-64
+            w-80
+            h-80
             bg-blue-500/20
-            rounded-full
             blur-3xl
+            rounded-full
             "
           />
 
@@ -107,66 +121,100 @@ export default function Metrics() {
 
                 key={item.label}
 
+
                 initial={{
                   opacity:0,
                   y:30
                 }}
+
 
                 whileInView={{
                   opacity:1,
                   y:0
                 }}
 
+
                 viewport={{
                   once:true
                 }}
+
 
                 transition={{
                   duration:0.5,
                   delay:index*0.15
                 }}
 
+
                 whileHover={{
-                  y:-8
+                  y:-10
                 }}
 
-                className="
+
+                className={`
                 group
+                relative
+                overflow-hidden
+                rounded-3xl
+                border
+                border-slate-200
+                dark:border-zinc-800
+                bg-gradient-to-br
+                ${item.theme}
                 bg-white
                 dark:bg-zinc-950
-                rounded-3xl
                 p-6
-                border
-                border-slate-100
-                dark:border-zinc-800
+                shadow-lg
                 hover:shadow-2xl
                 transition
-                "
+                `}
               >
 
 
+                {/* Card glow */}
+
                 <div
                   className="
+                  absolute
+                  -right-10
+                  -top-10
+                  w-32
+                  h-32
+                  rounded-full
+                  bg-white/20
+                  blur-3xl
+                  "
+                />
+
+
+                {/* Icon */}
+
+                <motion.div
+
+                  whileHover={{
+                    scale:1.15,
+                    rotate:5
+                  }}
+
+
+                  className={`
+                  relative
                   w-14
                   h-14
                   rounded-2xl
                   bg-gradient-to-br
-                  from-blue-600
-                  to-indigo-600
+                  ${item.iconStyle}
                   text-white
                   flex
                   items-center
                   justify-center
                   text-xl
                   shadow-lg
-                  group-hover:scale-110
-                  transition
-                  "
+                  `}
                 >
 
                   {item.icon}
 
-                </div>
+                </motion.div>
 
 
 
@@ -179,9 +227,7 @@ export default function Metrics() {
                   dark:text-white
                   "
                 >
-
                   {item.value}
-
                 </h2>
 
 
@@ -190,14 +236,12 @@ export default function Metrics() {
                   className="
                   mt-2
                   text-lg
-                  font-semibold
-                  text-blue-700
-                  dark:text-blue-400
+                  font-bold
+                  text-slate-800
+                  dark:text-white
                   "
                 >
-
                   {item.label}
-
                 </p>
 
 
@@ -206,18 +250,35 @@ export default function Metrics() {
                   className="
                   mt-2
                   text-sm
-                  text-slate-500
+                  text-slate-600
                   dark:text-slate-400
                   "
                 >
-
                   {item.description}
-
                 </p>
 
 
-              </motion.div>
 
+                <div
+                  className="
+                  mt-5
+                  inline-flex
+                  rounded-full
+                  bg-white/60
+                  dark:bg-black/20
+                  px-3
+                  py-1
+                  text-xs
+                  font-semibold
+                  text-slate-700
+                  dark:text-slate-300
+                  "
+                >
+                  ● {item.badge}
+                </div>
+
+
+              </motion.div>
 
             ))}
 
@@ -234,5 +295,4 @@ export default function Metrics() {
     </section>
 
   );
-
 }
