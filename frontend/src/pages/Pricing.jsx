@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ScrollReveal from "../components/ScrollReveal";
 
 export default function Pricing() {
 
@@ -52,6 +53,7 @@ export default function Pricing() {
 
         <div className="text-center">
 
+         <ScrollReveal>
           <span
             className="
             inline-block
@@ -67,7 +69,9 @@ export default function Pricing() {
           >
             Pricing
           </span>
+          </ScrollReveal>
 
+          <ScrollReveal delay={0.1}>
           <h1
             className="
             mt-6
@@ -79,6 +83,9 @@ export default function Pricing() {
           >
             Simple Pricing
           </h1>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.2}>
 
           <p
             className="
@@ -94,179 +101,217 @@ export default function Pricing() {
             upgrade anytime as your team grows.
           </p>
 
+          </ScrollReveal>
+
         </div>
 
         {/* Pricing Cards */}
 
-        <div className="grid gap-8 md:grid-cols-3 mt-20">
+       <div className="grid gap-8 md:grid-cols-3 mt-20">
 
-          {plans.map((plan) => (
+  {plans.map((plan, index) => (
 
-            <div
-              key={plan.name}
-              className={`
-                relative
-                rounded-3xl
-                p-8
-                transition-all
-                duration-300
-                hover:-translate-y-2
-                hover:shadow-2xl
-                ${
-                  plan.popular
-                    ? "bg-blue-700 text-white shadow-2xl"
-                    : "bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800"
-                }
-              `}
-            >
+    <ScrollReveal
+      key={plan.name}
+      delay={index * 0.12}
+    >
 
-              {plan.popular && (
+      <div
+        className={`
+          relative
+          rounded-3xl
+          p-8
+          transition-all
+          duration-300
+          hover:-translate-y-2
+          hover:shadow-2xl
+          ${
+            plan.popular
+              ? "bg-blue-700 text-white shadow-2xl"
+              : "bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800"
+          }
+        `}
+      >
 
-                <span
-                  className="
-                  absolute
-                  -top-4
-                  left-1/2
-                  -translate-x-1/2
-                  bg-white
-                  text-blue-700
-                  px-4
-                  py-2
-                  rounded-full
-                  text-sm
-                  font-bold
-                  shadow-lg
-                  "
-                >
-                  Most Popular
-                </span>
+        {plan.popular && (
 
-              )}
+          <span
+            className="
+            absolute
+            -top-4
+            left-1/2
+            -translate-x-1/2
+            bg-white
+            text-blue-700
+            px-4
+            py-2
+            rounded-full
+            text-sm
+            font-bold
+            shadow-lg
+            "
+          >
+            Most Popular
+          </span>
 
-              <h2
-                className="
-                text-3xl
-                font-bold
-                mt-4
-                "
-              >
-                {plan.name}
-              </h2>
+        )}
 
-              <p
-                className="
-                mt-6
-                text-5xl
-                font-black
-                "
-              >
-                {plan.price}
-              </p>
+        <h2
+          className="
+          text-3xl
+          font-bold
+          mt-4
+          "
+        >
+          {plan.name}
+        </h2>
 
-              <p
-                className={`mt-4 ${
-                  plan.popular
-                    ? "text-blue-100"
-                    : "text-slate-600 dark:text-slate-400"
-                }`}
-              >
-                {plan.description}
-              </p>
+        <p
+          className="
+          mt-6
+          text-5xl
+          font-black
+          "
+        >
+          {plan.price}
+        </p>
 
-              <ul className="mt-8 space-y-4">
+        <p
+          className={`mt-4 ${
+            plan.popular
+              ? "text-blue-100"
+              : "text-slate-600 dark:text-slate-400"
+          }`}
+        >
+          {plan.description}
+        </p>
 
-                {plan.features.map((feature) => (
+        <ul className="mt-8 space-y-4">
 
-                  <li key={feature}>
-                    ✓ {feature}
-                  </li>
+          {plan.features.map((feature) => (
 
-                ))}
-
-              </ul>
-
-              <Link
-                to="/register"
-                className={`
-                  mt-10
-                  w-full
-                  flex
-                  justify-center
-                  items-center
-                  py-3
-                  rounded-xl
-                  font-semibold
-                  transition
-                  ${
-                    plan.popular
-                      ? "bg-white text-blue-700 hover:bg-slate-100"
-                      : "bg-blue-700 text-white hover:bg-blue-800"
-                  }
-                `}
-              >
-                Get Started
-              </Link>
-
-            </div>
+            <li key={feature}>
+              ✓ {feature}
+            </li>
 
           ))}
 
-        </div>
+        </ul>
+
+        <Link
+          to="/register"
+          className={`
+            mt-10
+            w-full
+            flex
+            justify-center
+            items-center
+            py-3
+            rounded-xl
+            font-semibold
+            transition
+            ${
+              plan.popular
+                ? "bg-white text-blue-700 hover:bg-slate-100"
+                : "bg-blue-700 text-white hover:bg-blue-800"
+            }
+          `}
+        >
+          Get Started
+        </Link>
+
+      </div>
+
+    </ScrollReveal>
+
+  ))}
+
+</div>
 
         {/* FAQ */}
 
         <div className="mt-24 max-w-3xl mx-auto">
 
-          <h2
-            className="
-            text-3xl
-            font-bold
-            text-center
-            text-slate-900
-            dark:text-white
-            "
-          >
-            Frequently Asked Questions
-          </h2>
+  <ScrollReveal>
 
-          <div className="mt-10 space-y-6">
+    <h2
+      className="
+      text-3xl
+      font-bold
+      text-center
+      text-slate-900
+      dark:text-white
+      "
+    >
+      Frequently Asked Questions
+    </h2>
 
-            <div className="rounded-2xl border border-slate-200 dark:border-zinc-800 p-6">
-              <h3 className="font-bold text-lg dark:text-white">
-                Can I upgrade later?
-              </h3>
+  </ScrollReveal>
 
-              <p className="mt-2 text-slate-600 dark:text-slate-400">
-                Yes. You can switch plans anytime without losing your data.
-              </p>
-            </div>
+  <div className="mt-10 space-y-6">
 
-            <div className="rounded-2xl border border-slate-200 dark:border-zinc-800 p-6">
-              <h3 className="font-bold text-lg dark:text-white">
-                Is there a free trial?
-              </h3>
+    <ScrollReveal delay={0.1}>
 
-              <p className="mt-2 text-slate-600 dark:text-slate-400">
-                Our Free plan lets you explore the core CRM features without any cost.
-              </p>
-            </div>
+      <div className="rounded-2xl border border-slate-200 dark:border-zinc-800 p-6">
 
-            <div className="rounded-2xl border border-slate-200 dark:border-zinc-800 p-6">
-              <h3 className="font-bold text-lg dark:text-white">
-                Do you offer enterprise solutions?
-              </h3>
+        <h3 className="font-bold text-lg dark:text-white">
+          Can I upgrade later?
+        </h3>
 
-              <p className="mt-2 text-slate-600 dark:text-slate-400">
-                Yes. We provide custom integrations, dedicated support, and scalable deployments.
-              </p>
-            </div>
+        <p className="mt-2 text-slate-600 dark:text-slate-400">
+          Yes. You can switch plans anytime without losing your data.
+        </p>
 
-          </div>
+      </div>
 
-        </div>
+    </ScrollReveal>
 
+    <ScrollReveal delay={0.2}>
+
+      <div className="rounded-2xl border border-slate-200 dark:border-zinc-800 p-6">
+
+        <h3 className="font-bold text-lg dark:text-white">
+          Is there a free trial?
+        </h3>
+
+        <p className="mt-2 text-slate-600 dark:text-slate-400">
+          Our Free plan lets you explore the core CRM features without any cost.
+        </p>
+
+      </div>
+
+    </ScrollReveal>
+
+    <ScrollReveal delay={0.3}>
+
+      <div className="rounded-2xl border border-slate-200 dark:border-zinc-800 p-6">
+
+        <h3 className="font-bold text-lg dark:text-white">
+          Do you offer enterprise solutions?
+        </h3>
+
+        <p className="mt-2 text-slate-600 dark:text-slate-400">
+          Yes. We provide custom integrations, dedicated support, and scalable deployments.
+        </p>
+
+      </div>
+
+    </ScrollReveal>
+
+  </div>
+
+</div>
+
+       
+            
+            
+            
+
+         
         {/* CTA */}
 
+
+        <ScrollReveal>
         <div
           className="
           mt-24
@@ -307,6 +352,7 @@ export default function Pricing() {
           </Link>
 
         </div>
+        </ScrollReveal>
 
       </div>
 

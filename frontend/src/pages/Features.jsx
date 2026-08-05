@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+import ScrollReveal from "../components/ScrollReveal";
 export default function Features() {
 
   const features = [
@@ -46,60 +48,88 @@ export default function Features() {
 
         {/* Hero */}
 
-        <div className="text-center max-w-3xl mx-auto">
+       <div className="text-center max-w-3xl mx-auto">
 
-          <span
-            className="
-            inline-block
-            px-4
-            py-2
-            rounded-full
-            bg-blue-100
-            dark:bg-blue-900/30
-            text-blue-700
-            dark:text-blue-300
-            font-semibold
-            "
-          >
-            Features
-          </span>
+  <ScrollReveal>
+    <span
+      className="
+      inline-block
+      px-4
+      py-2
+      rounded-full
+      bg-blue-100
+      dark:bg-blue-900/30
+      text-blue-700
+      dark:text-blue-300
+      font-semibold
+      "
+    >
+      Features
+    </span>
+  </ScrollReveal>
 
-          <h1
-            className="
-            mt-6
-            text-5xl
-            font-black
-            text-slate-900
-            dark:text-white
-            "
-          >
-            Everything You Need To Grow
-          </h1>
 
-          <p
-            className="
-            mt-6
-            text-lg
-            text-slate-600
-            dark:text-slate-400
-            leading-relaxed
-            "
-          >
-            Minivel combines customer management, lead tracking,
-            analytics, task organization, and secure collaboration
-            into one modern CRM platform built for growing businesses.
-          </p>
+  <ScrollReveal delay={0.1}>
 
-        </div>
+    <h1
+      className="
+      mt-6
+      text-5xl
+      font-black
+      text-slate-900
+      dark:text-white
+      "
+    >
+      Everything You Need To Grow
+    </h1>
 
+  </ScrollReveal>
+
+
+  <ScrollReveal delay={0.2}>
+
+    <p
+      className="
+      mt-6
+      text-lg
+      text-slate-600
+      dark:text-slate-400
+      leading-relaxed
+      "
+    >
+      Minivel combines customer management, lead tracking,
+      analytics, task organization, and secure collaboration
+      into one modern CRM platform built for growing businesses.
+    </p>
+
+  </ScrollReveal>
+
+</div>
         {/* Features */}
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mt-20">
+{features.map((feature, index) => (
 
-          {features.map((feature) => (
+           <motion.div
+initial={{
+ opacity:0,
+ y:40,
+}}
 
-            <div
-              key={feature.title}
+whileInView={{
+ opacity:1,
+ y:0,
+}}
+
+viewport={{
+ once:true,
+ amount:0.2,
+}}
+
+transition={{
+ duration:0.5,
+ delay:index*0.12,
+}}
               className="
               bg-white
               dark:bg-zinc-900
@@ -142,120 +172,138 @@ export default function Features() {
                 {feature.description}
               </p>
 
-            </div>
+            </motion.div>
 
           ))}
 
         </div>
 
-        {/* How It Works */}
+          
+         
+   {/* HOW IT WORKS
+========================== */}
 
-        <div className="mt-24">
+<div className="mt-24">
 
-          <h2
-            className="
-            text-4xl
-            font-bold
-            text-center
-            text-slate-900
-            dark:text-white
-            "
-          >
-            How It Works
-          </h2>
+  <motion.h2
+  initial={{
+    opacity: 0,
+    y: 30,
+  }}
+  whileInView={{
+    opacity: 1,
+    y: 0,
+  }}
+  viewport={{
+    once: true,
+    amount: 0.6,
+  }}
+  transition={{
+    duration: 0.5,
+  }}
+  className="
+  text-4xl
+  font-bold
+  text-center
+  text-slate-900
+  dark:text-white
+  "
+>
+  How It Works
+</motion.h2>
 
-          <div className="grid md:grid-cols-3 gap-8 mt-12">
+  <div className="grid md:grid-cols-3 gap-8 mt-12">
 
-            <div
-              className="
-              rounded-3xl
-              bg-white
-              dark:bg-zinc-900
-              border
-              border-slate-200
-              dark:border-zinc-800
-              p-8
-              text-center
-              transition-all
-              duration-300
-              hover:-translate-y-2
-              hover:shadow-xl
-              "
-            >
+    {[
+      {
+        number: "1️⃣",
+        title: "Add Customers",
+        description:
+          "Save customer information securely and keep everything organized.",
+      },
+      {
+        number: "2️⃣",
+        title: "Track Progress",
+        description:
+          "Manage leads, monitor tasks, and stay on top of every opportunity.",
+      },
+      {
+        number: "3️⃣",
+        title: "Grow Your Business",
+        description:
+          "Use analytics and insights to make smarter business decisions.",
+      },
+    ].map((step, index) => (
 
-              <div className="text-5xl mb-5">1️⃣</div>
+      <motion.div
+        key={step.title}
 
-              <h3 className="text-2xl font-bold dark:text-white">
-                Add Customers
-              </h3>
+        initial={{
+          opacity: 0,
+          y: 40,
+        }}
 
-              <p className="mt-3 text-slate-600 dark:text-slate-400">
-                Save customer information securely and keep everything organized.
-              </p>
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
 
-            </div>
+        viewport={{
+          once: true,
+          amount: 0.25,
+        }}
 
-            <div
-              className="
-              rounded-3xl
-              bg-white
-              dark:bg-zinc-900
-              border
-              border-slate-200
-              dark:border-zinc-800
-              p-8
-              text-center
-              transition-all
-              duration-300
-              hover:-translate-y-2
-              hover:shadow-xl
-              "
-            >
+        transition={{
+          duration: 0.5,
+          delay: index * 0.15,
+        }}
 
-              <div className="text-5xl mb-5">2️⃣</div>
+        whileHover={{
+          y: -8,
+        }}
 
-              <h3 className="text-2xl font-bold dark:text-white">
-                Track Progress
-              </h3>
+        className="
+        rounded-3xl
+        bg-white
+        dark:bg-zinc-900
+        border
+        border-slate-200
+        dark:border-zinc-800
+        p-8
+        text-center
+        shadow-sm
+        transition-all
+        duration-300
+        hover:shadow-xl
+        "
+      >
 
-              <p className="mt-3 text-slate-600 dark:text-slate-400">
-                Manage leads, monitor tasks, and stay on top of every opportunity.
-              </p>
-
-            </div>
-
-            <div
-              className="
-              rounded-3xl
-              bg-white
-              dark:bg-zinc-900
-              border
-              border-slate-200
-              dark:border-zinc-800
-              p-8
-              text-center
-              transition-all
-              duration-300
-              hover:-translate-y-2
-              hover:shadow-xl
-              "
-            >
-
-              <div className="text-5xl mb-5">3️⃣</div>
-
-              <h3 className="text-2xl font-bold dark:text-white">
-                Grow Your Business
-              </h3>
-
-              <p className="mt-3 text-slate-600 dark:text-slate-400">
-                Use analytics and insights to make smarter business decisions.
-              </p>
-
-            </div>
-
-          </div>
-
+        <div className="text-5xl mb-5">
+          {step.number}
         </div>
+
+        <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
+          {step.title}
+        </h3>
+
+        <p
+          className="
+          mt-3
+          text-slate-600
+          dark:text-slate-400
+          leading-relaxed
+          "
+        >
+          {step.description}
+        </p>
+
+      </motion.div>
+
+    ))}
+
+  </div>
+
+</div>
 
         {/* Bottom Summary */}
 
