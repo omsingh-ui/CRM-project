@@ -40,7 +40,7 @@ overflow-x-hidden
 
 <ScrollReveal>
 
-<section className="mt-10 md:mt-16">
+<section  className="border-t border-slate-200 dark:border-zinc-800 pt-2">
 
 <Metrics />
 
@@ -54,7 +54,7 @@ overflow-x-hidden
 
 <ScrollReveal>
 
-<section className="mt-16 md:mt-24">
+<section className="border-t border-slate-200 dark:border-zinc-800 pt-2">
 
 <DashboardPreview />
 
@@ -68,7 +68,7 @@ overflow-x-hidden
 
 <ScrollReveal>
 
-<section className="mt-16 md:mt-24">
+<section className="border-t border-slate-200 dark:border-zinc-800 pt-2">
 
 <Features />
 
@@ -80,7 +80,7 @@ overflow-x-hidden
 
 {/* TRUSTED */}
 
-<section className="mt-12 md:mt-20">
+<section  className="border-t border-slate-200 dark:border-zinc-800 pt-2">
 
   <Trusted />
 
@@ -92,7 +92,7 @@ overflow-x-hidden
 
 <ScrollReveal>
 
-<section className="mt-12">
+<section className="border-t border-slate-200 dark:border-zinc-800 pt-2">
 
   <TechMarquee />
 
@@ -105,7 +105,7 @@ overflow-x-hidden
 
 <ScrollReveal>
 
-<section className="mt-16 md:mt-24">
+<section className="border-t border-slate-200 dark:border-zinc-800 pt-2">
 
 <Testimonials />
 
@@ -119,7 +119,7 @@ overflow-x-hidden
 
 <ScrollReveal>
 
-<section className="mt-16 md:mt-24">
+<section className="border-t border-slate-200 dark:border-zinc-800 pt-2">
 
 <CTA />
 
