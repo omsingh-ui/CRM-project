@@ -2,305 +2,292 @@ import ScrollReveal from "../components/ScrollReveal";
 
 export default function Contact() {
   return (
+    <section className="py-24 bg-slate-50 dark:bg-zinc-950">
 
-<section className="pt-32 pb-24 bg-slate-50 dark:bg-zinc-950">
+      <div className="max-w-7xl mx-auto px-6">
 
-  {/* Hero */}
+        {/* ================= HERO ================= */}
 
-  <div className="max-w-3xl mx-auto px-6 text-center">
+        <div className="max-w-3xl mx-auto text-center">
 
-    <ScrollReveal>
+          <ScrollReveal>
 
-      <span
-        className="
-        inline-flex
-        items-center
-        justify-center
-        px-5
-        py-2.5
-        rounded-full
-        bg-blue-100
-        dark:bg-blue-900/30
-        text-blue-700
-        dark:text-blue-300
-        font-semibold
-        "
-      >
-        Contact
-      </span>
-
-    </ScrollReveal>
-
-    <ScrollReveal delay={0.1}>
-
-      <h1
-        className="
-        mt-8
-        text-5xl
-        md:text-6xl
-        font-black
-        tracking-tight
-        leading-tight
-        text-slate-900
-        dark:text-white
-        "
-      >
-        We'd Love to Hear From You
-      </h1>
-
-    </ScrollReveal>
-
-    <ScrollReveal delay={0.2}>
-
-      <p
-        className="
-        mt-8
-        text-lg
-        leading-8
-        text-slate-600
-        dark:text-slate-400
-        max-w-2xl
-        mx-auto
-        "
-      >
-        Whether you have a question, need support, or want to
-        learn more about Minivel, we're always happy to help.
-        Reach out and our team will get back to you as soon as possible.
-      </p>
-
-    </ScrollReveal>
-
-  </div>
-
-  {/* Contact Cards */}
-
-  <section className="pt-24">
-
-    <div className="max-w-6xl mx-auto px-6">
-
-      <div className="grid gap-8 md:grid-cols-3">
-
-        {/* Email */}
-
-        <ScrollReveal delay={0.1}>
-
-          <div
-            className="
-            group
-            relative
-            overflow-hidden
-            rounded-[30px]
-            border
-            border-slate-200
-            dark:border-zinc-800
-            bg-white
-            dark:bg-zinc-900
-            p-10
-            shadow-lg
-            transition-all
-            duration-500
-            hover:-translate-y-3
-            hover:shadow-2xl
-            "
-          >
-
-            <div
+            <span
               className="
-              flex
-              h-16
-              w-16
+              inline-flex
               items-center
               justify-center
-              rounded-2xl
-              bg-blue-50
-              dark:bg-blue-900/20
-              text-3xl
-              transition-transform
-              duration-300
-              group-hover:scale-110
+              px-5
+              py-2.5
+              rounded-full
+              bg-blue-100
+              dark:bg-blue-900/30
+              text-blue-700
+              dark:text-blue-300
+              font-semibold
               "
             >
-              📧
-            </div>
+              Contact
+            </span>
 
-            <h3
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.1}>
+
+            <h1
               className="
-              mt-8
-              text-xl
-              font-bold
+              mt-6
+              text-5xl
+              md:text-6xl
+              font-black
+              tracking-tight
               text-slate-900
               dark:text-white
               "
             >
-              Email
-            </h3>
+              We'd Love to Hear From You
+            </h1>
+
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.2}>
 
             <p
               className="
-              mt-4
-              leading-7
+              mt-6
+              text-lg
+              leading-8
               text-slate-600
               dark:text-slate-400
               "
             >
-              support@minivel.com
+              Whether you have a question, need support, or want to
+              learn more about Minivel, we're always happy to help.
+              Reach out and our team will get back to you as soon as possible.
             </p>
 
-          </div>
+          </ScrollReveal>
 
-        </ScrollReveal>
+        </div>
 
-        {/* Phone */}
+        {/* ================= CONTACT CARDS ================= */}
 
-        <ScrollReveal delay={0.2}>
+        <div className="grid md:grid-cols-3 gap-8 mt-24">
 
-          <div
-            className="
-            group
-            relative
-            overflow-hidden
-            rounded-[30px]
-            border
-            border-slate-200
-            dark:border-zinc-800
-            bg-white
-            dark:bg-zinc-900
-            p-10
-            shadow-lg
-            transition-all
-            duration-500
-            hover:-translate-y-3
-            hover:shadow-2xl
-            "
-          >
+          {/* Email */}
+
+          <ScrollReveal delay={0.1}>
 
             <div
               className="
-              flex
-              h-16
-              w-16
-              items-center
-              justify-center
-              rounded-2xl
-              bg-blue-50
-              dark:bg-blue-900/20
-              text-3xl
-              transition-transform
-              duration-300
-              group-hover:scale-110
+              group
+              h-full
+              rounded-[30px]
+              border
+              border-slate-200
+              dark:border-zinc-800
+              bg-white
+              dark:bg-zinc-900
+              p-10
+              shadow-lg
+              transition-all
+              duration-500
+              hover:-translate-y-3
+              hover:shadow-2xl
               "
             >
-              📞
+
+              <div
+                className="
+                w-16
+                h-16
+                rounded-2xl
+                bg-blue-50
+                dark:bg-blue-900/20
+                flex
+                items-center
+                justify-center
+                text-3xl
+                transition-transform
+                duration-300
+                group-hover:scale-110
+                "
+              >
+                📧
+              </div>
+
+              <h3
+                className="
+                mt-8
+                text-2xl
+                font-bold
+                text-slate-900
+                dark:text-white
+                "
+              >
+                Email
+              </h3>
+
+              <p
+                className="
+                mt-4
+                leading-7
+                text-slate-600
+                dark:text-slate-400
+                "
+              >
+                support@minivel.com
+              </p>
+
             </div>
 
-            <h3
-              className="
-              mt-8
-              text-xl
-              font-bold
-              text-slate-900
-              dark:text-white
-              "
-            >
-              Phone
-            </h3>
+          </ScrollReveal>
 
-            <p
-              className="
-              mt-4
-              leading-7
-              text-slate-600
-              dark:text-slate-400
-              "
-            >
-              +91 98765 43210
-            </p>
+          {/* Phone */}
 
-          </div>
-
-        </ScrollReveal>
-
-        {/* Location */}
-
-        <ScrollReveal delay={0.3}>
-
-          <div
-            className="
-            group
-            relative
-            overflow-hidden
-            rounded-[30px]
-            border
-            border-slate-200
-            dark:border-zinc-800
-            bg-white
-            dark:bg-zinc-900
-            p-10
-            shadow-lg
-            transition-all
-            duration-500
-            hover:-translate-y-3
-            hover:shadow-2xl
-            "
-          >
+          <ScrollReveal delay={0.2}>
 
             <div
               className="
-              flex
-              h-16
-              w-16
-              items-center
-              justify-center
-              rounded-2xl
-              bg-blue-50
-              dark:bg-blue-900/20
-              text-3xl
-              transition-transform
-              duration-300
-              group-hover:scale-110
+              group
+              h-full
+              rounded-[30px]
+              border
+              border-slate-200
+              dark:border-zinc-800
+              bg-white
+              dark:bg-zinc-900
+              p-10
+              shadow-lg
+              transition-all
+              duration-500
+              hover:-translate-y-3
+              hover:shadow-2xl
               "
             >
-              📍
+
+              <div
+                className="
+                w-16
+                h-16
+                rounded-2xl
+                bg-blue-50
+                dark:bg-blue-900/20
+                flex
+                items-center
+                justify-center
+                text-3xl
+                transition-transform
+                duration-300
+                group-hover:scale-110
+                "
+              >
+                📞
+              </div>
+
+              <h3
+                className="
+                mt-8
+                text-2xl
+                font-bold
+                text-slate-900
+                dark:text-white
+                "
+              >
+                Phone
+              </h3>
+
+              <p
+                className="
+                mt-4
+                leading-7
+                text-slate-600
+                dark:text-slate-400
+                "
+              >
+                +91 98765 43210
+              </p>
+
             </div>
 
-            <h3
+          </ScrollReveal>
+
+          {/* Location */}
+
+          <ScrollReveal delay={0.3}>
+
+            <div
               className="
-              mt-8
-              text-xl
-              font-bold
-              text-slate-900
-              dark:text-white
+              group
+              h-full
+              rounded-[30px]
+              border
+              border-slate-200
+              dark:border-zinc-800
+              bg-white
+              dark:bg-zinc-900
+              p-10
+              shadow-lg
+              transition-all
+              duration-500
+              hover:-translate-y-3
+              hover:shadow-2xl
               "
             >
-              Location
-            </h3>
 
-            <p
-              className="
-              mt-4
-              leading-7
-              text-slate-600
-              dark:text-slate-400
-              "
-            >
-              Mumbai, India
-            </p>
+              <div
+                className="
+                w-16
+                h-16
+                rounded-2xl
+                bg-blue-50
+                dark:bg-blue-900/20
+                flex
+                items-center
+                justify-center
+                text-3xl
+                transition-transform
+                duration-300
+                group-hover:scale-110
+                "
+              >
+                📍
+              </div>
 
-          </div>
+              <h3
+                className="
+                mt-8
+                text-2xl
+                font-bold
+                text-slate-900
+                dark:text-white
+                "
+              >
+                Location
+              </h3>
 
-        </ScrollReveal>
+              <p
+                className="
+                mt-4
+                leading-7
+                text-slate-600
+                dark:text-slate-400
+                "
+              >
+                Mumbai, India
+              </p>
 
-      </div>
+            </div>
 
-    </div>
+          </ScrollReveal>
 
-  </section>
+        </div>
 
-        {/* Contact Form */}
+        {/* ================= CONTACT FORM ================= */}
 
-      <section className="pt-24">
+        
 
-        <div className="max-w-4xl mx-auto px-6">
+              <div className="max-w-4xl mx-auto mt-24">
 
           <ScrollReveal>
 
@@ -341,13 +328,13 @@ export default function Contact() {
                   dark:text-slate-400
                   "
                 >
-                  We'd love to hear from you. Fill out the form below
-                  and our team will get back to you as soon as possible.
+                  We'd love to hear from you. Fill out the form below and our
+                  team will get back to you as soon as possible.
                 </p>
 
               </div>
 
-              <form className="mt-12 space-y-7">
+              <form className="mt-12 space-y-6">
 
                 <input
                   type="text"
@@ -458,10 +445,9 @@ export default function Contact() {
 
         </div>
 
-      </section>
+      </div>
 
     </section>
 
   );
-
 }
