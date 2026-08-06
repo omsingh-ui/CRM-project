@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 
 
@@ -59,85 +59,141 @@ justify-between
 >
 
 
+
 {/* Logo */}
 
 <Link
-to="/"
-className="
-flex
-items-center
-gap-3
-font-black
-text-2xl
-text-slate-900
-dark:text-white
-"
+  to="/"
+  className="
+  group
+  flex
+  items-center
+  gap-3
+  transition-all
+  duration-300
+  "
 >
+  {/* Logo Icon */}
+  <div
+    className="
+    relative
+    flex
+    h-12
+    w-12
+    items-center
+    justify-center
+    rounded-2xl
+    bg-gradient-to-br
+    from-blue-600
+    to-indigo-700
+    text-white
+    shadow-lg
+    shadow-blue-500/30
+    transition-all
+    duration-300
+    group-hover:-translate-y-1
+    group-hover:shadow-2xl
+    group-hover:shadow-blue-500/40
+    "
+  >
+    {/* Glow */}
+    <div
+      className="
+      absolute
+      inset-0
+      rounded-2xl
+      bg-white/20
+      opacity-0
+      blur-md
+      transition-opacity
+      duration-300
+      group-hover:opacity-100
+      "
+    />
 
-<div
-className="
-h-10
-w-10
-rounded-xl
-bg-blue-700
-flex
-items-center
-justify-center
-text-white
-shadow-lg
-"
->
-M
-</div>
+    <span className="relative text-xl font-black tracking-tight">
+      M
+    </span>
+  </div>
 
+  {/* Logo Text */}
+  <div className="leading-none">
+    <h1
+      className="
+      text-2xl
+      font-extrabold
+      tracking-tight
+      text-slate-900
+      dark:text-white
+      transition-colors
+      duration-300
+      "
+    >
+      Mini
+      <span className="text-blue-600">vel</span>
+    </h1>
 
-<span>
-Mini<span className="text-blue-700">vel</span>
-</span>
-
-
+    <p
+      className="
+      mt-1
+      text-[11px]
+      font-medium
+      uppercase
+      tracking-[0.25em]
+      text-slate-500
+      "
+    >
+      CRM PLATFORM
+    </p>
+  </div>
 </Link>
+
+
+
 
 
 
 {/* Navigation */}
 
 <div
-className="
-hidden
-md:flex
-items-center
-gap-8
-"
+  className="
+  hidden
+  md:flex
+  items-center
+  gap-10
+  "
 >
+  {navItems.map((item) => (
+    <Link
+      key={item.name}
+      to={item.href}
+      className="
+      relative
+      py-2
+      text-[15px]
+      font-semibold
+      text-slate-600
+      dark:text-slate-300
+      transition-all
+      duration-300
+      hover:text-blue-600
 
-{
-navItems.map((item)=>(
+      after:absolute
+      after:left-0
+      after:bottom-0
+      after:h-[2px]
+      after:w-0
+      after:rounded-full
+      after:bg-blue-600
+      after:transition-all
+      after:duration-300
 
-<Link
-
-key={item.name}
-
-to={item.href}
-
-className="
-text-slate-600
-dark:text-slate-300
-font-medium
-transition-all
-duration-300
-hover:text-blue-700
-"
-
->
-
-{item.name}
-
-</Link>
-
-))
-}
-
+      hover:after:w-full
+      "
+    >
+      {item.name}
+    </Link>
+  ))}
 </div>
 
 

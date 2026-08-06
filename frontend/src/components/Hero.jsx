@@ -8,41 +8,58 @@ export default function Hero() {
       className="
       relative
       bg-gradient-to-br
-      from-blue-700
-      via-indigo-800
-      to-purple-900
+from-blue-600
+via-blue-700
+to-indigo-800
       text-white
       overflow-hidden
       "
     >
 
+      {/* Light Overlay */}
+  <div
+    className="
+    absolute
+    inset-0
+    bg-gradient-to-b
+    from-white/5
+    via-transparent
+    to-transparent
+    pointer-events-none
+    "
+  />
+
       {/* Background Glow Effects */}
 
-      <div
-        className="
-        absolute
-        top-20
-        left-10
-        w-72
-        h-72
-        bg-blue-400/30
-        rounded-full
-        blur-3xl
-        "
-      />
+     
 
-      <div
-        className="
-        absolute
-        bottom-10
-        right-20
-        w-96
-        h-96
-        bg-purple-400/20
-        rounded-full
-        blur-3xl
-        "
-      />
+<div
+  className="
+  absolute
+  top-0
+  left-1/2
+  -translate-x-1/2
+  h-[500px]
+  w-[500px]
+  rounded-full
+  bg-blue-400/20
+  blur-[120px]
+  "
+/>
+
+<div
+  className="
+  absolute
+  -bottom-24
+  right-0
+  h-[420px]
+  w-[420px]
+  rounded-full
+  bg-indigo-500/15
+  blur-[120px]
+  "
+/>
+
 
 
      <div

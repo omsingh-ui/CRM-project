@@ -8,129 +8,90 @@ import Metrics from "../components/Metrics";
 import ScrollReveal from "../components/ScrollReveal";
 import TechMarquee from "../components/TechMarquee";
 
-export default function Home(){
+export default function Home() {
+  return (
+    <div
+      className="
+      bg-gradient-to-b
+      from-blue-50
+      via-white
+      to-white
+      dark:from-zinc-950
+      dark:via-zinc-950
+      dark:to-zinc-950
+      min-h-screen
+      overflow-x-hidden
+      transition-colors
+      duration-300
+      "
+    >
+      {/* HERO */}
+      <section className="pt-10 md:pt-16">
+        <Hero />
+      </section>
 
-return (
+     
 
-<div
-className="
-bg-gradient-to-b
-from-blue-50
-to-white
-dark:from-zinc-950
-dark:to-zinc-950
-transition
-min-h-screen
-overflow-x-hidden
-"
+      {/* DASHBOARD PREVIEW */}
+<ScrollReveal
+  duration={0.45}
+  distance={0}
+  scale={1}
 >
-
-
-{/* HERO */}
-
-<section className="pt-10 md:pt-16">
-
-<Hero />
-
-</section>
-
-
-
-{/* METRICS */}
-
-<ScrollReveal>
-
-<section  className="border-t border-slate-200 dark:border-zinc-800 pt-2">
-
-<Metrics />
-
-</section>
-
+  <section className="border-t border-slate-200 dark:border-zinc-800">
+    <DashboardPreview />
+  </section>
 </ScrollReveal>
 
+       {/* METRICS */}
+      <ScrollReveal
+        duration={0.6}
+        distance={15}
+      >
+        <section className="border-t border-slate-200 dark:border-zinc-800">
+          <Metrics />
+        </section>
+      </ScrollReveal>
 
+      {/* FEATURES */}
+      <section className="border-t border-slate-200 dark:border-zinc-800">
+        <Features />
+      </section>
 
-{/* DASHBOARD PREVIEW */}
+      {/* TRUSTED */}
+      <ScrollReveal
+        duration={0.7}
+        distance={20}
+      >
+        <section className="border-t border-slate-200 dark:border-zinc-800">
+          <Trusted />
+        </section>
+      </ScrollReveal>
 
-<ScrollReveal>
+      {/* TECHNOLOGY */}
+      <ScrollReveal
+        duration={0.8}
+        distance={15}
+      >
+        <section className="border-t border-slate-200 dark:border-zinc-800">
+          <TechMarquee />
+        </section>
+      </ScrollReveal>
 
-<section className="border-t border-slate-200 dark:border-zinc-800 pt-2">
+      {/* TESTIMONIALS */}
+      <section className="border-t border-slate-200 dark:border-zinc-800">
+        <Testimonials />
+      </section>
 
-<DashboardPreview />
-
-</section>
-
-</ScrollReveal>
-
-
-
-{/* FEATURES */}
-
-<ScrollReveal>
-
-<section className="border-t border-slate-200 dark:border-zinc-800 pt-2">
-
-<Features />
-
-</section>
-
-</ScrollReveal>
-
-
-
-{/* TRUSTED */}
-
-<section  className="border-t border-slate-200 dark:border-zinc-800 pt-2">
-
-  <Trusted />
-
-</section>
-
-
-
-{/* TECHNOLOGY MARQUEE */}
-
-<ScrollReveal>
-
-<section className="border-t border-slate-200 dark:border-zinc-800 pt-2">
-
-  <TechMarquee />
-
-</section>
-
-</ScrollReveal>
-
-
-{/* TESTIMONIALS */}
-
-<ScrollReveal>
-
-<section className="border-t border-slate-200 dark:border-zinc-800 pt-2">
-
-<Testimonials />
-
-</section>
-
-</ScrollReveal>
-
-
-
-{/* CTA */}
-
-<ScrollReveal>
-
-<section className="border-t border-slate-200 dark:border-zinc-800 pt-2">
-
-<CTA />
-
-</section>
-
-</ScrollReveal>
-
-
-
-</div>
-
-);
-
+      {/* CTA */}
+      <ScrollReveal
+        duration={1}
+        distance={60}
+      >
+        <section className="border-t border-slate-200 dark:border-zinc-800">
+          <CTA />
+        </section>
+      </ScrollReveal>
+    </div>
+  );
 }
