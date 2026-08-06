@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { login } from "../api/authApi";
+import Logo from "../components/Logo";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -73,25 +74,55 @@ export default function Login() {
         p-10
       "
       >
-        {/* Header */}
+       {/* Header */}
 
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-4xl font-bold text-slate-900 dark:text-white">
-            Login
-          </h1>
+<div className="mb-10">
 
-          <Link
-            to="/"
-            className="
-            text-blue-700
-            hover:text-blue-800
-            font-medium
-          "
-          >
-            ← Home
-          </Link>
-        </div>
+  <div className="flex justify-center">
+    <Logo size="text-4xl" />
+  </div>
 
+  <h1
+    className="
+    mt-8
+    text-center
+    text-4xl
+    font-bold
+    text-slate-900
+    dark:text-white
+    "
+  >
+    Welcome Back
+  </h1>
+
+  <p
+    className="
+    mt-3
+    text-center
+    text-slate-500
+    dark:text-slate-400
+    "
+  >
+    Sign in to access your CRM workspace.
+  </p>
+
+  <div className="mt-6 text-center">
+
+    <Link
+      to="/"
+      className="
+      text-sm
+      font-medium
+      text-blue-700
+      hover:text-blue-800
+      "
+    >
+      ← Back to Home
+    </Link>
+
+  </div>
+
+</div>
         {/* Email */}
 
         <input

@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
+import Logo from "../components/Logo";
 
 
 const navItems = [
@@ -117,35 +118,51 @@ justify-between
   </div>
 
   {/* Logo Text */}
-  <div className="leading-none">
-    <h1
-      className="
-      text-2xl
-      font-extrabold
-      tracking-tight
-      text-slate-900
-      dark:text-white
-      transition-colors
-      duration-300
-      "
-    >
-      Mini
-      <span className="text-blue-600">vel</span>
-    </h1>
+  
+  
 
-    <p
+<div className="leading-none">
+  <h1
+    className="
+    text-2xl
+    md:text-3xl
+    font-black
+    tracking-tight
+    text-slate-900
+    dark:text-white
+    transition-colors
+    duration-300
+    "
+  >
+    Mini
+    <span
       className="
-      mt-1
-      text-[11px]
-      font-medium
-      uppercase
-      tracking-[0.25em]
-      text-slate-500
+      bg-gradient-to-r
+      from-blue-600
+      to-indigo-600
+      bg-clip-text
+      text-transparent
       "
     >
-      CRM PLATFORM
-    </p>
-  </div>
+      vel
+    </span>
+  </h1>
+
+ <p
+  className="
+  mt-1
+  text-[10px]
+  font-medium
+  uppercase
+  tracking-[0.4em]
+  text-slate-800/70
+  dark:text-slate-500/70
+  "
+>
+  SMART CRM
+
+</p>
+</div>
 </Link>
 
 

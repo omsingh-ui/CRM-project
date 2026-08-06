@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 
 import { motion } from "framer-motion";
+import Logo from "./Logo";
 
 
 const stats = [
@@ -240,16 +241,41 @@ overflow-hidden
 >
 
 
-  <h2
-    className="
-    text-xl
-    font-bold
-    text-blue-400
-    mb-8
-    "
-  >
-    Minivel
-  </h2>
+  <div className="mb-8">
+
+  <div className="flex items-center gap-3">
+
+    <div
+      className="
+      h-10
+      w-10
+      rounded-xl
+      bg-gradient-to-br
+      from-blue-500
+      to-purple-600
+      flex
+      items-center
+      justify-center
+      text-lg
+      font-black
+      text-white
+      shadow-lg
+      flex-shrink-0
+      "
+    >
+      M
+    </div>
+
+    <Logo
+      size="text-xl"
+      primary="text-white"
+      accent="text-blue-400"
+      showTagline={false}
+    />
+
+  </div>
+
+</div>
 
   <div className="space-y-2">
 

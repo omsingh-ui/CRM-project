@@ -5,7 +5,7 @@ import {
   FaLinkedin,
   FaArrowUp,
 } from "react-icons/fa";
-
+import Logo from "./Logo";
 export default function Footer() {
   const productLinks = [
     {
@@ -123,12 +123,11 @@ export default function Footer() {
                 M
               </div>
 
-              <h2 className="text-4xl font-black">
-                Mini
-                <span className="text-blue-400">
-                  vel
-                </span>
-              </h2>
+            <Logo
+  size="text-4xl"
+  primary="text-white"
+  accent="text-blue-400"
+/>
             </div>
 
             <p

@@ -1,3 +1,4 @@
+
 import {
   NavLink,
   useNavigate,
@@ -13,6 +14,7 @@ import {
 } from "react-icons/md";
 
 import { logout } from "../utils/auth";
+import Logo from "../components/Logo";
 
 export default function Sidebar() {
   const navigate = useNavigate();
@@ -66,16 +68,40 @@ export default function Sidebar() {
       "
     >
       {/* Logo */}
-      <div>
-        <div className="px-8 py-8 border-b border-slate-800">
-          <h1 className="text-3xl font-bold tracking-wide">
-            Minivel
-          </h1>
+     <div className="px-8 py-8 border-b border-slate-800">
 
-          <p className="text-sm text-slate-400 mt-1">
-            Smart CRM
-          </p>
-        </div>
+  <div className="flex items-center gap-3">
+
+    <div
+      className="
+      h-12
+      w-12
+      rounded-2xl
+      bg-gradient-to-br
+      from-blue-500
+      to-purple-600
+      flex
+      items-center
+      justify-center
+      text-2xl
+      font-black
+      text-white
+      shadow-lg
+      "
+    >
+      M
+    </div>
+
+    <Logo
+      size="text-2xl"
+      primary="text-white"
+      accent="text-blue-400"
+      showTagline={false}
+    />
+
+  </div>
+
+
 
         {/* Navigation */}
         <nav className="px-4 py-6 space-y-2">
