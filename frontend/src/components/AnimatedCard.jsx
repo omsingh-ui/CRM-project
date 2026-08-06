@@ -1,47 +1,37 @@
 import { motion } from "framer-motion";
 
-export default function ScrollReveal({
+export default function AnimatedCard({
   children,
-  delay = 0,
-  duration = 0.5,
-  distance = 20,
   direction = "up",
-  scale = 1,
-  once = true,
-  amount = 0.25,
+  delay = 0,
   className = "",
 }) {
   const directions = {
-    up: { x: 0, y: distance },
-    down: { x: 0, y: -distance },
-    left: { x: distance, y: 0 },
-    right: { x: -distance, y: 0 },
-    none: { x: 0, y: 0 },
+    up: { x: 0, y: 30 },
+    left: { x: -30, y: 0 },
+    right: { x: 30, y: 0 },
   };
 
-  const { x, y } = directions[direction] || directions.up;
+  const initial = directions[direction] || directions.up;
 
   return (
     <motion.div
       className={className}
       initial={{
         opacity: 0,
-        x,
-        y,
-        scale,
+        ...initial,
       }}
       whileInView={{
         opacity: 1,
         x: 0,
         y: 0,
-        scale: 1,
       }}
       viewport={{
-        once,
-        amount,
+        once: true,
+        amount: 0.25,
       }}
       transition={{
-        duration,
+        duration: 0.5,
         delay,
         ease: [0.16, 1, 0.3, 1],
       }}
