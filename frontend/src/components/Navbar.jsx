@@ -70,10 +70,12 @@ justify-between
   flex
   items-center
   gap-3
-  transition-all
+  transition-transform
   duration-300
+  hover:scale-[1.02]
   "
 >
+
   {/* Logo Icon */}
   <div
     className="
@@ -196,16 +198,18 @@ justify-between
       hover:text-blue-600
 
       after:absolute
-      after:left-0
-      after:bottom-0
-      after:h-[2px]
-      after:w-0
-      after:rounded-full
-      after:bg-blue-600
-      after:transition-all
-      after:duration-300
+     after:absolute
+after:left-1/2
+after:-translate-x-1/2
+after:-bottom-1
+after:h-[2px]
+after:w-0
+after:rounded-full
+after:bg-blue-600
+after:transition-[width]
+after:duration-300
 
-      hover:after:w-full
+hover:after:w-full
       "
     >
       {item.name}

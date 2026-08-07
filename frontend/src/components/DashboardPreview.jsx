@@ -95,7 +95,10 @@ export default function DashboardPreview() {
           dark:border-zinc-800
           bg-white
           dark:bg-zinc-950
-          shadow-[0_30px_80px_rgba(15,23,42,0.12)]
+         shadow-[0_40px_120px_rgba(15,23,42,0.18)]
+hover:shadow-[0_50px_140px_rgba(15,23,42,0.22)]
+transition-shadow
+duration-500
           p-8
           "
         >
@@ -302,12 +305,13 @@ export default function DashboardPreview() {
       bg-white
       dark:bg-zinc-900
       p-6
-      transition-all
-      duration-300
-      hover:-translate-y-1
-      hover:border-blue-200
-      hover:shadow-xl
-      "
+     transition
+duration-300
+hover:-translate-y-2
+hover:scale-[1.02]
+hover:border-blue-200
+hover:shadow-2xl
+"
     >
 
       {/* Top */}
@@ -339,19 +343,26 @@ export default function DashboardPreview() {
           {item.icon}
         </div>
 
-        <span
-          className="
-          rounded-full
-          bg-emerald-100
-          px-3
-          py-1
-          text-xs
-          font-semibold
-          text-emerald-700
-          "
-        >
-          {item.change}
-        </span>
+       <span
+  className="
+  inline-flex
+  items-center
+  gap-1.5
+  rounded-full
+  bg-emerald-50
+  border
+  border-emerald-200
+  px-3
+  py-1
+  text-xs
+  font-semibold
+  text-emerald-700
+  "
+>
+  <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+
+  {item.change}
+</span>
 
       </div>
 
@@ -462,17 +473,20 @@ export default function DashboardPreview() {
 
   <div
     className="
-    lg:col-span-2
-    rounded-[32px]
-    bg-gradient-to-br
-    from-blue-600
-    via-indigo-700
-    to-blue-900
-    p-8
-    text-white
-    overflow-hidden
-    relative
-    "
+lg:col-span-2
+rounded-[32px]
+bg-gradient-to-br
+from-blue-600
+via-indigo-700
+to-blue-900
+border
+border-white/10
+shadow-[0_30px_80px_rgba(37,99,235,0.35)]
+p-8
+text-white
+overflow-hidden
+relative
+"
   >
 
     {/* Background Glow */}
@@ -697,7 +711,26 @@ export default function DashboardPreview() {
 
     {/* Timeline */}
 
-    <div className="mt-8 space-y-6">
+    {/* Timeline */}
+
+<div
+  className="
+  relative
+  mt-8
+  space-y-6
+  "
+>
+  <div
+  className="
+  absolute
+  left-5
+  top-2
+  bottom-2
+  w-px
+  bg-slate-200
+  dark:bg-zinc-700
+  "
+/>
 
       {activity.map((item) => (
 
@@ -711,20 +744,26 @@ export default function DashboardPreview() {
         >
 
           <div
-            className={`
-            h-11
-            w-11
-            rounded-full
-            flex
-            items-center
-            justify-center
-            font-semibold
-            text-sm
-            ${item.color}
-            `}
-          >
-            {item.initials}
-          </div>
+  className={`
+    relative
+    z-10
+    flex
+    h-11
+    w-11
+    items-center
+    justify-center
+    rounded-full
+    border-2
+    border-white
+    dark:border-zinc-900
+    font-semibold
+    text-sm
+    shadow-md
+    ${item.color}
+  `}
+>
+  {item.initials}
+</div>
 
           <div className="flex-1">
 

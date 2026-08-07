@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { FaArrowRight } from "react-icons/fa";
 
 export default function CTA() {
   return (
@@ -32,31 +33,49 @@ export default function CTA() {
 
           {/* Background Glow */}
 
-          <div
-            className="
-            absolute
-            -top-16
-            -left-16
-            h-64
-            w-64
-            rounded-full
-            bg-white/10
-            blur-3xl
-            "
-          />
+          <motion.div
+  animate={{
+    x: [0, 15, 0],
+    y: [0, -10, 0],
+  }}
+  transition={{
+    duration: 10,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+  className="
+    absolute
+    -top-16
+    -left-16
+    h-64
+    w-64
+    rounded-full
+    bg-white/10
+    blur-3xl
+  "
+/>
 
-          <div
-            className="
-            absolute
-            -bottom-20
-            -right-20
-            h-72
-            w-72
-            rounded-full
-            bg-cyan-400/20
-            blur-3xl
-            "
-          />
+        <motion.div
+  animate={{
+    x: [0, -15, 0],
+    y: [0, 10, 0],
+  }}
+  transition={{
+    duration: 12,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+  className="
+    absolute
+    -bottom-20
+    -right-20
+    h-72
+    w-72
+    rounded-full
+    bg-cyan-400/20
+    blur-3xl
+  "
+/>
 
           {/* Content */}
 
@@ -120,21 +139,39 @@ export default function CTA() {
 
               <Link
                 to="/register"
-                className="
-                rounded-xl
-                bg-white
-                px-8
-                py-4
-                font-semibold
-                text-blue-700
-                shadow-lg
-                transition-all
-                duration-300
-                hover:-translate-y-1
-                hover:bg-blue-50
-                "
+               className="
+group
+inline-flex
+items-center
+justify-center
+gap-2
+rounded-xl
+bg-white
+px-8
+py-4
+font-semibold
+text-blue-700
+shadow-lg
+transition
+duration-300
+hover:-translate-y-1
+hover:scale-[1.02]
+hover:bg-blue-50
+hover:shadow-2xl
+active:scale-[0.98]
+"
               >
-                Create Free Account
+                <>
+  Create Free Account
+
+  <FaArrowRight
+    className="
+      transition-transform
+      duration-300
+      group-hover:translate-x-1
+    "
+  />
+</>
               </Link>
 
               <Link
