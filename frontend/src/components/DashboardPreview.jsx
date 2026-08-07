@@ -81,7 +81,7 @@ export default function DashboardPreview() {
   return (
     <section
       id="dashboard"
-      className="py-20"
+      className="py-12"
     >
       <div className="max-w-7xl mx-auto px-6">
 
@@ -96,7 +96,7 @@ export default function DashboardPreview() {
           bg-white
           dark:bg-zinc-950
           shadow-[0_30px_80px_rgba(15,23,42,0.12)]
-          p-10
+          p-8
           "
         >
 
@@ -271,7 +271,7 @@ export default function DashboardPreview() {
 
 <div
   className="
-  mb-10
+  mb-6
   border-b
   border-slate-200
   dark:border-zinc-800
@@ -451,7 +451,7 @@ export default function DashboardPreview() {
 
 <div
   className="
-  mt-14
+  mt-8
   grid
   gap-6
   lg:grid-cols-3

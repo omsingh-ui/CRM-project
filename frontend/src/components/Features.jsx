@@ -57,9 +57,10 @@ const items = [
 export default function Features() {
   return (
     <section
-      id="features"
-      className="py-24"
-    >
+  id="features"
+  className="pt-16 pb-12"
+>
+    
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Heading */}
@@ -117,7 +118,7 @@ export default function Features() {
 
         <div
           className="
-          mt-14
+          mt-10
           grid
           gap-6
           md:grid-cols-2

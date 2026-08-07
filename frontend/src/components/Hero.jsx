@@ -68,10 +68,10 @@ to-indigo-800
   max-w-7xl
   mx-auto
   px-6
- min-h-[68vh]
+ min-h-[60vh]
   grid
   lg:grid-cols-2
-  gap-6
+  gap-4
   items-center
   "
 >
@@ -105,7 +105,7 @@ to-indigo-800
             px-5
             py-2
             rounded-full
-            mb-6
+            mb-4
             text-sm
             "
           >

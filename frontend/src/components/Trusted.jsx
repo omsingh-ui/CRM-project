@@ -39,7 +39,7 @@ return(
 <section 
 id="trusted" 
 className="
-py-20
+pt-12 pb-10
 bg-gray-50
 dark:bg-gray-950
 "
@@ -58,7 +58,7 @@ initial={{opacity:0,y:20}}
 whileInView={{opacity:1,y:0}}
 viewport={{once:true}}
 transition={{duration:0.5}}
-className="text-center mb-12"
+className="text-center mb-8"
 >
 
 <p

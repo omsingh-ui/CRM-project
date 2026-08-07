@@ -3,12 +3,12 @@ import { motion } from "framer-motion";
 export default function ScrollReveal({
   children,
   delay = 0,
-  duration = 0.5,
-  distance = 20,
+  duration = 0.55,
+  distance = 12,
   direction = "up",
   scale = 1,
   once = true,
-  amount = 0.25,
+  amount = 0.18,
   className = "",
 }) {
   const directions = {
@@ -24,6 +24,9 @@ export default function ScrollReveal({
   return (
     <motion.div
       className={className}
+      style={{
+        willChange: "transform, opacity",
+      }}
       initial={{
         opacity: 0,
         x,

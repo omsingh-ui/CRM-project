@@ -83,7 +83,7 @@ const [selectedTech, setSelectedTech] = useState(null);
         whileInView={{ opacity:1, y:0 }}
         viewport={{ once:true }}
         transition={{ duration:0.5 }}
-        className="text-center mb-10"
+        className="text-center mb-6"
       >
 
         <p

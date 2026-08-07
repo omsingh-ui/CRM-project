@@ -29,7 +29,7 @@ export default function Testimonials() {
   return (
     <section
       className="
-      py-24
+      pt-16 pb-12
       bg-slate-50
       dark:bg-zinc-950
       "
@@ -92,7 +92,7 @@ export default function Testimonials() {
 
         <div
           className="
-          mt-14
+          mt-10
           grid
           gap-6
           md:grid-cols-2

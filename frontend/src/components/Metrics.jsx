@@ -64,7 +64,7 @@ export default function Metrics() {
 
   return (
 
-    <section className="py-8">
+    <section className="py-4">
 
       <div className="max-w-7xl mx-auto px-6">
 
@@ -115,184 +115,274 @@ export default function Metrics() {
           >
 
 
-            {metrics.map((item,index)=>(
+           {metrics.map((item, index) => (
 
-              <motion.div
+  <motion.div
+    key={item.label}
 
-                key={item.label}
+    initial={{
+      opacity: 0,
+      y: 30,
+    }}
 
+    whileInView={{
+      opacity: 1,
+      y: 0,
+    }}
 
-                initial={{
-                  opacity:0,
-                  y:30
-                }}
+    viewport={{
+      once: true,
+    }}
 
+    transition={{
+      duration: 0.5,
+      delay: index * 0.1,
+    }}
 
-                whileInView={{
-                  opacity:1,
-                  y:0
-                }}
+    whileHover={{
+      y: -8,
+      scale: 1.02,
+    }}
 
+    className={`
+      group
+      relative
+      overflow-hidden
+      rounded-3xl
+      border
+      border-slate-200
+      dark:border-zinc-800
+      bg-white
+      dark:bg-zinc-950
+      bg-gradient-to-br
+      ${item.theme}
+      p-6
+      shadow-md
+      hover:shadow-2xl
+      hover:border-blue-300
+      dark:hover:border-blue-700
+      transition-all
+      duration-300
+    `}
+  >
 
-                viewport={{
-                  once:true
-                }}
+    {/* Top Accent */}
 
+    <div
+      className={`
+        absolute
+        top-0
+        left-0
+        h-1
+        w-full
+        bg-gradient-to-r
+        ${item.iconStyle}
+        opacity-80
+      `}
+    />
 
-                transition={{
-                  duration:0.5,
-                  delay:index*0.15
-                }}
-
-
-                whileHover={{
-                  y:-10
-                }}
-
-
-                className={`
-                group
-                relative
-                overflow-hidden
-                rounded-3xl
-                border
-                border-slate-200
-                dark:border-zinc-800
-                bg-gradient-to-br
-                ${item.theme}
-                bg-white
-                dark:bg-zinc-950
-                p-6
-                shadow-lg
-                hover:shadow-2xl
-                transition
-                `}
-              >
-
-
-                {/* Card glow */}
-
-                <div
-                  className="
-                  absolute
-                  -right-10
-                  -top-10
-                  w-32
-                  h-32
-                  rounded-full
-                  bg-white/20
-                  blur-3xl
-                  "
-                />
+    
 
 
-                {/* Icon */}
+                
 
-                <motion.div
+                {/* Card Glow */}
 
-                  whileHover={{
-                    scale:1.15,
-                    rotate:5
-                  }}
+{/* Card Glow */}
 
+<div
+  className="
+    absolute
+    -right-12
+    -top-12
+    h-36
+    w-36
+    rounded-full
+    bg-white/20
+    blur-3xl
+    opacity-40
+    transition-all
+    duration-500
+    group-hover:opacity-100
+    group-hover:scale-125
+  "
+/>
 
-                  className={`
-                  relative
-                  w-14
-                  h-14
-                  rounded-2xl
-                  bg-gradient-to-br
-                  ${item.iconStyle}
-                  text-white
-                  flex
-                  items-center
-                  justify-center
-                  text-xl
-                  shadow-lg
-                  `}
-                >
+{/* Bottom Gradient */}
 
-                  {item.icon}
-
-                </motion.div>
-
-
-
-                <h2
-                  className="
-                  mt-6
-                  text-4xl
-                  font-black
-                  text-slate-900
-                  dark:text-white
-                  "
-                >
-                  {item.value}
-                </h2>
+<div
+  className="
+    absolute
+    bottom-0
+    left-0
+    h-24
+    w-full
+    bg-gradient-to-t
+    from-white/20
+    dark:from-white/5
+    to-transparent
+    pointer-events-none
+  "
+/>
 
 
+               {/* Icon */}
 
-                <p
-                  className="
-                  mt-2
-                  text-lg
-                  font-bold
-                  text-slate-800
-                  dark:text-white
-                  "
-                >
-                  {item.label}
-                </p>
+<motion.div
 
+  whileHover={{
+    scale: 1.08,
+  }}
 
+  transition={{
+    duration: 0.25,
+  }}
 
-                <p
-                  className="
-                  mt-2
-                  text-sm
-                  text-slate-600
-                  dark:text-slate-400
-                  "
-                >
-                  {item.description}
-                </p>
+  className={`
+    relative
+    flex
+    h-14
+    w-14
+    items-center
+    justify-center
+    rounded-2xl
+    bg-gradient-to-br
+    ${item.iconStyle}
+    text-xl
+    text-white
+    shadow-lg
+    ring-1
+    ring-white/10
+  `}
+>
 
+  {/* Icon Glow */}
 
+  <div
+    className="
+      absolute
+      inset-0
+      rounded-2xl
+      bg-white/10
+      opacity-0
+      transition-opacity
+      duration-300
+      group-hover:opacity-100
+    "
+  />
 
-                <div
-                  className="
-                  mt-5
-                  inline-flex
-                  rounded-full
-                  bg-white/60
-                  dark:bg-black/20
-                  px-3
-                  py-1
-                  text-xs
-                  font-semibold
-                  text-slate-700
-                  dark:text-slate-300
-                  "
-                >
-                  ● {item.badge}
-                </div>
+  <span className="relative z-10">
 
+    {item.icon}
 
-              </motion.div>
+  </span>
 
-            ))}
-
-
-          </div>
-
-
-        </div>
+</motion.div>
 
 
-      </div>
+
+{/* Number */}
+
+<h2
+  className="
+    mt-6
+    text-5xl
+    font-black
+    tracking-tight
+    text-slate-900
+    dark:text-white
+  "
+>
+
+  {item.value}
+
+</h2>
 
 
-    </section>
 
-  );
-}
+{/* Label */}
+
+<p
+  className="
+    mt-2
+    text-lg
+    font-semibold
+    text-slate-900
+    dark:text-white
+  "
+>
+
+  {item.label}
+
+</p>
+
+
+
+{/* Description */}
+
+<p
+  className="
+    mt-3
+    text-sm
+    leading-6
+    text-slate-600
+    dark:text-slate-400
+  "
+>
+
+  {item.description}
+
+</p>
+
+
+
+{/* Badge */}
+
+<div
+  className="
+    mt-5
+    inline-flex
+    items-center
+    gap-2
+    rounded-full
+    border
+    border-slate-200
+    dark:border-zinc-700
+    bg-white/70
+    dark:bg-zinc-900/60
+    px-3
+    py-1.5
+    text-xs
+    font-semibold
+    text-slate-700
+    dark:text-slate-300
+    backdrop-blur-sm
+  "
+>
+
+  <span
+    className={`
+      h-2
+      w-2
+      rounded-full
+      ${item.color}
+    `}
+  />
+
+  {item.badge}
+
+</div>
+
+</motion.div>
+
+))}
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+  )
+};
