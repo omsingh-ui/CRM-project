@@ -10,7 +10,7 @@ export default function DashboardCard({
 }) {
   if (loading) {
     return (
-      <div className="animate-pulse rounded-3xl bg-white dark:bg-zinc-900 p-6 shadow">
+      <div className="animate-pulse rounded-3xl bg-white dark:bg-zinc-900 p-7 shadow">
         <div className="h-4 w-24 rounded bg-slate-200 dark:bg-zinc-700"></div>
 
         <div className="mt-6 h-10 w-20 rounded bg-slate-200 dark:bg-zinc-700"></div>
@@ -37,13 +37,31 @@ export default function DashboardCard({
     >
       <div className="flex items-start justify-between">
         <div>
-          <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
-            {title}
-          </p>
+          <p
+  className="
+  text-sm
+  font-semibold
+  uppercase
+  tracking-[0.12em]
+  text-slate-500
+  dark:text-slate-400
+  "
+>
+  {title}
+</p>
 
-          <h2 className="mt-4 text-4xl font-bold text-slate-900 dark:text-white">
-            {value}
-          </h2>
+          <h2
+  className="
+  mt-3
+  text-4xl
+  font-black
+  tracking-tight
+  text-slate-900
+  dark:text-white
+  "
+>
+  {value}
+</h2>
         </div>
 
         <div

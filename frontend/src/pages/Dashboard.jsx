@@ -98,16 +98,19 @@ export default function Dashboard() {
       {/* Header */}
 
       <div
-        className="
-        sticky
-        top-0
-        z-20
-        pb-5
-        backdrop-blur
-        bg-slate-50/80
-        dark:bg-zinc-950/80
-      "
-      >
+  className="
+  sticky
+  top-0
+  z-20
+  pb-4
+  backdrop-blur-xl
+  bg-slate-50/80
+  dark:bg-zinc-950/80
+  border-b
+  border-slate-200/70
+  dark:border-zinc-800/70
+  "
+>
         <div className="space-y-5">
           <DashboardHeader />
 
@@ -119,7 +122,7 @@ export default function Dashboard() {
 
       <div
         className="
-        mt-6
+        mt-5
         grid
         grid-cols-1
         sm:grid-cols-2
@@ -130,7 +133,12 @@ export default function Dashboard() {
         {stats.map((item) => (
           <div
             key={item.title}
-            className="transition hover:-translate-y-1"
+           className="
+transition
+duration-300
+hover:-translate-y-1
+hover:scale-[1.02]
+"
           >
             <DashboardCard
               title={item.title}
@@ -144,7 +152,7 @@ export default function Dashboard() {
 
       <div
         className="
-        mt-10
+        mt-8
         grid
         grid-cols-1
         lg:grid-cols-3

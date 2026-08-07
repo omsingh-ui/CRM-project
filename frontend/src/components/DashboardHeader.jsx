@@ -41,9 +41,19 @@ export default function DashboardHeader({
           {greeting} 👋
         </p>
 
-        <h1 className="mt-2 text-4xl font-bold text-slate-900 dark:text-white">
-          Welcome back, {user.name}
-        </h1>
+        <h1
+  className="
+  mt-1
+  text-3xl
+  md:text-4xl
+  font-black
+  tracking-tight
+  text-slate-900
+  dark:text-white
+  "
+>
+  Welcome back, {user.name}
+</h1>
 
         <p className="mt-2 text-slate-500 dark:text-slate-400 leading-relaxed">
           Manage your customers, leads and tasks efficiently.

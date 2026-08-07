@@ -45,13 +45,29 @@ export default function AnalyticsChart({
       "
     >
       <div className="mb-6 space-y-1">
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-          Lead Analytics
-        </h2>
+        <h2
+  className="
+  text-xl
+  font-black
+  tracking-tight
+  text-slate-900
+  dark:text-white
+  "
+>
+  Lead Analytics
+</h2>
 
-        <p className="text-sm text-slate-500 dark:text-slate-400">
-          Track lead performance across every stage.
-        </p>
+<p
+  className="
+  mt-1
+  text-sm
+  leading-6
+  text-slate-500
+  dark:text-slate-400
+  "
+>
+  Track lead performance across every stage.
+</p>
       </div>
 
       {!hasData ? (
@@ -59,20 +75,31 @@ export default function AnalyticsChart({
           No lead data available.
         </div>
       ) : (
-        <ResponsiveContainer width="100%" height="85%">
+        <ResponsiveContainer width="100%" height="88%">
           <BarChart data={data}>
-            <CartesianGrid strokeDasharray="3 3" />
+            <CartesianGrid
+  strokeDasharray="4 4"
+  vertical={false}
+  stroke="#e2e8f0"
+/>
 
             <XAxis dataKey="status" />
 
             <YAxis allowDecimals={false} />
 
-            <Tooltip />
+           <Tooltip
+  cursor={{ fill: "rgba(37,99,235,0.08)" }}
+  contentStyle={{
+    borderRadius: "14px",
+    border: "1px solid #e2e8f0",
+    boxShadow: "0 12px 30px rgba(15,23,42,0.12)",
+  }}
+/>
 
             <Bar
               dataKey="count"
               fill="#2563eb"
-              radius={[10, 10, 0, 0]}
+            radius={[12, 12, 0, 0]}
             />
           </BarChart>
         </ResponsiveContainer>
