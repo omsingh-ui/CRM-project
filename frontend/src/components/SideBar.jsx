@@ -10,7 +10,7 @@ import {
   MdClose,
 } from "react-icons/md";
 
-import { logout } from "../utils/auth";
+import { logout, getUser } from "../utils/Auth";
 import Logo from "../components/Logo";
 
 export default function Sidebar({
@@ -18,6 +18,7 @@ export default function Sidebar({
   onNavigate,
 }) {
   const navigate = useNavigate();
+  const user = getUser();
 
   const menuItems = [
     {
@@ -266,17 +267,17 @@ export default function Sidebar({
             shadow-lg
             "
           >
-            O
+            {user?.name?.charAt(0)?.toUpperCase() || "U"}
           </div>
 
           <div className="min-w-0">
             <p className="truncate font-semibold">
-              Om Singh
-            </p>
+  {user?.name || "User"}
+</p>
 
-            <p className="text-sm text-slate-400">
-              Administrator
-            </p>
+<p className="text-sm text-slate-400">
+  {user?.role || "User"}
+</p>
           </div>
         </div>
 
