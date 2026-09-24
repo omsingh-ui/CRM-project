@@ -24,6 +24,7 @@ export const create = async (req, res, next) => {
       customer,
       source,
       status,
+      priority,
       notes,
     } = req.body;
 
@@ -43,6 +44,7 @@ export const create = async (req, res, next) => {
       customer,
       source,
       status,
+      priority,
       notes,
       attachments,
       owner: req.user._id,

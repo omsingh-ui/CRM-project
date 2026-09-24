@@ -68,6 +68,7 @@ export default function QuickActions({ onAction }) {
         >
           Frequently used shortcuts.
         </p>
+        
       </div>
 
       {/* Actions */}
@@ -111,7 +112,7 @@ sm:p-4
                 {/* Icon */}
 
                 <div
-  className={`
+                  className={`
     ${action.color}
     flex
     h-10
@@ -127,9 +128,9 @@ sm:p-4
     sm:h-11
     sm:w-11
   `}
->
-  <Icon />
-</div>
+                >
+                  <Icon />
+                </div>
 
                 {/* Text */}
 

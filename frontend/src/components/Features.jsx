@@ -12,42 +12,36 @@ import AnimatedCard from "./AnimatedCard";
 const items = [
   {
     title: "Dashboard",
-    category: "Analytics",
     icon: <FaChartLine />,
     desc: "Monitor business performance with real-time insights and smart analytics.",
     color: "from-blue-500 to-indigo-600",
   },
   {
     title: "Customers",
-    category: "CRM Management",
     icon: <FaUsers />,
     desc: "Build stronger relationships and organize customer information easily.",
     color: "from-indigo-500 to-purple-600",
   },
   {
     title: "Growth",
-    category: "Business Scale",
     icon: <FaRocket />,
     desc: "Discover opportunities and grow your business with powerful tools.",
     color: "from-cyan-500 to-blue-600",
   },
   {
     title: "Automation",
-    category: "Smart Workflow",
     icon: <FaBolt />,
     desc: "Automate repetitive tasks and improve your team's productivity.",
     color: "from-violet-500 to-purple-600",
   },
   {
     title: "Security",
-    category: "Data Protection",
     icon: <FaShieldAlt />,
     desc: "Keep your business data safe with secure CRM workflows.",
     color: "from-blue-600 to-indigo-700",
   },
   {
     title: "Reports",
-    category: "Business Insights",
     icon: <FaDatabase />,
     desc: "Create meaningful reports and make better decisions faster.",
     color: "from-purple-500 to-indigo-600",
@@ -56,38 +50,12 @@ const items = [
 
 export default function Features() {
   return (
-    <section
-  id="features"
-  className="pt-12 pb-12"
->
-    
+    <section id="features" className="pt-12 pb-12">
       <div className="max-w-7xl mx-auto px-6">
-
-        {/* Heading */}
-
         <div className="max-w-3xl mx-auto text-center">
-
-          <span
-            className="
-            inline-flex
-            items-center
-            rounded-full
-            bg-blue-50
-            dark:bg-blue-950
-            px-4
-            py-2
-            text-sm
-            font-semibold
-            text-blue-700
-            dark:text-blue-300
-            "
-          >
-            ✨ Platform Features
-          </span>
-
           <h2
             className="
-            mt-6
+            mt-0
             text-4xl
             md:text-5xl
             font-black
@@ -111,10 +79,7 @@ export default function Features() {
             Manage customers, automate workflows,
             and scale your business from one powerful CRM platform.
           </p>
-
         </div>
-
-        {/* Cards */}
 
         <div
           className="
@@ -150,25 +115,21 @@ export default function Features() {
                 hover:shadow-xl
                 "
               >
-
-                {/* Gradient Top Line */}
-
-              <div
-                className={`
-                absolute
-                inset-x-0
-                top-0
-                h-[3px]
-                origin-left
-                scale-x-0
-                bg-gradient-to-r
-                ${item.color}
-                transition-transform
-                duration-300
-                group-hover:scale-x-100
-                 `}
-               />
-                {/* Glow */}
+                <div
+                  className={`
+                  absolute
+                  inset-x-0
+                  top-0
+                  h-[3px]
+                  origin-left
+                  scale-x-0
+                  bg-gradient-to-r
+                  ${item.color}
+                  transition-transform
+                  duration-300
+                  group-hover:scale-x-100
+                  `}
+                />
 
                 <div
                   className={`
@@ -187,8 +148,6 @@ export default function Features() {
                   group-hover:opacity-25
                   `}
                 />
-
-                {/* Icon */}
 
                 <div
                   className={`
@@ -213,27 +172,9 @@ export default function Features() {
                   {item.icon}
                 </div>
 
-                {/* Category */}
-
-                <p
-                  className="
-                  mt-5
-                  text-xs
-                  font-semibold
-                  uppercase
-                  tracking-[0.18em]
-                  text-blue-600
-                  dark:text-blue-400
-                  "
-                >
-                  {item.category}
-                </p>
-
-                {/* Title */}
-
                 <h3
                   className="
-                  mt-2
+                  mt-5
                   text-xl
                   font-bold
                   text-slate-900
@@ -242,8 +183,6 @@ export default function Features() {
                 >
                   {item.title}
                 </h3>
-
-                {/* Description */}
 
                 <p
                   className="
@@ -256,45 +195,10 @@ export default function Features() {
                 >
                   {item.desc}
                 </p>
-
-                {/* Premium Footer */}
-
-<div
-  className="
-  mt-6
-  flex
-  items-center
-  gap-2
-  "
->
-  <span
-    className={`
-    h-1.5
-    w-1.5
-    rounded-full
-    bg-gradient-to-r
-    ${item.color}
-    `}
-  />
-
-  <span
-    className="
-    text-xs
-    font-semibold
-    uppercase
-    tracking-[0.14em]
-    text-slate-400
-    dark:text-slate-500
-    "
-  >
-    MiniVel Platform
-  </span>
-</div>
               </div>
             </AnimatedCard>
           ))}
         </div>
-
       </div>
     </section>
   );

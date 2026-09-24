@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { MdAdd, MdBusiness } from "react-icons/md";
+import { getUser } from "../utils/auth";
 
 export default function DashboardHeader({
-  user = { name: "Om Singh" },
+  user,
   onCreateCustomer,
 }) {
-  const [company, setCompany] = useState("MiniVel");
+  const loggedInUser = user || getUser();
+  const userName = loggedInUser?.name || "User";
+  const [company, setCompany] = useState("Tech Marque");
 
   useEffect(() => {
     const settings = JSON.parse(
@@ -74,7 +77,7 @@ export default function DashboardHeader({
           sm:text-4xl
           "
         >
-          Welcome back, {user.name}
+          Welcome back, {userName}
         </h1>
 
         <p

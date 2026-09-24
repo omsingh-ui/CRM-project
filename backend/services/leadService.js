@@ -22,7 +22,7 @@ export const getLeads = async (
     Lead,
     ownerId,
     queryParams,
-    ["source", "status"]
+    ["source", "status", "priority"]
   );
 
   query.populate("customer");

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import DashboardHeader from "../components/DashboardHeader";
 import DashboardCard from "../components/DashboardCard";
@@ -19,6 +20,7 @@ import { getDashboard } from "../api/dashboardApi";
 import { leads } from "../data/dashboardData";
 
 export default function Dashboard() {
+  const navigate = useNavigate();
   const [dashboard, setDashboard] = useState(null);
 
   const [loading, setLoading] = useState(true);
@@ -192,8 +194,13 @@ export default function Dashboard() {
           lg:space-y-6
           "
         >
-          <QuickActions />
-
+        <QuickActions
+  onAction={(action) => {
+    if (action === "New Lead") {
+      navigate("/leads?action=create");
+    }
+  }}
+/>
           <ScannerCard />
 
           <UploadCenter />

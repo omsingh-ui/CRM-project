@@ -2,9 +2,12 @@ import { useState } from "react";
 import { MdMenu, MdClose } from "react-icons/md";
 import Sidebar from "../components/Sidebar";
 import { Outlet } from "react-router-dom";
+import { getUser } from "../utils/auth";
 
 export default function DashboardLayout() {
   const [mobileMenu, setMobileMenu] = useState(false);
+  const user = getUser();
+  const initial = user?.name ? user.name.charAt(0).toUpperCase() : "U";
 
   return (
     <div
@@ -73,7 +76,7 @@ export default function DashboardLayout() {
           dark:text-white
           "
         >
-          MiniVel
+          Tech Marque CRM
         </span>
 
         <div
@@ -92,7 +95,7 @@ export default function DashboardLayout() {
           text-white
           "
         >
-          O
+          {initial}
         </div>
       </header>
 

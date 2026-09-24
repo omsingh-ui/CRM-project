@@ -17,9 +17,15 @@ export default function LeadTable({
 }) {
   const [search, setSearch] = useState("");
 
-  const filtered = data.filter((item) =>
-    item.name.toLowerCase().includes(search.toLowerCase())
-  );
+  const filtered = data.filter((item) => {
+    const leadName = item.customer?.name || item.name || "";
+    const source = item.source || "";
+    const term = search.toLowerCase();
+    return (
+      leadName.toLowerCase().includes(term) ||
+      source.toLowerCase().includes(term)
+    );
+  });
 
   if (loading) {
     return (
@@ -253,9 +259,9 @@ export default function LeadTable({
             </thead>
 
             <tbody className="divide-y divide-slate-100 dark:divide-zinc-800">
-              {filtered.map((item) => (
+              {filtered.map((item, idx) => (
                 <tr
-                  key={item.name}
+                  key={item._id || item.name || idx}
                   className="
                   group
                   transition-colors
@@ -275,7 +281,14 @@ export default function LeadTable({
   sm:pr-6
   "
 >
-  {item.name}
+  <div>
+    <span className="block">{item.customer?.name || item.name || "Lead"}</span>
+    {(item.source || item.customer?.company) && (
+      <span className="block text-xs font-normal text-slate-400 dark:text-zinc-500 mt-0.5">
+        {item.customer?.company ? `${item.customer.company} • ` : ""}{item.source || ""}
+      </span>
+    )}
+  </div>
 </td>
 
                  <td className="py-4 sm:py-5">

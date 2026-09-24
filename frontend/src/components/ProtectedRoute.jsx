@@ -1,33 +1,33 @@
 import {
-Navigate
+    Navigate
 }
-from "react-router-dom"
+    from "react-router-dom"
 
 import {
-isLoggedIn
+    isLoggedIn
 }
-from "../utils/auth"
+    from "../utils/auth"
 
 export default function ProtectedRoute({
 
-children
+    children
 
-}){
+}) {
 
-if(
-!isLoggedIn()
-){
+    if (
+        !isLoggedIn()
+    ) {
 
-return(
+        return (
 
-<Navigate
-to="/login"
-/>
+            <Navigate
+                to="/login"
+            />
 
-)
+        )
 
-}
+    }
 
-return children
+    return children
 
 }

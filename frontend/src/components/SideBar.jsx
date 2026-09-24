@@ -8,9 +8,10 @@ import {
   MdSettings,
   MdLogout,
   MdClose,
+  MdAdminPanelSettings,
 } from "react-icons/md";
 
-import { logout, getUser } from "../utils/Auth";
+import { logout, getUser } from "../utils/auth";
 import Logo from "../components/Logo";
 
 export default function Sidebar({
@@ -41,6 +42,15 @@ export default function Sidebar({
       path: "/tasks",
       icon: MdTask,
     },
+    ...(user?.role === "admin"
+      ? [
+          {
+            name: "User Management",
+            path: "/admin/users",
+            icon: MdAdminPanelSettings,
+          },
+        ]
+      : []),
     {
       name: "Settings",
       path: "/settings",

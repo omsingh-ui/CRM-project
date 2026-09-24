@@ -46,6 +46,16 @@ const leadSchema = new mongoose.Schema(
     },
 
     // ==============================
+    // Lead Priority
+    // ==============================
+
+    priority: {
+      type: String,
+      enum: ["Low", "Medium", "High"],
+      default: "Medium",
+    },
+
+    // ==============================
     // Notes
     // ==============================
 
